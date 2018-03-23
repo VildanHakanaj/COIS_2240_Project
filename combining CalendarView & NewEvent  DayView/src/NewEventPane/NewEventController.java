@@ -73,6 +73,10 @@ public class NewEventController {
         datePicker.setValue(now);
     }
 
+    // values for duration calculation
+    double out5;
+    double out6;
+
     public void start() throws Exception{
 
         Long id = java.time.Instant.now().getEpochSecond();
@@ -94,9 +98,22 @@ public class NewEventController {
 
     @FXML
     private void confirm(){
+
+        //check if duration is 0 terminate if it is
+        if (out6 == 25){ out6 = 24; }
+        double duration = Math.round(out6 -  out5);
+        if (duration == 0.0){
+            Stage stage = (Stage) btConfirm.getScene().getWindow();
+            stage.close();
+            System.out.println("Create event was terminated: Duration is 0");
+        } else {
+
+        //set default event title
         if (titleField.getText().trim().isEmpty())
             titleField.setText("Event");
 
+        System.out.println(startTimeValue.getText() + "\n" +endTimeValue.getText());
+        System.out.println("Duration is: " + duration);
         System.out.println(titleField.getText());
         System.out.println(datePicker.getValue());
         System.out.println(descriptionField.getText());
@@ -121,7 +138,7 @@ public class NewEventController {
         Stage stage = (Stage) btConfirm.getScene().getWindow();
         stage.close();
         System.out.println("Confirm button pressed");
-    }
+    }}
 
     @FXML
     private void cancel(){
@@ -136,6 +153,7 @@ public class NewEventController {
             public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
                 double out1 = new_val.doubleValue();
                 String s1End;
+                out5 = Math.round(out1 / 2);
                 if (out1 > 23){
                     s1End = "PM";
                     out1 = out1 - 24;
@@ -147,7 +165,7 @@ public class NewEventController {
                 endTimeSlider.setMin(startTimeSlider.getValue());
             }
         });
-        System.out.println("startTimeSlider edited");
+        System.out.println("startTimeSlider edited " + out5);
     }
 
     @FXML
@@ -156,6 +174,7 @@ public class NewEventController {
             public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
                 double out3 = new_val.doubleValue();
                 String s2End;
+                out6 = Math.round(out3 / 2);
                 if (out3 > 23){
                     s2End = "PM";
                     out3 = out3 - 24;
@@ -166,7 +185,7 @@ public class NewEventController {
                 endTimeValue.setText(String.format("%s", Math.round(out4) + s2End));
             }
         });
-        System.out.println("endTimeSlider edited");
+        System.out.println("endTimeSlider edited " + out6);
     }
 
     @FXML
