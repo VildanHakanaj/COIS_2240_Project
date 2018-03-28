@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -7,26 +13,81 @@
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane alignment="center" minWidth="200" minHeight="160" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
-            <Label text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
-      <font>
-         <Font size="20.0" />
-      </font></Label>
-    <Button fx:id="btLogin" minWidth="60.0" onAction="#login" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-    <TextField fx:id="username" minWidth="120.0" promptText="Username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-    <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-    <effect>
-        <InnerShadow/>
-    </effect>
 
-</GridPane>
+<TabPane prefHeight="417.0" prefWidth="319.0" style="-fx-border-color: orangered;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPane.LoginController">
+   <tabs>
+      <Tab closable="false" text="Login">
+         <content>
+            <GridPane alignment="center" minHeight="160" minWidth="200" prefHeight="301.0" prefWidth="319.0" style="-fx-background-color: #fff;" vgap="20.0">
+               <children>
+                  <Label text="Login" textAlignment="CENTER" textFill="ORANGERED" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btLogin1" minWidth="60.0" onAction="#login" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: orangered; -fx-border-color: orangered;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="username1" prefHeight="40.0" prefWidth="249.0" promptText="Username" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="password1" prefHeight="40.0" promptText="Password" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints percentWidth="0.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Signup">
+         <content>
+            <GridPane alignment="center" minHeight="160" minWidth="200" prefHeight="385.0" prefWidth="319.0" style="-fx-background-color: #fff;" vgap="20.0">
+               <children>
+                           <Label text="Signup" textAlignment="CENTER" textFill="ORANGERED" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                   <Button fx:id="btLogin" minWidth="60.0" onAction="#login" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: orangered; -fx-border-color: orangered;" text="Signup" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                   <TextField fx:id="name" prefHeight="40.0" prefWidth="249.0" promptText="Name:" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <TextField fx:id="email" prefHeight="40.0" prefWidth="250.0" promptText="Email:" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="username2" prefHeight="40.0" prefWidth="250.0" promptText="Username:" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                   <PasswordField fx:id="password2" prefHeight="40.0" prefWidth="250.0" promptText="Password:" style="-fx-border-color: orangered;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints percentWidth="0.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            
+                  </GridPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
