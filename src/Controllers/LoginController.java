@@ -78,7 +78,6 @@ public class LoginController {
         String pwd = password1.getText();
         //Validate the login
         Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
-
         if (errors.containsKey("error")) {
             System.out.println(errors.get("error"));
             err.setText(errors.get("error"));
@@ -131,7 +130,6 @@ public class LoginController {
         }
 
         if (errors.size() == 0) {
-
             try {
                 String url = "jdbc:sqlite:src/data.db";
                 Connection conn = DriverManager.getConnection(url);
@@ -139,43 +137,33 @@ public class LoginController {
                 Statement statement = conn.createStatement();
                 statement.execute("INSERT INTO Login (Name, Email, Username, Password)" +
                         " VALUES "+"('"+user.get(1)+"','"+user.get(2)+"','"+user.get(3)+"','"+user.get(4)+"')");
-
                 statement.close();
                 conn.close();
             } catch (SQLException e) {
-
                 System.out.println("Something went wrong: " + e.getMessage());
             }
-
             try {
                 dayPaneController.start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             //closes stage after pressing the button
             Stage stage = (Stage) btSign.getScene().getWindow();
             stage.close();
         }
-
     }
-
     public String getPass(String uid){
-//check if username exists and corresponds to an email
+        //check if username exists and corresponds to an email
         String pass = "fuck";
         try {
             String url = "jdbc:sqlite:src/data.db";
             Connection conn = DriverManager.getConnection(url);
-
             Statement statement = conn.createStatement();
             ResultSet r = statement.executeQuery("SELECT * FROM Login WHERE Username='"+uid+"'");
             pass = r.getString("Password");
-
             statement.close();
             conn.close();
-
         } catch (SQLException e) {
-
             System.out.println("Something went wrong: " + e.getMessage());
         }
         return pass;

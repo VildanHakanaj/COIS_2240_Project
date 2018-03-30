@@ -17,11 +17,12 @@ public class MyValidation {
 
     //Validate the userlogin
     public Hashtable validateUserLogin(String username, String password){
+        String pwd = "Ani";
+        String pass = "Vildan";
         errors.clear();
-        if(username.equals("") || password.equals("")){
+        if(username.equals("") || password.equals("")) {
             errors.put("error", "Invalid Username or Password");
         }
-
         return errors;
     }
 
