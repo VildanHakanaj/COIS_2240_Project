@@ -4,14 +4,15 @@ import Classes.MyValidation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Hashtable;
 
 public class LoginController {
@@ -22,7 +23,14 @@ public class LoginController {
     @FXML
     private Button btLogin;
 
-    @FXML Button btSign;
+    @FXML
+    private Button btSign;
+
+    @FXML
+    private Label err;
+
+    @FXML
+    private Label err2;
 
     @FXML
     private TextField name;
@@ -43,11 +51,11 @@ public class LoginController {
     private PasswordField password2;
 
 
-    public void initialize(){
+    public void initialize() {
 
     }
 
-    public void start() throws Exception{
+    public void start() throws Exception {
         TabPane grid = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
         grid.getStylesheets().add("Stylesheets/login.css");
 
@@ -55,14 +63,14 @@ public class LoginController {
         Stage stage = new Stage();
 
         stage.setTitle("Login");
-        stage.setScene( new Scene(grid));
+        stage.setScene(new Scene(grid));
         stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().addAll(new Image("/Photos/6.jpg"));
 
         stage.show();
     }
 
-    public void login(){
+    public void login() {
         MyValidation validator = new MyValidation();
         System.out.println("Login button was pressed");
 
@@ -74,11 +82,16 @@ public class LoginController {
         //Validate the login
         Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
 
-        if(errors.containsKey("error")){
+        if (errors.containsKey("error")) {
             System.out.println(errors.get("error"));
+            err.setText(errors.get("error"));
         }
 
-        if(errors.size() == 0){
+        if (errors.size() == 0) {
+
+            //check if username exists and corresponds to an email
+
+
             try {
                 dayPaneController.start();
             } catch (Exception e) {
@@ -99,20 +112,52 @@ public class LoginController {
         System.out.println(username2.getText());
         System.out.println(password2.getText());
 
-        Hashtable<String, String> user = new Hashtable<String, String>();
-
+        Hashtable user = new Hashtable();
+        String nam = name.getText();
+        String eml = email.getText();
         String uid = username2.getText();
         String pwd = password2.getText();
 
+        user.put(1,nam);
+        user.put(2,eml);
+        user.put(3,uid);
+        user.put(4,pwd);
 
-        try {
-            dayPaneController.start();
-        } catch (Exception e) {
-            e.printStackTrace();
+        Hashtable<String, String> errors = validator.validateNewUser(user);
+
+        if (errors.containsKey("error")) {
+            System.out.println(errors.get("error"));
+            err2.setText(errors.get("error"));
         }
 
-        Stage stage = (Stage) btSign.getScene().getWindow();
-        stage.close();
+        if (errors.size() == 0) {
+
+            try {
+                String url = "jdbc:sqlite:src/data.db";
+                Connection conn = DriverManager.getConnection(url);
+
+                Statement statement = conn.createStatement();
+                statement.execute("INSERT INTO Login (Name, Email, Username, Password)" +
+                        " VALUES "+"('"+user.get(1)+"','"+user.get(2)+"','"+user.get(3)+"','"+user.get(4)+"')");
+
+                statement.close();
+                conn.close();
+            } catch (SQLException e) {
+
+                System.out.println("Something went wrong: " + e.getMessage());
+            }
+
+            try {
+                dayPaneController.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            //closes stage after pressing the button
+            Stage stage = (Stage) btSign.getScene().getWindow();
+            stage.close();
         }
+
     }
 
+}

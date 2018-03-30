@@ -33,6 +33,7 @@
                   </Button>
                   <TextField fx:id="username1" prefHeight="40.0" prefWidth="249.0" promptText="Username" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <PasswordField fx:id="password1" prefHeight="40.0" promptText="Password" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Label fx:id="err" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                </children>
                <columnConstraints>
                   <ColumnConstraints />
@@ -40,6 +41,7 @@
                   <ColumnConstraints percentWidth="0.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints />
                   <RowConstraints />
                   <RowConstraints />
                   <RowConstraints />
@@ -69,6 +71,7 @@
                   <TextField fx:id="email" prefHeight="40.0" prefWidth="250.0" promptText="Email:" styleClass="textField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <TextField fx:id="username2" prefHeight="40.0" prefWidth="250.0" promptText="Username:" styleClass="textField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                    <PasswordField fx:id="password2" prefHeight="40.0" prefWidth="250.0" promptText="Password:" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Label fx:id="err2" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                </children>
                <columnConstraints>
                   <ColumnConstraints />
@@ -80,6 +83,7 @@
                   <RowConstraints />
                   <RowConstraints minHeight="10.0" prefHeight="40.0" />
                   <RowConstraints minHeight="10.0" prefHeight="40.0" />
+                  <RowConstraints />
                   <RowConstraints />
                   <RowConstraints />
                </rowConstraints>

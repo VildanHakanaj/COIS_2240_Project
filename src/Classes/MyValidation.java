@@ -27,25 +27,27 @@ public class MyValidation {
         return errors;
     }
 
-    public Hashtable<String,String> validateNewUser(Hashtable<String, String> user){
+    public Hashtable validateNewUser(Hashtable user){
         errors.clear();
         String emptyError = "Can't be empty!";
-        String name = user.get("name");
-        String email = user.get("email");
-        String username = user.get("uid");
-        String pwd = user.get("pwd");
+        String name = String.valueOf(user.get(1));
+        String email = String.valueOf(user.get(2));
+        String username = String.valueOf(user.get(3));
+        String pwd = String.valueOf(user.get(4));
 
         if(name.trim().isEmpty()){
-            errors.put("name", emptyError);
+            errors.put("error", "Name field cannot be empty");
+        } else if(email.trim().isEmpty()){
+            errors.put("error", "Email field cannot be empty");
+        } else if(!validateEmail(email)){
+            errors.put("error", "Enter valid email");
+        } else if(username.trim().isEmpty()){
+            errors.put("error", "Username field cannot be empty");
+        } else if(pwd.trim().isEmpty()){
+            errors.put("error", "Password cannot be empty");
         }
 
-        if(email.trim().isEmpty()){
-            errors.put("email", emptyError);
-        }else if(!validateEmail(email)){
-            errors.put("email", "Enter valid email");
-        }
-
-            return errors;
+        return errors;
     }
 
     public boolean validateEmail(String emailStr) {
