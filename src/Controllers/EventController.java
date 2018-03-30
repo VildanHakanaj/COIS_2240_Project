@@ -61,7 +61,7 @@ public class EventController {
     private Label repeatValue;
 
     @FXML
-    private DatePicker date;
+    private Label date;
 
     @FXML
     private Label thirty;
@@ -89,9 +89,7 @@ public class EventController {
         privacySetting.setText(event.getPrivacy());
         repeatValue.setText(event.getRepeat());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-
-        LocalDate dat = LocalDate.parse(event.getDate(), formatter);
-        date.setValue(dat);
+        date.setText(event.getDate());
 
         if (event.getThirty() == "true"){
             thirty.setText("30 minutes before");
@@ -139,13 +137,13 @@ public class EventController {
     // create and open a new window
     public void start() throws Exception{
 
-        GridPane root = FXMLLoader.load(getClass().getResource("/FXML/event.fxml"));
-        root.getStylesheets().add("StyleSheet/event.css");
+        GridPane grid = FXMLLoader.load(getClass().getResource("/FXML/event.fxml"));
+        grid.getStylesheets().add("StyleSheets/event.css");
 
         Stage eventStage = new Stage();
 
-        eventStage.setTitle("Event");
-        eventStage.setScene(new Scene(root));
+        eventStage.setTitle(String.valueOf(ID));
+        eventStage.setScene(new Scene(grid));
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
 
         eventStage.show();

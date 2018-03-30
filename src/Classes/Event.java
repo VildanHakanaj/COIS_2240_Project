@@ -9,6 +9,8 @@ public class Event {
 
     //EventController eventController = new EventController();
 
+
+
     private String titleField;
     private String date;
     private int duration;
@@ -25,17 +27,20 @@ public class Event {
     private int ID;
 
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+
     public Event()
             throws SQLException {
 
         String url = "jdbc:sqlite:src/data.db";
         Connection conn = DriverManager.getConnection(url);
 
-        String query = "SELECT * FROM Event WHERE ID=7";
-
         try {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE ID=10");
+            ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE ID=" + ID);
             while (rs.next()) {
                 titleField = rs.getString("Title");
                 date = rs.getString("Date");

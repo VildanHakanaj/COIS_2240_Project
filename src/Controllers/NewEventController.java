@@ -77,9 +77,10 @@ public class NewEventController {
     // cancel creating an event and remove all fields
     @FXML
     private void cancel(){
+        EventController eventController = new EventController();
         try {
-            Event event = new Event();
-        } catch (SQLException e) {
+            eventController.start();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
