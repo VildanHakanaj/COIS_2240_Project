@@ -1,5 +1,6 @@
 package Controllers;
 
+import Classes.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,12 +12,22 @@ import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
 
 import javax.swing.text.Style;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 
 public class DayPaneController {
 
     NewEventController newEventController = new NewEventController();
+    Event event;
+
+    {
+        try {
+            event = new Event();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private Label title;
@@ -26,6 +37,7 @@ public class DayPaneController {
 
     // initialize datePicker date and title
     public void initialize(){
+
         LocalDate now = LocalDate.now();
         date.setValue(now);
 
@@ -52,6 +64,7 @@ public class DayPaneController {
     // update the title and redraw event "buttons"
     public void updateDate(){
         title.setText(String.valueOf(date.getValue().getMonth() + " - " + date.getValue().getDayOfMonth()));
+
         //logically update events that are drawn
         //make sure to check the privacy of the event
     }
