@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="417.0" prefWidth="319.0" styleClass="border" stylesheets="@../Stylesheets/login.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+   <tabs>
+      <Tab closable="false" text="Login">
+         <content>
+            <GridPane alignment="center" minHeight="160" minWidth="200" prefHeight="301.0" prefWidth="319.0" style="-fx-background-color: #fff;" vgap="20.0">
+               <children>
+                  <Label stylesheets="@../Stylesheets/login.css" text="Login" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btLogin1" minWidth="60.0" onAction="#login" prefHeight="30.0" prefWidth="250.0" text="Login" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="username1" prefHeight="40.0" prefWidth="249.0" promptText="Username" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="password1" prefHeight="40.0" promptText="Password" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints percentWidth="0.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Signup">
+         <content>
+            <GridPane alignment="center" minHeight="160" minWidth="200" prefHeight="385.0" prefWidth="319.0" style="-fx-background-color: #fff;" vgap="20.0">
+               <children>
+                           <Label text="Signup" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                   <Button fx:id="btSign" minWidth="60.0" onAction="#signUp" prefHeight="30.0" prefWidth="250.0" text="Signup" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                   <TextField fx:id="name" prefHeight="40.0" prefWidth="249.0" promptText="Name:" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <TextField fx:id="email" prefHeight="40.0" prefWidth="250.0" promptText="Email:" styleClass="textField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="username2" prefHeight="40.0" prefWidth="250.0" promptText="Username:" styleClass="textField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                   <PasswordField fx:id="password2" prefHeight="40.0" prefWidth="250.0" promptText="Password:" styleClass="textField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints percentWidth="0.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+
+                  </GridPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

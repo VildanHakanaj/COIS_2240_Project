@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxWidth="350.0" minWidth="350.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DayPaneController">
+    <top>
+      <GridPane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button maxWidth="120.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="100.0" text="New Event" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin></Button>
+                    <Label fx:id="title" prefHeight="43.0" prefWidth="231.0" text="December 31">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+    </top>
+    <bottom>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" minWidth="300.0" vbarPolicy="ALWAYS">
+            <content>
+                <GridPane gridLinesVisible="true" minWidth="300.0">
+                    <Text fx:id="0" text="12AM" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                    <Text fx:id="1" text="1AM" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                    <Text fx:id="2" text="2AM" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                    <Text fx:id="3" text="3AM" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                    <Text fx:id="4" text="4AM" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                    <Text fx:id="5" text="5AM" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                    <Text fx:id="6" text="6AM" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                    <Text fx:id="7" text="7AM" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                    <Text fx:id="8" text="8AM" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                    <Text fx:id="9" text="9AM" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                    <Text fx:id="10" text="10AM" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                    <Text fx:id="11" text="11AM" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+                    <Text fx:id="12" text="12PM" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+                    <Text fx:id="13" text="1PM" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                    <Text fx:id="14" text="2PM" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                    <Text fx:id="15" text="3PM" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
+                    <Text fx:id="16" text="4PM" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
+                    <Text fx:id="17" text="5PM" GridPane.halignment="CENTER" GridPane.rowIndex="18" />
+                    <Text fx:id="18" text="6PM" GridPane.halignment="CENTER" GridPane.rowIndex="19" />
+                    <Text fx:id="19" text="7PM" GridPane.halignment="CENTER" GridPane.rowIndex="20" />
+                    <Text fx:id="20" text="8PM" GridPane.halignment="CENTER" GridPane.rowIndex="21" />
+                    <Text fx:id="21" text="9PM" GridPane.halignment="CENTER" GridPane.rowIndex="22" />
+                    <Text fx:id="22" text="10PM" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
+                    <Text fx:id="23" text="11PM" GridPane.halignment="CENTER" GridPane.rowIndex="24" />
+                    <DialogPane GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="40.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </bottom>
+   <center>
+      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="248.0" />
+            <ColumnConstraints maxWidth="320.0" minWidth="45.0" prefWidth="52.0" />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+              <DatePicker fx:id="date" maxWidth="230.0" minWidth="230.0" onAction="#updateDate" prefHeight="39.0" prefWidth="230.0" GridPane.halignment="LEFT">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </DatePicker>
+            <Button minWidth="45.0" mnemonicParsing="false" onAction="#lastDate" prefHeight="40.0" prefWidth="45.0" text="&lt;&lt;" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button minWidth="40.0" mnemonicParsing="false" onAction="#nextDate" prefHeight="40.0" prefWidth="45.0" text="&gt;&gt;" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
