@@ -77,12 +77,7 @@ public class NewEventController {
     // cancel creating an event and remove all fields
     @FXML
     private void cancel(){
-        EventController eventController = new EventController();
-        try {
-            eventController.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
 
         Stage stage = (Stage) btCancel.getScene().getWindow();

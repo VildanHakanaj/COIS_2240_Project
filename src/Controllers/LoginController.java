@@ -9,10 +9,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Hashtable;
 
 public class LoginController {
@@ -89,18 +86,21 @@ public class LoginController {
 
         if (errors.size() == 0) {
 
-            //check if username exists and corresponds to an email
+            String pass = getPass(uid);
+            System.out.println(uid+"\t"+pwd+"\t"+pass);
 
+            if (pass.equals(pwd)){
 
-            try {
-                dayPaneController.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                try {
+                    dayPaneController.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //closes stage after pressing the button
+                Stage stage = (Stage) username1.getScene().getWindow();
+                stage.close();
 
-            //closes stage after pressing the button
-            Stage stage = (Stage) btLogin.getScene().getWindow();
-            stage.close();
+            } else err.setText("Username and password do not match");
         }
     }
 
@@ -160,4 +160,24 @@ public class LoginController {
 
     }
 
+    public String getPass(String uid){
+//check if username exists and corresponds to an email
+        String pass = "fuck";
+        try {
+            String url = "jdbc:sqlite:src/data.db";
+            Connection conn = DriverManager.getConnection(url);
+
+            Statement statement = conn.createStatement();
+            ResultSet r = statement.executeQuery("SELECT * FROM Login WHERE Username='"+uid+"'");
+            pass = r.getString("Password");
+
+            statement.close();
+            conn.close();
+
+        } catch (SQLException e) {
+
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+        return pass;
+    }
 }

@@ -20,8 +20,6 @@ public class MyValidation {
         errors.clear();
         if(username.equals("") || password.equals("")){
             errors.put("error", "Invalid Username or Password");
-        }else if(!username.equals("Vildan") || !password.equals("password")){
-            errors.put("error", "Invalid Username or Password");
         }
 
         return errors;

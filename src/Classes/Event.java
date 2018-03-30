@@ -9,8 +9,6 @@ public class Event {
 
     //EventController eventController = new EventController();
 
-
-
     private String titleField;
     private String date;
     private int duration;
