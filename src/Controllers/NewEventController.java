@@ -216,6 +216,13 @@ public class NewEventController {
             }
 
             System.out.println(colorPicker.getValue());
+            StringBuilder sb = new StringBuilder(String.valueOf(colorPicker.getValue()));
+            sb.deleteCharAt(0);
+            sb.deleteCharAt(0);
+            sb.deleteCharAt(6);
+            sb.deleteCharAt(6);
+            String color = sb.toString();
+
 
             // store all the proper values in the database
             try {
@@ -225,14 +232,14 @@ public class NewEventController {
                 Statement statement = conn.createStatement();
                 statement.execute("INSERT INTO Event (Title, Date, " +
                         "Duration, Description, Privacy, Thirty, Hour, " +
-                        "Day, Week, Repeat, Colour, Start, End) VALUES " +
+                        "Day, Week, Repeat, Colour, Start, End, Color) VALUES " +
                         "('"+titleField.getText()+"','"+datePicker.getValue()+
                         "','"+duration+"','"+descriptionField.getText()+"','"
                         +privacyField.getValue()+"','"+thirty.isSelected()
                         +"','"+hour.isSelected()+"','"+day.isSelected()+"','"
-                        +week.isSelected()+"','"+repeatsField.getValue()+"','"
-                        +colorPicker.getValue()+"','"+startTimeValue.getText()+
-                        "','"+endTimeValue.getText()+"')");
+                        +week.isSelected()+"','"+repeatsField.getValue()+"','#"
+                        +color+"','"+out5+
+                        "','"+endTimeValue.getText()+"','"+colorPicker.getValue()+"')");
 
                 statement.close();
                 conn.close();

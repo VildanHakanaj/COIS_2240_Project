@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxWidth="350.0" minWidth="350.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DayPaneController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DayPaneController">
     <top>
       <GridPane BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -75,68 +75,109 @@
       </GridPane>
     </top>
     <bottom>
-        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" minWidth="300.0" vbarPolicy="ALWAYS">
-            <content>
-                <GridPane fx:id="gride" gridLinesVisible="true" minWidth="300.0">
-                    <Text fx:id="0" text="12AM" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <Text fx:id="1" text="1AM" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Text fx:id="2" text="2AM" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                    <Text fx:id="3" text="3AM" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                    <Text fx:id="4" text="4AM" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                    <Text fx:id="5" text="5AM" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                    <Text fx:id="6" text="6AM" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-                    <Text fx:id="7" text="7AM" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                    <Text fx:id="8" text="8AM" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-                    <Text fx:id="9" text="9AM" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
-                    <Text fx:id="10" text="10AM" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-                    <Text fx:id="11" text="11AM" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
-                    <Text fx:id="12" text="12PM" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
-                    <Text fx:id="13" text="1PM" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
-                    <Text fx:id="14" text="2PM" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
-                    <Text fx:id="15" text="3PM" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
-                    <Text fx:id="16" text="4PM" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
-                    <Text fx:id="17" text="5PM" GridPane.halignment="CENTER" GridPane.rowIndex="18" />
-                    <Text fx:id="18" text="6PM" GridPane.halignment="CENTER" GridPane.rowIndex="19" />
-                    <Text fx:id="19" text="7PM" GridPane.halignment="CENTER" GridPane.rowIndex="20" />
-                    <Text fx:id="20" text="8PM" GridPane.halignment="CENTER" GridPane.rowIndex="21" />
-                    <Text fx:id="21" text="9PM" GridPane.halignment="CENTER" GridPane.rowIndex="22" />
-                    <Text fx:id="22" text="10PM" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
-                    <Text fx:id="23" text="11PM" GridPane.halignment="CENTER" GridPane.rowIndex="24" />
-               <Button alignment="TOP_LEFT" contentDisplay="CENTER" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" prefHeight="70.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="40.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="200.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                </GridPane>
-            </content>
-        </ScrollPane>
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="65.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="290.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="NEVER" GridPane.columnIndex="1">
+               <content>
+                      <GridPane fx:id="gride" gridLinesVisible="true">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                      </GridPane>
+               </content>
+            </ScrollPane>
+            <GridPane alignment="CENTER_RIGHT">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+               </rowConstraints>
+               <children>
+                       <Text fx:id="0" text="1AM" underline="true" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+                       <Text fx:id="1" text="2AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                       <Text fx:id="2" text="3AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                       <Text fx:id="3" text="4AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                       <Text fx:id="4" text="5AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                       <Text fx:id="5" text="6AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+                       <Text fx:id="6" text="7AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                       <Text fx:id="7" text="8AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+                       <Text fx:id="8" text="9AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="TOP" />
+                       <Text fx:id="9" text="10AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+                       <Text fx:id="10" text="11AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="TOP" />
+                       <Text fx:id="11" text="12PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="TOP" />
+                       <Text fx:id="12" text="1PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="TOP" />
+                       <Text fx:id="13" text="2PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="13" GridPane.valignment="TOP" />
+                       <Text fx:id="14" text="3PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="TOP" />
+                       <Text fx:id="15" text="4PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="15" GridPane.valignment="TOP" />
+                       <Text fx:id="16" text="5PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="16" GridPane.valignment="TOP" />
+                       <Text fx:id="17" text="6PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="17" GridPane.valignment="TOP" />
+                       <Text fx:id="18" text="7PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="18" GridPane.valignment="TOP" />
+                       <Text fx:id="19" text="8PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="19" GridPane.valignment="TOP" />
+                       <Text fx:id="20" text="9PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="20" GridPane.valignment="TOP" />
+                       <Text fx:id="21" text="10PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="21" GridPane.valignment="TOP" />
+                       <Text fx:id="22" text="11PM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="22" GridPane.valignment="TOP" />
+                       <Text fx:id="23" text="12AM" underline="true" GridPane.halignment="RIGHT" GridPane.rowIndex="23" GridPane.valignment="TOP" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
     </bottom>
    <center>
       <GridPane alignment="CENTER" BorderPane.alignment="CENTER">

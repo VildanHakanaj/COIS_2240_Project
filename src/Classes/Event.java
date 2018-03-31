@@ -20,9 +20,13 @@ public class Event {
     private String week;
     private String repeat;
     private String colour;
-    private String start;
+    private int start;
     private String end;
     private int ID;
+
+    public Event() {
+
+    }
 
 
     public void setID(int ID) {
@@ -30,7 +34,7 @@ public class Event {
     }
 
 
-    public Event()
+    public Event(int ID)
             throws SQLException {
 
         String url = "jdbc:sqlite:src/data.db";
@@ -51,7 +55,7 @@ public class Event {
                 week = rs.getString("Week");
                 repeat = rs.getString("Repeat");
                 colour = rs.getString("Colour");
-                start = rs.getString("Start");
+                start = rs.getInt("Start");
                 end = rs.getString("End");
                 ID = rs.getInt("ID");
 
@@ -64,7 +68,7 @@ public class Event {
         }
     }
 
-    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, String start, String end, int ID) {
+    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) {
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;
@@ -129,7 +133,7 @@ public class Event {
         return ID;
     }
 
-    public String getStart() {
+    public int getStart() {
         return start;
     }
 

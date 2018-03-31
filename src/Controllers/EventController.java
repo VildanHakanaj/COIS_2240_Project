@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -18,20 +17,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class EventController {
 
-    Event event;
-
-    {
-        try {
-            event = new Event();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    Event event = new Event();
 
     @FXML
     private Button btDelete;
@@ -61,7 +51,7 @@ public class EventController {
     private Label repeatValue;
 
     @FXML
-    private Label date;
+    private Label date1;
 
     @FXML
     private Label thirty;
@@ -77,19 +67,23 @@ public class EventController {
 
     private int ID;
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public void initialize(){
 
-        ID = event.getID();
+        event.setID(ID);
 
         eventBar.setFill(Color.valueOf(event.getColour()));
         eventTitle.setText(event.getTitleField());
         descriptionField.setText(event.getDescriptionField());
-        startTimeValue.setText(event.getStart());
+        startTimeValue.setText(String.valueOf(event.getStart()));
         endTimeValue.setText(event.getEnd());
         privacySetting.setText(event.getPrivacy());
         repeatValue.setText(event.getRepeat());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        date.setText(event.getDate());
+        date1.setText(event.getDate());
 
         if (event.getThirty() == "true"){
             thirty.setText("30 minutes before");
@@ -137,7 +131,7 @@ public class EventController {
     // create and open a new window
     public void start() throws Exception{
 
-        GridPane grid = FXMLLoader.load(getClass().getResource("/FXML/event.fxml"));
+        GridPane grid = FXMLLoader.load(getClass().getResource("FXML/event.fxml"));
         grid.getStylesheets().add("StyleSheets/event.css");
 
         Stage eventStage = new Stage();
