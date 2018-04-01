@@ -22,10 +22,12 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
 
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static javafx.scene.paint.Color.RED;
 
@@ -87,31 +89,39 @@ public class DayPaneController {
         gride.getChildren().clear();
         gride.getChildren().add(0,node);
 
-
-        ArrayList<Button> btArr = new ArrayList<Button>();
-        btArr.clear();
-
         String oD = String.valueOf(date.getValue());
         System.out.println(oD);
+        int size = countRows(oD);
 
         int count = 0;
-        int box = 0;
+        int box;
+        Button[] btArr;
+        int[] index;
+        index = null;
+        btArr = null;
+        btArr = new Button[size];
+        index = new int[size];
 
         try {
             String url = "jdbc:sqlite:src/data.db";
             Connection conn = DriverManager.getConnection(url);
 
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT ID FROM Event WHERE Date='" + oD + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE Date='" + oD + "'");
 
             for (int i = 0; i < countRows(oD); i++) {
                 count++;
                 System.out.println(count);
 
+                System.out.println("Debug:"+index[i]);
 
+                // result set is not properly giving value,
+                //
+                //
+                // result set is not properly giving value
                 rs.next();
                 box = rs.getInt("ID");
-
+                index[i] = box;
                 // create an event, take info from event and store it into the button, add that to the arraylist
 
                 Event bt = new Event(box);
@@ -120,29 +130,44 @@ public class DayPaneController {
                 button.setStyle("-fx-background-color:"+bt.getColour());
                 button.setAlignment(Pos.TOP_LEFT);
                 int finalBox = box;
-                button.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        eventController.setID(finalBox);
+                int[] finalIndex = index;
+                button.setOnAction(new EventHandler<ActionEvent>(){
+                    @Override public void handle(ActionEvent e){
+
+                        System.out.println("Button" + e.getSource() + "Column" + GridPane.getColumnIndex((Node) e.getSource()));
+                        int IDt = finalIndex[GridPane.getColumnIndex((Node) e.getSource())];
+                        System.out.println(IDt);
+
+                        GridPane grid = null;
                         try {
-                            eventController.start();
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                            grid = FXMLLoader.load(getClass().getResource("/FXML/event.fxml"));
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
                         }
+                        grid.getStylesheets().add("StyleSheets/event.css");
+
+                        Stage eventStage = new Stage();
+
+                        eventStage.setTitle(String.valueOf(finalBox));
+                        eventStage.setScene(new Scene(grid));
+                        eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
+
+                        eventStage.show();
                     }
                 });
 
-
                 GridPane.setValignment(button, VPos.TOP);
 
-                btArr.add(button);
-                gride.add(btArr.get(i), i, bt.getStart());
+                btArr[i] = (button);
+                gride.add(btArr[i], i, bt.getStart());
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
 
 
@@ -183,4 +208,5 @@ public class DayPaneController {
         System.out.println(count);
         return count;
     }
+
 }

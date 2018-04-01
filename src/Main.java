@@ -1,5 +1,6 @@
 
 import Controllers.DayPaneController;
+import Controllers.EventController;
 import Controllers.LoginController;
 import javafx.application.Application;
 
@@ -10,12 +11,14 @@ public class Main extends Application {
     // just start the code. keeps controllers similar to other controllers
 
     LoginController loginController = new LoginController();
+    EventController eventController = new EventController();
+    DayPaneController dayPaneController = new DayPaneController();
 
     @Override
     public void start(Stage stage) {
 
         try {
-            loginController.start();
+            dayPaneController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
