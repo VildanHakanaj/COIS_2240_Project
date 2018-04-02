@@ -148,7 +148,7 @@ public class DayPaneController {
                         Event ev = finalIndex[GridPane.getColumnIndex((Node) e.getSource())];
                         eventController.setID(IDt);
                         System.out.println("IDt:" + IDt);
-                        eventController.setEvent(ev);
+
 
                         try {
                             eventController.start();

@@ -64,7 +64,7 @@ public class EventController {
     @FXML
     private Label week;
 
-    public int ID;
+    private int ID;
 
     private Event event;
 
@@ -73,47 +73,6 @@ public class EventController {
         System.out.println("EC" + ID);
     }
 
-    public void setEvent(Event ev){
-        this.event = ev;
-        System.out.println("ECE"+event);
-    }
-
-    public void initialize() throws SQLException {
-
-
-        // not taking in the ID from the class even though it is set
-        System.out.println("IIDt" + ID);
-
-        Event event = new Event(ID);
-        System.out.println("IECe"+event);
-
-
-        eventBar.setFill(Color.valueOf(event.getColour()));
-        eventTitle.setText(event.getTitleField());
-        descriptionField.setText(event.getDescriptionField());
-        startTimeValue.setText(String.valueOf(event.getStart()));
-        endTimeValue.setText(event.getEnd());
-        privacySetting.setText(event.getPrivacy());
-        repeatValue.setText(event.getRepeat());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        date.setText(event.getDate());
-
-        if (event.getThirty() == "true"){
-            thirty.setText("30 minutes before");
-        } else { thirty.setText(""); }
-
-        if (event.getHour() == "true"){
-            hour.setText("1 hour before");
-        } else { hour.setText(""); }
-
-        if (event.getDay() == "true"){
-            day.setText("1 day before");
-        } else { day.setText(""); }
-
-        if (event.getWeek() == "true"){
-            week.setText("1 week before");
-        } else { week.setText(""); }
-    }
 
     public void delete(){
         // get event id and remove the information from the database
@@ -141,11 +100,48 @@ public class EventController {
         stage.close();
     }
 
+
     // create and open a new window
     public void start() throws Exception{
+        // not taking in the ID from the class even though it is set
+        System.out.println("IIDt" + ID);
+
+        Event event = new Event(ID);
+        System.out.println("IECe"+event);
+
+        String title = event.getTitleField();
+        System.out.println(title);
+
+        //eventTitle.setText("title");
+
+        //eventBar.setFill(Color.valueOf(event .getColour()));
+        /*eventTitle.setText(event.getTitleField());
+        descriptionField.setText(event.getDescriptionField());
+        startTimeValue.setText(String.valueOf(event.getStart()));
+        endTimeValue.setText(event.getEnd());
+        privacySetting.setText(event.getPrivacy());
+        repeatValue.setText(event.getRepeat());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+        date.setText(event.getDate());
+
+        if (event.getThirty() == "true"){
+            thirty.setText("30 minutes before");
+        } else { thirty.setText(""); }
+
+        if (event.getHour() == "true"){
+            hour.setText("1 hour before");
+        } else { hour.setText(""); }
+
+        if (event.getDay() == "true"){
+            day.setText("1 day before");
+        } else { day.setText(""); }
+
+        if (event.getWeek() == "true"){
+            week.setText("1 week before");
+        } else { week.setText(""); }*/
 
 
-        GridPane grid = FXMLLoader.load(getClass().getResource("event.fxml"));
+        GridPane grid = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/newEvent.fxml"));
         grid.getStylesheets().add("StyleSheets/event.css");
 
         Stage eventStage = new Stage();
@@ -156,4 +152,7 @@ public class EventController {
 
         eventStage.show();
     }
+
+
+
 }
