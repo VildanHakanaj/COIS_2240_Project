@@ -92,15 +92,19 @@ public class DayPaneController {
         String oD = String.valueOf(date.getValue());
         System.out.println(oD);
         int size = countRows(oD);
+        System.out.println("rows:"+size);
 
         int count = 0;
         int box;
         Button[] btArr;
-        int[] index;
+        Event[] index;
+        int[] id;
         index = null;
         btArr = null;
+        id = null;
         btArr = new Button[size];
-        index = new int[size];
+        index = new Event[size];
+        id = new int[size];
 
         try {
             String url = "jdbc:sqlite:src/data.db";
@@ -121,8 +125,11 @@ public class DayPaneController {
                 // result set is not properly giving value
                 rs.next();
                 box = rs.getInt("ID");
-                index[i] = box;
+                index[i] = new Event(box);
+                id[i] = box;
                 // create an event, take info from event and store it into the button, add that to the arraylist
+
+                System.out.println("Index:" + index[i]);
 
                 Event bt = new Event(box);
                 Button button = new Button(bt.getTitleField());
@@ -130,29 +137,28 @@ public class DayPaneController {
                 button.setStyle("-fx-background-color:"+bt.getColour());
                 button.setAlignment(Pos.TOP_LEFT);
                 int finalBox = box;
-                int[] finalIndex = index;
+                Event[] finalIndex = index;
+                int[] finalId = id;
                 button.setOnAction(new EventHandler<ActionEvent>(){
                     @Override public void handle(ActionEvent e){
 
-                        System.out.println("Button" + e.getSource() + "Column" + GridPane.getColumnIndex((Node) e.getSource()));
-                        int IDt = finalIndex[GridPane.getColumnIndex((Node) e.getSource())];
-                        System.out.println(IDt);
 
-                        GridPane grid = null;
+                        System.out.println("Button" + e.getSource() + "Column" + GridPane.getColumnIndex((Node) e.getSource()));
+                        int IDt = finalId[GridPane.getColumnIndex((Node) e.getSource())];
+                        Event ev = finalIndex[GridPane.getColumnIndex((Node) e.getSource())];
+                        eventController.setID(IDt);
+                        System.out.println("IDt:" + IDt);
+                        eventController.setEvent(ev);
+
                         try {
-                            grid = FXMLLoader.load(getClass().getResource("/FXML/event.fxml"));
-                        } catch (IOException e1) {
+                            eventController.start();
+                        } catch (Exception e1) {
                             e1.printStackTrace();
                         }
-                        grid.getStylesheets().add("StyleSheets/event.css");
 
-                        Stage eventStage = new Stage();
+                        //System.out.println(finalIndex[0]);
 
-                        eventStage.setTitle(String.valueOf(finalBox));
-                        eventStage.setScene(new Scene(grid));
-                        eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
 
-                        eventStage.show();
                     }
                 });
 

@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 
 public class EventController {
 
-    Event event = new Event();
 
     @FXML
     private Button btDelete;
@@ -65,17 +64,31 @@ public class EventController {
     @FXML
     private Label week;
 
-    private int ID;
+    public int ID;
 
-    public void setID(int ID) {
-        this.ID = ID;
+    private Event event;
+
+    public void setID(int IDt) {
+        ID = IDt;
+        System.out.println("EC" + ID);
     }
 
-    public void initialize(){
+    public void setEvent(Event ev){
+        this.event = ev;
+        System.out.println("ECE"+event);
+    }
 
-        event.setID(ID);
+    public void initialize() throws SQLException {
 
-        //eventBar.setFill(Color.valueOf(event.getColour()));
+
+        // not taking in the ID from the class even though it is set
+        System.out.println("IIDt" + ID);
+
+        Event event = new Event(ID);
+        System.out.println("IECe"+event);
+
+
+        eventBar.setFill(Color.valueOf(event.getColour()));
         eventTitle.setText(event.getTitleField());
         descriptionField.setText(event.getDescriptionField());
         startTimeValue.setText(String.valueOf(event.getStart()));
@@ -130,6 +143,7 @@ public class EventController {
 
     // create and open a new window
     public void start() throws Exception{
+
 
         GridPane grid = FXMLLoader.load(getClass().getResource("event.fxml"));
         grid.getStylesheets().add("StyleSheets/event.css");
