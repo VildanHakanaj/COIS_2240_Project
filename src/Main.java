@@ -1,4 +1,5 @@
 
+import Controllers.CalenderPaneController;
 import Controllers.DayPaneController;
 import Controllers.EventController;
 import Controllers.LoginController;
@@ -13,12 +14,13 @@ public class Main extends Application {
     LoginController loginController = new LoginController();
     EventController eventController = new EventController();
     DayPaneController dayPaneController = new DayPaneController();
+    CalenderPaneController calenderPaneController = new CalenderPaneController();
 
     @Override
     public void start(Stage stage) {
 
         try {
-            dayPaneController.start();
+            calenderPaneController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
