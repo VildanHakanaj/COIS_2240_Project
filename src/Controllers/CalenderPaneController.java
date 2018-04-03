@@ -20,26 +20,35 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
+import javafx.scene.input.MouseEvent;
+import jdk.internal.org.objectweb.asm.Handle;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 public class CalenderPaneController {
 
     // ----- DATA MEMBERS -----
-    EventController eventController = new EventController();
-    NewEventController newEventController = new NewEventController();
 
-    Stage window;
-    Scene scene;
-    AnchorPane layout;
+    // private EventController eventController = new EventController();
+    // private NewEventController newEventController = new NewEventController();
 
-    public void initialize(){}
+    private DayPaneController dayPaneController = new DayPaneController();
 
-    public void start() throws Exception {
+    private static Stage window;        // Static values allow handlers to close THE window.
+    private static Scene scene;         // Assumes only 1 calendar window at any given time (Which should be true)
+    private static AnchorPane layout;
+
+    public void initialize(){
+
+    }
+
+    public void start() {
         // layout = null;
         // load .fxml to the layout.
         try {
@@ -55,6 +64,27 @@ public class CalenderPaneController {
         window.setTitle("Calender View");
         window.setScene(scene);
         window.show();
+        System.out.println("testing");
+        dayBoxHandler();
+    }
+
+    public void clickDayBox(MouseEvent event) {
+        System.out.println(event.getSource().toString());
+    }
+
+    // Method Name: switchToDayPane
+    // Parameters:  ActionEvent event
+    // Behaviour:   Opens an instance of DayPaneController.
+    //              Closes current window.
+    // Returns:     void
+    public void switchToDayPane(ActionEvent event) {
+        System.out.println("Button Press: Switch to Day View");
+        try {
+            dayPaneController.start();      // Start a dayPaneController instance.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.close();                     // Close the current window.
     }
 
     // Method Name: dayBoxHandler
@@ -63,11 +93,27 @@ public class CalenderPaneController {
     // Returns:     void
     public void dayBoxHandler() {
         Pane[] dayBoxs = new Pane[28];  // 4*7 = 28
-        String tempID;
+        final String[] IDs = new String[28];
+        String indexedID;
         int row, col, i = 0;
         for(row = 1; row <= 4; row ++) {
             for (col = 1; col <= 7; col++) {
-                tempID = "dayBox_" + row + "_" + col;
+                indexedID = "dayBox_" + row + "_" + col;
+                dayBoxs[i] = new Pane();
+                dayBoxs[i].setId(indexedID);
+                IDs[i] = indexedID;
+                dayBoxs[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @FXML
+                public void handle(MouseEvent e) {
+
+                        /*eventController.setID();
+                        try {
+                            eventController.start();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }*/
+                }
+            });
                 i++;    // Increment for next loop.
             }
         }
