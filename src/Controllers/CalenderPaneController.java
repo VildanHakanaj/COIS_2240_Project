@@ -41,10 +41,12 @@ public class CalenderPaneController {
     private DayPaneController dayPaneController = new DayPaneController();
 
     private static Stage window;        // Static values allow handlers to close THE window.
-    private static Scene scene;         // Assumes only 1 calendar window at any given time (Which should be true)
+    private static Scene scene;         // Assumes only 1 calendar window at any given time (Which should be true anyways).
     private static AnchorPane layout;
 
-    public void initialize(){
+    private static Pane[][] dayBoxs;
+
+    public void initialize() {
 
     }
 
@@ -60,16 +62,11 @@ public class CalenderPaneController {
         // Initialize stage and scene.
         window = new Stage();
         scene = new Scene(layout);
+        window.setScene(scene);
         window.initStyle(StageStyle.UNDECORATED);
         window.setTitle("Calender View");
-        window.setScene(scene);
         window.show();
         System.out.println("testing");
-        dayBoxHandler();
-    }
-
-    public void clickDayBox(MouseEvent event) {
-        System.out.println(event.getSource().toString());
     }
 
     // Method Name: switchToDayPane
@@ -87,35 +84,54 @@ public class CalenderPaneController {
         window.close();                     // Close the current window.
     }
 
-    // Method Name: dayBoxHandler
-    // Parameters:  None
-    // Behaviour:   Sets the functionality of each dayBox.
-    // Returns:     void
-    public void dayBoxHandler() {
-        Pane[] dayBoxs = new Pane[28];  // 4*7 = 28
-        final String[] IDs = new String[28];
-        String indexedID;
-        int row, col, i = 0;
-        for(row = 1; row <= 4; row ++) {
-            for (col = 1; col <= 7; col++) {
-                indexedID = "dayBox_" + row + "_" + col;
-                dayBoxs[i] = new Pane();
-                dayBoxs[i].setId(indexedID);
-                IDs[i] = indexedID;
-                dayBoxs[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @FXML
-                public void handle(MouseEvent e) {
-
-                        /*eventController.setID();
-                        try {
-                            eventController.start();
-                        } catch (Exception e1) {
-                            e1.printStackTrace();
-                        }*/
-                }
-            });
-                i++;    // Increment for next loop.
-            }
+    // Method Name: getDayBoxRow
+    // Parameters:  String source
+    // Behaviour:   Given the string from an event.getSource(), return the row (int) within the id within the string.
+    //              Prints the row value to the console.
+    //              Returns -1 if given string is invalid.
+    // Returns:     int
+    private int getDayBoxRow(String source) {
+        int posZero;
+        char rowChar;
+        if (source.contains("id=dayBox_")) {
+            posZero = source.indexOf("id=dayBox_");
+            rowChar = source.charAt( posZero + 10); // Offset by 10 to account for all characters in "id=..."
+            System.out.println("Row: " + rowChar);
+            return (int)rowChar;
+        } else {
+            return -1;                              // Invalid given string returns -1.
         }
+    }
+
+    // Method Name: getDayBoxCol
+    // Parameters:  String source
+    // Behaviour:   Given the string from an event.getSource(), return the col (int) within the id within the string.
+    //              Prints the collumn value to the console.
+    //              Returns -1 if given string is invalid.
+    // Returns:     int
+    private int getDayBoxCol(String source) {
+        int posZero;
+        char colChar;
+        if (source.contains("id=dayBox_")) {
+            posZero = source.indexOf("id=dayBox_");
+            colChar = source.charAt( posZero + 12); // Offset by 12 to account for all characters in "id=..."
+            System.out.println("Col: " + colChar);
+            return (int)colChar;
+        } else {
+            return -1;                              // Invalid given string returns -1.
+        }
+    }
+
+    // Method Name: dayBoxHandler
+    // Parameters:  none
+    // Behaviour:   Sets the functionality of each dayBox.
+    //              Assumes initDayBoxIDs has been previously called.
+    // Returns:     void
+    public void dayBoxHandler(MouseEvent event) {
+        int row, col;
+        String source = event.getSource().toString();
+        System.out.println(source);
+        row = getDayBoxRow(source);
+        col = getDayBoxCol(source);
     }
 }
