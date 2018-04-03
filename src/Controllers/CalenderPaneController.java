@@ -44,14 +44,46 @@ public class CalenderPaneController {
     private static Scene scene;         // Assumes only 1 calendar window at any given time (Which should be true anyways).
     private static AnchorPane layout;
 
-    private static Pane[][] dayBoxs;
+    private java.util.Date date;        // Used to get current year, month and day.
+    private int currentYear, currentMonth, currentDay, selectedyear, selectedMonth, selectedDay;
+    private int daysInJan, daysInFeb, daysInMar, daysInApr, daysInMay, daysInJun, daysInJul, daysInAug, daysInSep, daysInOct, daysInNov, daysInDec;
+    private int daysInYear;
+
+    private int[][] dayBoxNums;
+
+    @FXML
+    Label lblYear;
+
+    @FXML
+    Label lblMonth;
+
+    private enum WeekDay {
+        dummy, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday;
+    }
+
+    private enum Month {
+        dummy, January, February, March, April, May, June, July, August, September, October, November, December;
+    }
 
     public void initialize() {
+        // For some reason Date class uses zero indexing for days/months... Add 1 to everything.
+        date = new java.util.Date();
+        currentDay = date.getDay() + 1;
+        currentMonth = date.getMonth() + 1;
+        currentYear = date.getYear() + 1900;    // need to add 1900 to get year... for reasons.
+        selectedDay = currentDay;               // Initialize selected variables on current date.
+        selectedMonth = currentMonth;
+        selectedyear = currentYear;
+        dayBoxNums = new int[4][7];
 
+        System.out.println(currentMonth + " " + currentDay + " " + currentYear);
+
+        updateDaysInMonths(selectedyear);               // Set the number of days in each month
+        lblYear.setText(Integer.toString(currentYear));
+        lblMonth.setText(Month.values()[selectedMonth].toString());
     }
 
     public void start() {
-        // layout = null;
         // load .fxml to the layout.
         try {
             layout = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/calenderPane.fxml"));
@@ -63,10 +95,14 @@ public class CalenderPaneController {
         window = new Stage();
         scene = new Scene(layout);
         window.setScene(scene);
-        window.initStyle(StageStyle.UNDECORATED);
+        window.setResizable(false);
         window.setTitle("Calender View");
         window.show();
         System.out.println("testing");
+    }
+
+    private void setDayBoxNumbers() {
+
     }
 
     // Method Name: switchToDayPane
@@ -133,5 +169,31 @@ public class CalenderPaneController {
         System.out.println(source);
         row = getDayBoxRow(source);
         col = getDayBoxCol(source);
+    }
+
+    // Method Name: updateDaysInMonths
+    // Parameters:  int year
+    // Behaviour:   Sets the private methods for the number of days in the month given the year.
+    //              Accounts for leap years.
+    // Returns:     void
+    private void updateDaysInMonths(int year) {
+        this.daysInJan = 31;
+        if (year % 4 == 0) {                // Is a leap year.
+            this.daysInFeb = 29;
+            this.daysInYear = 366;
+        } else {
+            this.daysInFeb = 28;
+            this.daysInYear = 365;
+        }
+        this.daysInMar = 31;
+        this.daysInApr = 30;
+        this.daysInMay = 31;
+        this.daysInJun = 30;
+        this.daysInJul = 31;
+        this.daysInAug = 31;
+        this.daysInSep = 30;
+        this.daysInOct = 31;
+        this.daysInNov = 30;
+        this.daysInDec = 31;
     }
 }

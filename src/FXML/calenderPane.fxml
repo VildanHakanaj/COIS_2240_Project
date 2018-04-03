@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="419.0" prefWidth="654.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CalenderPaneController">
+<AnchorPane prefHeight="429.0" prefWidth="654.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CalenderPaneController">
    <children>
       <Pane fx:id="dayBox_4_1" layoutX="64.0" layoutY="309.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
          <children>
@@ -148,7 +149,26 @@
             <Label layoutX="7.0" layoutY="6.0" text="1" />
          </children>
       </Pane>
-      <Button fx:id="btnSwitchToDayPane" layoutX="64.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToDayPane" prefHeight="26.0" prefWidth="152.0" text="Switch to Day View" />
-      <Label layoutX="288.0" layoutY="31.0" style="-fx-background-color: white;" text="Click On A Day" />
+      <Button fx:id="btnSwitchToDayPane" layoutX="64.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToDayPane" prefHeight="26.0" prefWidth="152.0" text="Switch to Day View" />
+      <Label layoutX="288.0" layoutY="19.0" style="-fx-background-color: beige;" text="Click On A Day" />
+      <Label layoutX="76.0" layoutY="56.0" style="-fx-background-color: beige;" text="SUNDAY" />
+      <Label layoutX="149.0" layoutY="56.0" style="-fx-background-color: beige;" text="MONDAY" />
+      <Label layoutX="225.0" layoutY="56.0" style="-fx-background-color: beige;" text="TUESDAY" />
+      <Label layoutX="292.0" layoutY="56.0" style="-fx-background-color: beige;" text="WEDNESDAY" />
+      <Label layoutX="373.0" layoutY="56.0" style="-fx-background-color: beige;" text="THURSDAY" />
+      <Label layoutX="459.0" layoutY="56.0" style="-fx-background-color: beige;" text="FRIDAY" />
+      <Label layoutX="526.0" layoutY="56.0" style="-fx-background-color: beige;" text="SATURDAY" />
+      <Label fx:id="lblYear" layoutX="535.0" layoutY="11.0" style="-fx-background-color: beige;" text="year" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPrevMonth" layoutX="74.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="&lt;&lt; Previous Month" />
+      <Button fx:id="btnNextMonth" layoutX="400.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="Next Month &gt;&gt;" />
+      <Label fx:id="lblMonth" layoutX="437.0" layoutY="12.0" style="-fx-background-color: beige;" text="January" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
