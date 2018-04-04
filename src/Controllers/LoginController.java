@@ -71,7 +71,7 @@ public class LoginController {
 
     public void login() throws SQLException {
         try {
-            Database db = new Database();
+//            Database db = new Database(); //Open the database
             MyValidation validator = new MyValidation();
 
             Hashtable<String, String> user = new Hashtable<String, String>();
@@ -86,24 +86,14 @@ public class LoginController {
                     err.setText(errors.get("error"));
                 }
 
-                if (errors.size() == 0) {
-
-                    String pass = getPass(uid);
-                    System.out.println(uid + "\t" + pwd + "\t" + pass);
-
-                    if (pass.equals(pwd)) {
-
-                        try {
-                            dayPaneController.start();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        //closes stage after pressing the button
-                        Stage stage = (Stage) username1.getScene().getWindow();
-                        stage.close();
-
-                    } else err.setText("Username and password do not match");
-                }
+                    try {
+                        dayPaneController.start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    //closes stage after pressing the button
+                    Stage stage = (Stage) username1.getScene().getWindow();
+                    stage.close();
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }

@@ -39,7 +39,7 @@ public class Database {
                     "`Start` INTEGER," +
                     "`End` NUMERIC," +
                     "`Color` INTEGER," +
-                    "FOREIGN KEY(fk_userID) REFERENCE users(id);" + //Add a foreign key to join the tables.
+                    "FOREIGN KEY(fk_userID) REFERENCE `users`(id);" + //Add a foreign key to join the tables.
                     ");";
             stm = conn.createStatement();
             stm.executeUpdate(sql);
