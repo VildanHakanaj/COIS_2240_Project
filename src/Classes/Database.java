@@ -64,7 +64,7 @@ public class Database {
         stm.executeQuery(sql);
     }
     //Deletes the user
-    public void deleteUser(int userId) throws SQLException {
+    public void deleteUserAndEvents(int userId) throws SQLException {
         conn = connect(); //Get the connection
         String sql = "DELETE * FROM events, users WHERE userid = '" + userId + "'";
         stm = conn.createStatement();
