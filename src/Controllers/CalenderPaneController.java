@@ -33,19 +33,19 @@ import java.util.Arrays;
 
 public class CalenderPaneController {
 
-    // ----------------------------- DATA MEMBERS -------------------------------
+    // -------------------------------------- DATA MEMBERS ------------------------------------------
 
     // private EventController eventController = new EventController();
     // private NewEventController newEventController = new NewEventController();
 
-    private DayPaneController dayPaneController = new DayPaneController();
+    private DayPaneController dayPaneController;
 
-    private static Stage window;        // Static values allow handlers to close THE window.
-    private static Scene scene;         // Assumes only 1 calendar window at any given time (Which should be true anyways).
+    private static Stage window;            // Static values allow handlers to close THE window.
+    private static Scene scene;             // Assumes only 1 calendar window at any given time (Should be true regardless).
     private static AnchorPane layout;
 
-    private java.util.Date date;        // Used to get current year, month and day.
-    private int currentYear, currentMonth, currentDay, selectedYear, selectedMonth, selectedDay;
+    private java.util.Date date;            // Used to get current year, month and day.
+    private int selectedYear, selectedMonth;
 
     private int[][] dayBoxNums;
 
@@ -59,43 +59,45 @@ public class CalenderPaneController {
             boxNum_4_1, boxNum_4_2, boxNum_4_3, boxNum_4_4, boxNum_4_5, boxNum_4_6, boxNum_4_7,
             boxNum_5_1, boxNum_5_2, boxNum_5_3, boxNum_5_4, boxNum_5_5, boxNum_5_6, boxNum_5_7;
 
-    java.util.ArrayList<Label> boxNums;
+    @FXML
+    Pane dayBox_1_1, dayBox_1_2,dayBox_1_3,dayBox_1_4,dayBox_1_5,dayBox_1_6,dayBox_1_7,
+            dayBox_2_1, dayBox_2_2,dayBox_2_3,dayBox_2_4,dayBox_2_5,dayBox_2_6,dayBox_2_7,
+            dayBox_3_1, dayBox_3_2,dayBox_3_3,dayBox_3_4,dayBox_3_5,dayBox_3_6,dayBox_3_7,
+            dayBox_4_1, dayBox_4_2,dayBox_4_3,dayBox_4_4,dayBox_4_5,dayBox_4_6,dayBox_4_7,
+            dayBox_5_1, dayBox_5_2,dayBox_5_3,dayBox_5_4,dayBox_5_5,dayBox_5_6,dayBox_5_7;
 
-    private enum WeekDay {
-        dummy, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday;
-    }
-
+    // Enum Name:   Month
+    // Usage:       Used to neatly and conveniently get the strings of month names given an int index representing the month.
     private enum Month {
         dummy, January, February, March, April, May, June, July, August, September, October, November, December;
     }
 
-    // ----------------------------- INIT/START -------------------------------
+    // ----------------------------------- INIT/START ---------------------------------------
 
+    // Method Name: initialize
+    // Parameters:  none
+    // Behaviour:   default javafx method.
+    // Returns:     void
     public void initialize() {
-        // For some reason Date class uses zero indexing for days/months... Add 1 to everything.
-        date = new java.util.Date();
-        currentDay = date.getDay() + 1;
-        currentMonth = date.getMonth() + 1;
-        currentYear = date.getYear() + 1900;    // need to add 1900 to get year... for reasons.
-        selectedDay = currentDay;               // Initialize selected variables on current date.
-        selectedMonth = currentMonth;
-        selectedYear = currentYear;
+        dayPaneController = new DayPaneController();    // Used when switching to the dayPane view.
+        date = new java.util.Date();                    // Initialize selected variables on current date.
+        selectedMonth = date.getMonth() + 1;            // Date class uses zero indexing for months... Add 1.
+        selectedYear = date.getYear() + 1900;           // need to add 1900 to get current year... for reasons.
         dayBoxNums = new int[5][7];
-        // boxNums = new Label[35];                // 5*7 = 35
-        boxNums = new java.util.ArrayList<Label>();
         updateScene();
     }
 
+    // Method Name: start
+    // Parameters:  none
+    // Behaviour:   default javafx method.
+    // Returns:     void
     public void start() {
-        // load .fxml to the layout.
-        try {
+        try {                                   // load .fxml to the layout.
             layout = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/calenderPane.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // load stylesheet to the layout.
-        // Initialize stage and scene.
-        window = new Stage();
+        window = new Stage();                   // Initialize the stage and scene.
         scene = new Scene(layout);
         window.setScene(scene);
         window.setResizable(false);
@@ -103,11 +105,12 @@ public class CalenderPaneController {
         window.show();
     }
 
-    // ------------------------------- HANDLER METHODS -----------------------------------
+    // ---------------------------------- HANDLER METHODS ------------------------------------
 
     // Method Name: dayBoxHandler
     // Parameters:  none
     // Behaviour:   Sets the functionality of each dayBox.
+    //                                                                  *** Needs to be added to
     // Returns:     void
     public void dayBoxHandler(MouseEvent event) {
         int row, col;
@@ -161,7 +164,7 @@ public class CalenderPaneController {
         updateScene();
     }
 
-    // ------------------------------- OTHER METHODS -----------------------------------
+    // ---------------------------------- OTHER METHODS -------------------------------------
 
     // Method Name: updateScene
     // Parameters:  none
@@ -272,7 +275,7 @@ public class CalenderPaneController {
 
     // Method Name: getDayBoxRow
     // Parameters:  String source
-    // Behaviour:   Given the string from an event.getSource(), return the row (int) within the id within the string.
+    // Behaviour:   Given the string from an event.getSource() passed by a dayBox, return the row (int) within the id within the string.
     //              Prints the row value to the console.
     //              Returns -1 if given string is invalid.
     // Returns:     int
@@ -292,7 +295,7 @@ public class CalenderPaneController {
 
     // Method Name: getDayBoxCol
     // Parameters:  String source
-    // Behaviour:   Given the string from an event.getSource(), return the col (int) within the id within the string.
+    // Behaviour:   Given the string from an event.getSource() passed by a dayBox, return the col (int) within the id within the string.
     //              Prints the collumn value to the console.
     //              Returns -1 if given string is invalid.
     // Returns:     int
