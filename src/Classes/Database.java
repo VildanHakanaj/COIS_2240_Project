@@ -39,7 +39,7 @@ public class Database {
                     "`Start` INTEGER," +
                     "`End` NUMERIC," +
                     "`Color` INTEGER," +
-                    "FOREIGN KEY(fk_userID) REFERENCE `users`(id);" + //Add a foreign key to join the tables.
+                    "FOREIGN KEY(fk_userID) REFERENCE `users`(id)" + //Add a foreign key to join the tables.
                     ");";
             stm = conn.createStatement();
             stm.executeUpdate(sql);
@@ -79,6 +79,14 @@ public class Database {
         for (int i = 0; i < event.length ; i++) {
             sql += event[i];
         }
+    }
+
+    public ResultSet selectUserByUsername(String username) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username = '" + username + "';";
+        conn = connect();
+        stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        return rs;
     }
 
     //A connection method so we dont have to type the url all over again

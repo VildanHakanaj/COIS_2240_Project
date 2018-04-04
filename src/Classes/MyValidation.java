@@ -4,6 +4,9 @@ import sun.plugin2.message.Message;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,38 +24,57 @@ public class MyValidation {
         errors.clear();
     }
 
-
-    //Validate the userlogin
-    public Hashtable validateUserLogin(String username, String password) throws NoSuchAlgorithmException {
+    //Validate the user login
+    public Hashtable validateUserLogin(String username, String password) throws NoSuchAlgorithmException, SQLException {
         errors.clear();
-        String user = "Vildan";
-        String pwd = "password";
-        return errors;
-    }
+        Database db = new Database(); //Open the database
 
-    public Hashtable validateNewUser(Hashtable user){
-        errors.clear();
-        String emptyError = "Field Cannot be empty";
-        String name = String.valueOf(user.get("name"));
-        String email = String.valueOf(user.get("email"));
-        String username = String.valueOf(user.get("uid"));
-        String pwd = String.valueOf(user.get("pwd"));
+        String empty = " can't be empty";
+        String error = "Invalid username or password";
 
-        if(name.trim().isEmpty()){
-            errors.put("error", "Name " + emptyError);
-        } else if(email.trim().isEmpty()){
-            errors.put("error", "Email" + emptyError);
-        } else if(!validateEmail(email)){
-            errors.put("error", "Enter valid email");
-        } else if(username.trim().isEmpty()){
-            errors.put("error", "Username field " + emptyError);
-        } else if(pwd.trim().isEmpty()){
-            errors.put("error", "Password " + emptyError);
-        }else if(pwd.length() < 8){
-            errors.put("error", "Password needs to be at least 8 characters long");
+        ResultSet rs = db.selectUserByUsername(username);
+//        String user = "Vildan";
+//        String pwd = "password";
+
+        String hash = hashPassword(password);
+
+        if(username.trim().equals("")){
+            errors.put("error", "Name" + empty);
+        }else if(!username.equals(rs.getString("username"))){
+            errors.put("error", error);
+        }
+
+        if(password.trim().equals("")){
+            errors.put("error", "Password" + empty);
+        }else if(!hash.equals(rs.getString("password"))){
+            errors.put("error", error);
         }
         return errors;
     }
+
+//    public Hashtable validateNewUser(Hashtable user){
+//        errors.clear();
+//        String emptyError = "Field Cannot be empty";
+//        String name = String.valueOf(user.get("name"));
+//        String email = String.valueOf(user.get("email"));
+//        String username = String.valueOf(user.get("uid"));
+//        String pwd = String.valueOf(user.get("pwd"));
+//
+//        if(name.trim().isEmpty()){
+//            errors.put("error", "Name " + emptyError);
+//        } else if(email.trim().isEmpty()){
+//            errors.put("error", "Email" + emptyError);
+//        } else if(!validateEmail(email)){
+//            errors.put("error", "Enter valid email");
+//        } else if(username.trim().isEmpty()){
+//            errors.put("error", "Username field " + emptyError);
+//        } else if(pwd.trim().isEmpty()){
+//            errors.put("error", "Password " + emptyError);
+//        }else if(pwd.length() < 8){
+//            errors.put("error", "Password needs to be at least 8 characters long");
+//        }
+//        return errors;
+//    }
 
     //Validates if the email is the correct format.
     private boolean validateEmail(String emailStr) {

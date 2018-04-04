@@ -70,75 +70,70 @@ public class LoginController {
     }
 
     public void login() throws SQLException {
+        MyValidation validator = new MyValidation();
+        Hashtable<String, String> user = new Hashtable<String, String>();
+
+        String uid = username1.getText();
+        String pwd = password1.getText();
+
+        //Validate the login
         try {
-//            Database db = new Database(); //Open the database
-            MyValidation validator = new MyValidation();
-
-            Hashtable<String, String> user = new Hashtable<String, String>();
-            String uid = username1.getText();
-            String pwd = password1.getText();
             //Validate the login
-            try {
-                Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
-
-                if (errors.containsKey("error")) {
-                    System.out.println(errors.get("error"));
-                    err.setText(errors.get("error"));
+            Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
+            if(errors.size() == 0){
+                try {
+                    dayPaneController.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                    try {
-                        dayPaneController.start();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    //closes stage after pressing the button
-                    Stage stage = (Stage) username1.getScene().getWindow();
-                    stage.close();
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
+                //closes stage after pressing the button
+                Stage stage = (Stage) username1.getScene().getWindow();
+                stage.close();
+            }else{
+                System.out.println(errors.get("error"));
+                err.setText(errors.get("error"));
             }
-        }catch (SQLException e){
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }
-
     public void signUp() {
-        MyValidation validator = new MyValidation();
-        //Grab the values from the form
-        Hashtable user = new Hashtable();
-        user.put("name",name.getText());
-        user.put("email",email.getText());
-        user.put("uid",username2.getText());
-        user.put("pwd",password2.getText());
-
-        Hashtable<String, String> errors = validator.validateNewUser(user);
-
-        if (errors.containsKey("error")) {
-            System.out.println(errors.get("error"));
-            err2.setText(errors.get("error"));
-        }
-
-        if (errors.size() == 0) {
-
-            try {
-                Database db = new Database();
-                db.insertUser(user);
-            } catch (SQLException e) {
-                System.out.println("Something went wrong: " + e.getMessage());
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                dayPaneController.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            //closes stage after pressing the button
-            Stage stage = (Stage) btSign.getScene().getWindow();
-            stage.close();
-        }
+//        MyValidation validator = new MyValidation();
+//        //Grab the values from the form
+//        Hashtable user = new Hashtable();
+//        user.put("name",name.getText());
+//        user.put("email",email.getText());
+//        user.put("uid",username2.getText());
+//        user.put("pwd",password2.getText());
+//
+////        Hashtable<String, String> errors = validator.validateNewUser(user);
+//
+//        if (errors.containsKey("error")) {
+//            System.out.println(errors.get("error"));
+//            err2.setText(errors.get("error"));
+//        }
+//
+//        if (errors.size() == 0) {
+//
+//            try {
+//                Database db = new Database();
+//                db.insertUser(user);
+//            } catch (SQLException e) {
+//                System.out.println("Something went wrong: " + e.getMessage());
+//            } catch (NoSuchAlgorithmException e) {
+//                e.printStackTrace();
+//            }
+//
+//            try {
+//                dayPaneController.start();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//            //closes stage after pressing the button
+//            Stage stage = (Stage) btSign.getScene().getWindow();
+//            stage.close();
+//        }
 
     }
 
