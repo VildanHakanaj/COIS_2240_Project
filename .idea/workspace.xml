@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- Added button and handler to switch to the dayPane">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- Added new row of dayBoxs in the fxml file.&#10;- Added a methods to dynamically assign number values to each day box&#10;  based on the day of the week.&#10;- Added methods to deal with switching the view to prev and next months.&#10;- Combined month and year labels for aesthetic purposes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/CalenderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/CalenderPaneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/calenderPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/calenderPane.fxml" afterDir="false" />
@@ -65,8 +65,8 @@
       <file leaf-file-name="DayPaneController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/DayPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-486">
-              <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="51" />
+            <state relative-caret-position="289">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -92,8 +92,8 @@
       <file leaf-file-name="CalenderPaneController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/CalenderPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="130" column="21" lean-forward="true" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
+            <state relative-caret-position="868">
+              <caret line="406" column="5" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -102,8 +102,8 @@
         <entry file="file://$PROJECT_DIR$/src/FXML/calenderPane.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="10" column="94" selection-start-line="10" selection-start-column="94" selection-end-line="10" selection-end-column="94" />
+            <state relative-caret-position="187">
+              <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -439,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522782245011</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Added button and handler to switch to the dayPane&#10;- Added handler for clicking on day a dayBox&#10;- Added methods to find col/row of dayBox&#10;- Added label to scene&#10;- Added a lot of commenting">
+      <created>1522788978959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1522788978959</updated>
+    </task>
+    <task id="LOCAL-00008" summary="- Added method for dynamically calculating days in month given year (considers leap years).&#10;- Added enums WeekDay and Month&#10;- Added bar at top of pane for moving/closing window (resizable = false)&#10;- Added various class methods/variables for date operations.&#10;- Added two buttons for moving between months.&#10;- Comments, etc">
+      <created>1522796357643</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1522796357643</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -451,13 +465,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49853158" weight="0.32847896" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.45741555" weight="0.32847896" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.106461085" side_tool="true" visible="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1483113" side_tool="true" visible="true" weight="0.24433658" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8935389" visible="true" weight="0.33333334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8516887" visible="true" weight="0.24433658" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info id="Capture Tool" order="5" />
@@ -494,11 +508,13 @@
     <MESSAGE value="- Added folder for UML Diagrams&#10;- Added Sequence Diagram for loginPane" />
     <MESSAGE value="- Add state chart diagram for the project&#10;     - will update and re-upload later" />
     <MESSAGE value="- Added button and handler to switch to the dayPane" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added button and handler to switch to the dayPane" />
+    <MESSAGE value="- Added button and handler to switch to the dayPane&#10;- Added handler for clicking on day a dayBox&#10;- Added methods to find col/row of dayBox&#10;- Added label to scene&#10;- Added a lot of commenting" />
+    <MESSAGE value="- Added method for dynamically calculating days in month given year (considers leap years).&#10;- Added enums WeekDay and Month&#10;- Added bar at top of pane for moving/closing window (resizable = false)&#10;- Added various class methods/variables for date operations.&#10;- Added two buttons for moving between months.&#10;- Comments, etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added method for dynamically calculating days in month given year (considers leap years).&#10;- Added enums WeekDay and Month&#10;- Added bar at top of pane for moving/closing window (resizable = false)&#10;- Added various class methods/variables for date operations.&#10;- Added two buttons for moving between months.&#10;- Comments, etc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -583,13 +599,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/EventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Classes/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -604,25 +613,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/EventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/DayPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="51" />
+        <state relative-caret-position="289">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/calenderPane.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="10" column="94" selection-start-line="10" selection-start-column="94" selection-end-line="10" selection-end-column="94" />
+        <state relative-caret-position="187">
+          <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/CalenderPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="130" column="21" lean-forward="true" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
+        <state relative-caret-position="868">
+          <caret line="406" column="5" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
         </state>
       </provider>
     </entry>
