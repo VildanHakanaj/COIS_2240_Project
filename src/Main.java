@@ -1,10 +1,13 @@
 
+import Classes.MyValidation;
 import Controllers.DayPaneController;
 import Controllers.EventController;
 import Controllers.LoginController;
 import javafx.application.Application;
 
 import javafx.stage.Stage;
+
+import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -18,7 +21,8 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         try {
-            dayPaneController.start();
+            //Start from the login pane
+            loginController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
