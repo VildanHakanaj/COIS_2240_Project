@@ -27,28 +27,32 @@ public class MyValidation {
     //Validate the user login
     public Hashtable validateUserLogin(String username, String password) throws NoSuchAlgorithmException, SQLException {
         errors.clear();
-        Database db = new Database(); //Open the database
+       try{
+           Database db = new Database(); //Open the database
 
-        String empty = " can't be empty";
-        String error = "Invalid username or password";
+            String empty = " can't be empty";
+            String error = "Invalid username or password";
 
-        ResultSet rs = db.selectUserByUsername(username);
-//        String user = "Vildan";
-//        String pwd = "password";
+            ResultSet rs = db.selectUserByUsername(username);
+    //        String user = "Vildan";
+    //        String pwd = "password";
 
-        String hash = hashPassword(password);
+            String hash = hashPassword(password);
 
-        if(username.trim().equals("")){
-            errors.put("error", "Name" + empty);
-        }else if(!username.equals(rs.getString("username"))){
-            errors.put("error", error);
-        }
+            if(username.trim().equals("")){
+                errors.put("error", "Name" + empty);
+            }else if(!username.equals(rs.getString("username"))){
+                errors.put("error", error);
+            }
 
-        if(password.trim().equals("")){
-            errors.put("error", "Password" + empty);
-        }else if(!hash.equals(rs.getString("password"))){
-            errors.put("error", error);
-        }
+            if(password.trim().equals("")){
+                errors.put("error", "Password" + empty);
+            }else if(!hash.equals(rs.getString("password"))){
+                errors.put("error", error);
+            }
+       }catch(SQLException e){
+            e.printStackTrace();
+       }
         return errors;
     }
 

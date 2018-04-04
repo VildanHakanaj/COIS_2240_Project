@@ -21,6 +21,11 @@ public class Database {
                         "`pass`	varchar(50) NOT NULL);";
             stm = conn.createStatement();
             stm.executeUpdate(sql);
+            stm.close(); //Close the connection and statement
+
+            stm = conn.createStatement();
+            stm.executeUpdate("CREATE INDEX `username` ON `users` ( `username` );"); //Set an index on the user table
+            stm.close();
             //Create events table if it doesn't exist
             sql = "CREATE TABLE IF NOT EXISTS`Events` (" +
                     "`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
@@ -39,22 +44,26 @@ public class Database {
                     "`Start` INTEGER," +
                     "`End` NUMERIC," +
                     "`Color` INTEGER," +
-                    "FOREIGN KEY(fk_userID) REFERENCE `users`(id)" + //Add a foreign key to join the tables.
+                    "FOREIGN KEY(fk_userID) REFERENCES `users`(id)" + //Add a foreign key to join the tables.
                     ");";
             stm = conn.createStatement();
             stm.executeUpdate(sql);
-            stm.close(); //Close the connection and statement
-            conn.close();
+            stm.executeUpdate("CREATE INDEX `title` ON `Events` (`Title`);"); //Add index in the events table for faster search
+            stm.close();
         }catch(SQLException e){
             e.printStackTrace();
+        }finally{
+            closeConnection();
         }
     }
-
     //Inserts the users into the database
     public void insertUser(Hashtable<String, String> user) throws NoSuchAlgorithmException, SQLException {
+        conn = connect(); //Open the connection
         String name, email, uid, pwd;
+
         name = user.get("uid");
         email = user.get("email");
+
         uid = user.get("uid");
         pwd = user.get("pwd");
 
@@ -62,31 +71,34 @@ public class Database {
         String sql ="INSERT INTO users (name, email, username, pass) VALUES('" + name + "', '" + email + "', '" + uid + "', '" + pwd + "');";
         stm = conn.createStatement();
         stm.executeQuery(sql);
+
+        closeConnection(); //Close the connection;
     }
     //Deletes the user
-    public void deleteUserAndEvents(int userId) throws SQLException {
+    public void deleteUserAndEvents(int username) throws SQLException {
         conn = connect(); //Get the connection
-        String sql = "DELETE * FROM events, users WHERE userid = '" + userId + "'";
+        String sql = "DELETE * FROM events, users WHERE username = '" + username + "'";
         stm = conn.createStatement();
         stm.executeUpdate(sql);
         stm.close();
-        conn.close();
+        closeConnection();
     }
 
-    public void insertEvent(String event[]){
-        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, Description, Privacy, Thirty, Hour, Day, Week, Repeat, Colour, Start, End, Color) ";
-        sql += "VALUES( ";
-        for (int i = 0; i < event.length ; i++) {
-            sql += event[i];
-        }
-    }
+    //Insert events in the database
+//    public void insertEvent(String event[]){
+//        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, Description, Privacy, Thirty, Hour, Day, Week, Repeat, Colour, Start, End, Color) ";
+//        sql += "VALUES( ";
+//        for (int i = 0; i < event.length ; i++) {
+//            sql += event[i];
+//        }
+//    }
 
+    //Select users by username
     public ResultSet selectUserByUsername(String username) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = '" + username + "';";
         conn = connect();
         stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery(sql);
-        return rs;
+        return stm.executeQuery(sql);
     }
 
     //A connection method so we dont have to type the url all over again
@@ -95,5 +107,10 @@ public class Database {
         return conn = DriverManager.getConnection("jdbc:sqlite:src\\data.db");
     }
 
-
+    //Helper method to close the connection
+    public void closeConnection() throws SQLException{
+        if(conn != null){ //close the connection;
+            conn.close();
+        }
+    }
 }
