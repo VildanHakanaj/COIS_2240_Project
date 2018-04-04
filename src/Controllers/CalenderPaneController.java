@@ -1,35 +1,17 @@
 package Controllers;
-import Classes.Event;
-import com.sun.xml.internal.bind.v2.model.core.ID;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-import javafx.stage.StageStyle;
 import javafx.scene.input.MouseEvent;
-import jdk.internal.org.objectweb.asm.Handle;
 
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CalenderPaneController {
 
@@ -44,7 +26,7 @@ public class CalenderPaneController {
     private static Scene scene;             // Assumes only 1 calendar window at any given time (Should be true regardless).
     private static AnchorPane layout;
 
-    private java.util.Date date;            // Used to get current year, month and day.
+    private java.util.Date date;            // Used to get current month and year.
     private int selectedYear, selectedMonth;
 
     private int[][] dayBoxNums;
@@ -121,6 +103,7 @@ public class CalenderPaneController {
         row = getDayBoxRow(source);
         col = getDayBoxCol(source);
     }
+
     // Method Name: switchToDayPane
     // Parameters:  ActionEvent event
     // Behaviour:   Opens an instance of DayPaneController.
