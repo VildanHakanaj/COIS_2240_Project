@@ -48,6 +48,7 @@ public class CalenderPaneController {
     private int selectedYear, selectedMonth;
 
     private int[][] dayBoxNums;
+    private boolean[][] dayIsPartOfCurrentMonth;
 
     @FXML
     Label lblMonthYear;
@@ -83,6 +84,7 @@ public class CalenderPaneController {
         date = new java.util.Date();                    // Initialize selected variables on current date.
         selectedMonth = date.getMonth() + 1;            // Date class uses zero indexing for months... Add 1.
         selectedYear = date.getYear() + 1900;           // need to add 1900 to get current year... for reasons.
+        dayIsPartOfCurrentMonth = new boolean[5][7];    // Used for assigning box colours.
         dayBoxNums = new int[5][7];
         updateScene();
     }
@@ -170,11 +172,107 @@ public class CalenderPaneController {
     // Parameters:  none
     // Behaviour:   Updates the values for the numbers on the scene as well as internally.
     //              Updates the labels for the month and year.
+    //              Assigns and updates the dayBox colour.
     // Returns:     void
     private void updateScene() {
         lblMonthYear.setText(Month.values()[selectedMonth].toString() + " " + Integer.toString(selectedYear));
         assignNumbers();
         updateNumbers();
+        assignOnOffDays();
+        setDayBoxColour("beige", "white");
+    }
+
+    // Method Name: assignOnOffdays
+    // Parameters:  none
+    // Behaviour:   Assigns a values in boolean[][] dayIsPartOfCurrentMonth.
+    //              Must be called after assignNumbers() and before setDayBoxColour().
+    // Returns:     void
+    private void assignOnOffDays() {
+        int row, col;
+        boolean beginCurrentMonth = false;          // Flag for setting current month colour.
+        boolean endCurrentMonth = false;            // Flag for ending current month colour.
+        int dayIndex = 1;
+        int lastDayInCurrentMonth = getDaysInMonth(this.selectedMonth, this.selectedYear);
+        for(row = 0; row < 5; row++) {
+            for(col = 0; col < 7; col++) {
+                if(this.dayBoxNums[row][col] == 1) {
+                    beginCurrentMonth = true;
+                }
+                if (dayIndex > lastDayInCurrentMonth) {
+                    endCurrentMonth = true;
+                }
+                if((beginCurrentMonth) && !(endCurrentMonth)) {
+                    this.dayIsPartOfCurrentMonth[row][col] = true;
+                    dayIndex++;
+                } else {
+                    this.dayIsPartOfCurrentMonth[row][col] = false;
+                }
+            }
+        }
+    }
+
+    // Method Name: setDayBoxColour
+    // Parameters:  String offColour, String onColour
+    // Behaviour:   Sets the colour of the dayBoxs so that the "off" boxes have a distinct colour from the "on" boxes.
+    // returns:     void
+    private void setDayBoxColour(String offColour, String onColour) {
+        String colour;
+        int row, col;
+        for(row = 1; row <= 5; row++) {
+            for(col = 1; col <= 7; col++) {
+                colour = "-fx-background-color: ";
+                if (this.dayIsPartOfCurrentMonth[row - 1][col - 1]) {
+                    colour += onColour;
+                } else {
+                    colour += offColour;
+                }
+                if (row == 1) {
+                    if (col == 1) { dayBox_1_1.setStyle(colour);}
+                    if (col == 2) { dayBox_1_2.setStyle(colour);}
+                    if (col == 3) { dayBox_1_3.setStyle(colour);}
+                    if (col == 4) { dayBox_1_4.setStyle(colour);}
+                    if (col == 5) { dayBox_1_5.setStyle(colour);}
+                    if (col == 6) { dayBox_1_6.setStyle(colour);}
+                    if (col == 7) { dayBox_1_7.setStyle(colour);}
+                }
+                if (row == 2) {
+                    if (col == 1) { dayBox_2_1.setStyle(colour);}
+                    if (col == 2) { dayBox_2_2.setStyle(colour);}
+                    if (col == 3) { dayBox_2_3.setStyle(colour);}
+                    if (col == 4) { dayBox_2_4.setStyle(colour);}
+                    if (col == 5) { dayBox_2_5.setStyle(colour);}
+                    if (col == 6) { dayBox_2_6.setStyle(colour);}
+                    if (col == 7) { dayBox_2_7.setStyle(colour);}
+                }
+                if (row == 3) {
+                    if (col == 1) { dayBox_3_1.setStyle(colour);}
+                    if (col == 2) { dayBox_3_2.setStyle(colour);}
+                    if (col == 3) { dayBox_3_3.setStyle(colour);}
+                    if (col == 4) { dayBox_3_4.setStyle(colour);}
+                    if (col == 5) { dayBox_3_5.setStyle(colour);}
+                    if (col == 6) { dayBox_3_6.setStyle(colour);}
+                    if (col == 7) { dayBox_3_7.setStyle(colour);}
+                }
+                if (row == 4) {
+                    if (col == 1) { dayBox_4_1.setStyle(colour);}
+                    if (col == 2) { dayBox_4_2.setStyle(colour);}
+                    if (col == 3) { dayBox_4_3.setStyle(colour);}
+                    if (col == 4) { dayBox_4_4.setStyle(colour);}
+                    if (col == 5) { dayBox_4_5.setStyle(colour);}
+                    if (col == 6) { dayBox_4_6.setStyle(colour);}
+                    if (col == 7) { dayBox_4_7.setStyle(colour);}
+                }
+                if (row == 5) {
+                    if (col == 1) { dayBox_5_1.setStyle(colour);}
+                    if (col == 2) { dayBox_5_2.setStyle(colour);}
+                    if (col == 3) { dayBox_5_3.setStyle(colour);}
+                    if (col == 4) { dayBox_5_4.setStyle(colour);}
+                    if (col == 5) { dayBox_5_5.setStyle(colour);}
+                    if (col == 6) { dayBox_5_6.setStyle(colour);}
+                    if (col == 7) { dayBox_5_7.setStyle(colour);}
+                }
+            }
+        }
     }
 
     // Method Name: updateNumbers
