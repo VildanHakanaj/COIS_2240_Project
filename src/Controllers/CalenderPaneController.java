@@ -99,9 +99,9 @@ public class CalenderPaneController {
     public void dayBoxHandler(MouseEvent event) {
         int row, col;
         String source = event.getSource().toString();
-        System.out.println(source);
         row = getDayBoxRow(source);
         col = getDayBoxCol(source);
+        System.out.println("Pos: " + row + ", " + col);
     }
 
     // Method Name: switchToDayPane
@@ -374,8 +374,7 @@ public class CalenderPaneController {
         if (source.contains("id=dayBox_")) {
             posZero = source.indexOf("id=dayBox_");
             rowChar = source.charAt( posZero + 10); // Offset by 10 to account for all characters in "id=..."
-            System.out.println("Row: " + rowChar);
-            return (int)rowChar;
+            return (int)rowChar - 48;               // Ascii Code
         } else {
             System.out.println("invalid source string");
             return -1;                              // Invalid given string returns -1.
@@ -394,8 +393,7 @@ public class CalenderPaneController {
         if (source.contains("id=dayBox_")) {
             posZero = source.indexOf("id=dayBox_");
             colChar = source.charAt( posZero + 12); // Offset by 12 to account for all characters in "id=..."
-            System.out.println("Col: " + colChar);
-            return (int)colChar;
+            return (int)colChar - 48;               // Ascii Code
         } else {
             System.out.println("invalid source string");
             return -1;                              // Invalid given string returns -1.
