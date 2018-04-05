@@ -19,6 +19,7 @@ public class LoginController {
 
     // Uncomment when projects are combined
     DayPaneController dayPaneController = new DayPaneController();
+    Database db = new Database();
 
     @FXML
     private Button btLogin;
@@ -50,15 +51,18 @@ public class LoginController {
     @FXML
     private PasswordField password2;
 
+    public LoginController() throws SQLException{
 
-    public void initialize() throws SQLException {
-        Database db = new Database();
+    }
+
+
+    public void initialize(){
+
     }
 
     public void start() throws Exception {
         TabPane grid = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
         grid.getStylesheets().add("Stylesheets/login.css");
-
 
         Stage stage = new Stage();
 
@@ -82,6 +86,7 @@ public class LoginController {
         try {
             //Validate the login
             Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
+            //If there is noerrors then go ahead and let the user in.
             if(errors.size() == 0){
                 try {
                     dayPaneController.start();

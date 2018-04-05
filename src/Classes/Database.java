@@ -62,24 +62,25 @@ public class Database {
             closeConnection();
         }
     }
-//    //Inserts the users into the database
-////    public void insertUser(Hashtable<String, String> user) throws NoSuchAlgorithmException, SQLException {
-////        conn = connect(); //Open the connection
-////        String name, email, uid, pwd;
-////
-////        name = user.get("uid");
-////        email = user.get("email");
-////
-////        uid = user.get("uid");
-////        pwd = user.get("pwd");
-////
-////        pwd = MyValidation.hashPassword(pwd);
-////        String sql ="INSERT INTO users (name, email, username, pass) VALUES('" + name + "', '" + email + "', '" + uid + "', '" + pwd + "');";
-////        stm = conn.createStatement();
-////        stm.executeQuery(sql);
-////
-////        closeConnection(); //Close the connection;
-////    }
+    //Inserts the users into the database
+    public void insertUser(Hashtable<String, String> user) throws NoSuchAlgorithmException, SQLException {
+        conn = connect(); //Open the connection
+        String name, email, uid, pwd;
+
+        name = user.get("uid");
+        email = user.get("email");
+
+        uid = user.get("uid");
+        pwd = user.get("pwd");
+
+        //Hash the password before inserting.
+        pwd = MyValidation.hashPassword(pwd);
+        String sql ="INSERT INTO users (name, email, username, pass) VALUES('" + name + "', '" + email + "', '" + uid + "', '" + pwd + "');";
+        stm = conn.createStatement();
+        stm.executeQuery(sql);
+
+        closeConnection(); //Close the connection;
+    }
 ////    //Deletes the user
 ////    public void deleteUserAndEvents(String username) throws SQLException {
 ////        conn = connect(); //Get the connection
