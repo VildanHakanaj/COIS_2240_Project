@@ -1,4 +1,5 @@
 
+import Controllers.CalenderPaneController;
 import Controllers.DayPaneController;
 import Controllers.EventController;
 import Controllers.LoginController;
@@ -10,6 +11,7 @@ public class Main extends Application {
 
     // just start the code. keeps controllers similar to other controllers
 
+    CalenderPaneController calenderPaneController = new CalenderPaneController();
     LoginController loginController = new LoginController();
     EventController eventController = new EventController();
     DayPaneController dayPaneController = new DayPaneController();
