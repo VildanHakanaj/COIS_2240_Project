@@ -34,7 +34,7 @@ import static javafx.scene.paint.Color.RED;
 
 public class DayPaneController {
 
-    NewEventController newEventController = new NewEventController();
+    NewEventController newEventController = new NewEventController(this);
     EventController eventController = new EventController();
 
     @FXML
