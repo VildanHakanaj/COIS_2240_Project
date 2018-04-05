@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/CalenderPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/CalenderPaneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/calenderPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/calenderPane.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,19 +91,16 @@
       <file leaf-file-name="CalenderPaneController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/CalenderPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            <state relative-caret-position="-213">
+              <caret line="213" column="28" lean-forward="true" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#initialize#0;class#CalenderPaneController#0" />
                 <element signature="method#start#0;class#CalenderPaneController#0" />
                 <element signature="method#dayBoxHandler#0;class#CalenderPaneController#0" />
                 <element signature="method#switchToDayPane#0;class#CalenderPaneController#0" />
                 <element signature="method#prevMonth#0;class#CalenderPaneController#0" />
                 <element signature="method#nextMonth#0;class#CalenderPaneController#0" />
-                <element signature="method#updateScene#0;class#CalenderPaneController#0" />
                 <element signature="e#7301#7533#0" />
-                <element signature="e#7033#11322#0" />
                 <element signature="e#6408#7094#0" />
                 <element signature="e#7100#8636#0" />
                 <element signature="e#8642#9520#0" />
@@ -498,7 +495,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522856289735</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="- cleaned up some imports">
+      <created>1522856700844</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1522856700844</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- Added a section to the dayBoxcolour method to make the current day blue.&#10;- Changed some colours on the scene&#10;- Slightly changed the orientation of the scene">
+      <created>1522886735307</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1522886735307</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -510,13 +521,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4493392" weight="0.32847896" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.43979442" weight="0.32847896" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.15638767" side_tool="true" visible="true" weight="0.24433658" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.16593245" side_tool="true" visible="true" weight="0.24433658" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8436123" visible="true" weight="0.24433658" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8340675" visible="true" weight="0.24433658" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info id="Capture Tool" order="5" />
@@ -559,7 +570,9 @@
     <MESSAGE value="- Cleaned up the CalenderPaneController a bit&#10;- General commenting" />
     <MESSAGE value="- Added dynamic colouring of the dayBoxes for &quot;on&quot; and &quot;off&quot; days" />
     <MESSAGE value="- tidied up a bit" />
-    <option name="LAST_COMMIT_MESSAGE" value="- tidied up a bit" />
+    <MESSAGE value="- cleaned up some imports" />
+    <MESSAGE value="- Added a section to the dayBoxcolour method to make the current day blue.&#10;- Changed some colours on the scene&#10;- Slightly changed the orientation of the scene" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added a section to the dayBoxcolour method to make the current day blue.&#10;- Changed some colours on the scene&#10;- Slightly changed the orientation of the scene" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -686,19 +699,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/CalenderPaneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        <state relative-caret-position="-213">
+          <caret line="213" column="28" lean-forward="true" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#initialize#0;class#CalenderPaneController#0" />
             <element signature="method#start#0;class#CalenderPaneController#0" />
             <element signature="method#dayBoxHandler#0;class#CalenderPaneController#0" />
             <element signature="method#switchToDayPane#0;class#CalenderPaneController#0" />
             <element signature="method#prevMonth#0;class#CalenderPaneController#0" />
             <element signature="method#nextMonth#0;class#CalenderPaneController#0" />
-            <element signature="method#updateScene#0;class#CalenderPaneController#0" />
             <element signature="e#7301#7533#0" />
-            <element signature="e#7033#11322#0" />
             <element signature="e#6408#7094#0" />
             <element signature="e#7100#8636#0" />
             <element signature="e#8642#9520#0" />
