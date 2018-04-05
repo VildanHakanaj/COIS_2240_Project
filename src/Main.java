@@ -1,5 +1,5 @@
 
-import Controllers.CalenderPaneController;
+import Classes.MyValidation;
 import Controllers.DayPaneController;
 import Controllers.EventController;
 import Controllers.LoginController;
@@ -7,20 +7,27 @@ import javafx.application.Application;
 
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class Main extends Application {
 
     // just start the code. keeps controllers similar to other controllers
 
-    CalenderPaneController calenderPaneController = new CalenderPaneController();
+//    CalenderPaneController calenderPaneController = new CalenderPaneController();
     LoginController loginController = new LoginController();
     EventController eventController = new EventController();
     DayPaneController dayPaneController = new DayPaneController();
+
+    public Main() throws SQLException {
+    }
 
     @Override
     public void start(Stage stage) {
 
         try {
-            dayPaneController.start();
+            //Start from the login pane
+            loginController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }

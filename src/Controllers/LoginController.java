@@ -1,5 +1,6 @@
 package Controllers;
 
+import Classes.Database;
 import Classes.MyValidation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,13 +10,16 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Hashtable;
+import java.util.WeakHashMap;
 
 public class LoginController {
 
     // Uncomment when projects are combined
     DayPaneController dayPaneController = new DayPaneController();
+    Database db = new Database();
 
     @FXML
     private Button btLogin;
@@ -47,8 +51,12 @@ public class LoginController {
     @FXML
     private PasswordField password2;
 
+    public LoginController() throws SQLException{
 
-    public void initialize() {
+    }
+
+
+    public void initialize(){
 
     }
 
@@ -56,41 +64,30 @@ public class LoginController {
         TabPane grid = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
         grid.getStylesheets().add("Stylesheets/login.css");
 
-
         Stage stage = new Stage();
 
         stage.setTitle("Login");
         stage.setScene(new Scene(grid));
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
         stage.getIcons().addAll(new Image("/Photos/6.jpg"));
 
         stage.show();
     }
 
-    public void login() {
+    public void login() throws SQLException {
         MyValidation validator = new MyValidation();
-        System.out.println("Login button was pressed");
-
-        System.out.println(username1.getText());
-        System.out.println(password1.getText());
         Hashtable<String, String> user = new Hashtable<String, String>();
+
+
         String uid = username1.getText();
         String pwd = password1.getText();
+
         //Validate the login
-        Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
-
-        if (errors.containsKey("error")) {
-            System.out.println(errors.get("error"));
-            err.setText(errors.get("error"));
-        }
-
-        if (errors.size() == 0) {
-
-            String pass = getPass(uid);
-            System.out.println(uid+"\t"+pwd+"\t"+pass);
-
-            if (pass.equals(pwd)){
-
+        try {
+            //Validate the login
+            Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
+            //If there is noerrors then go ahead and let the user in.
+            if(errors.size() == 0){
                 try {
                     dayPaneController.start();
                 } catch (Exception e) {
@@ -99,29 +96,22 @@ public class LoginController {
                 //closes stage after pressing the button
                 Stage stage = (Stage) username1.getScene().getWindow();
                 stage.close();
-
-            } else err.setText("Username and password do not match");
+            }else{
+                System.out.println(errors.get("error"));
+                err.setText(errors.get("error"));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
     }
-
-    public void signUp() {
+    public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();
-        System.out.println("Signup button was pressed");
-        System.out.println(name.getText());
-        System.out.println(email.getText());
-        System.out.println(username2.getText());
-        System.out.println(password2.getText());
-
+        //Grab the values from the form
         Hashtable user = new Hashtable();
-        String nam = name.getText();
-        String eml = email.getText();
-        String uid = username2.getText();
-        String pwd = password2.getText();
-
-        user.put(1,nam);
-        user.put(2,eml);
-        user.put(3,uid);
-        user.put(4,pwd);
+        user.put("name",name.getText());
+        user.put("email",email.getText());
+        user.put("uid",username2.getText());
+        user.put("pwd",password2.getText());
 
         Hashtable<String, String> errors = validator.validateNewUser(user);
 
@@ -133,18 +123,11 @@ public class LoginController {
         if (errors.size() == 0) {
 
             try {
-                String url = "jdbc:sqlite:src/data.db";
-                Connection conn = DriverManager.getConnection(url);
-
-                Statement statement = conn.createStatement();
-                statement.execute("INSERT INTO Login (Name, Email, Username, Password)" +
-                        " VALUES "+"('"+user.get(1)+"','"+user.get(2)+"','"+user.get(3)+"','"+user.get(4)+"')");
-
-                statement.close();
-                conn.close();
+                db.insertUser(user);
             } catch (SQLException e) {
-
                 System.out.println("Something went wrong: " + e.getMessage());
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
             }
 
             try {
@@ -162,7 +145,7 @@ public class LoginController {
 
     public String getPass(String uid){
 //check if username exists and corresponds to an email
-        String pass = "fuck";
+        String pass = null;
         try {
             String url = "jdbc:sqlite:src/data.db";
             Connection conn = DriverManager.getConnection(url);
@@ -173,11 +156,12 @@ public class LoginController {
 
             statement.close();
             conn.close();
-
+            return pass;
         } catch (SQLException e) {
 
             System.out.println("Something went wrong: " + e.getMessage());
+        }finally{
+            return pass;
         }
-        return pass;
     }
 }
