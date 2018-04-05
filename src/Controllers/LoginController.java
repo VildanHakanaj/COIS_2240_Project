@@ -13,6 +13,7 @@ import javafx.stage.StageStyle;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Hashtable;
+import java.util.WeakHashMap;
 
 public class LoginController {
 
@@ -98,42 +99,42 @@ public class LoginController {
         }
     }
     public void signUp() {
-//        MyValidation validator = new MyValidation();
-//        //Grab the values from the form
-//        Hashtable user = new Hashtable();
-//        user.put("name",name.getText());
-//        user.put("email",email.getText());
-//        user.put("uid",username2.getText());
-//        user.put("pwd",password2.getText());
-//
-////        Hashtable<String, String> errors = validator.validateNewUser(user);
-//
-//        if (errors.containsKey("error")) {
-//            System.out.println(errors.get("error"));
-//            err2.setText(errors.get("error"));
-//        }
-//
-//        if (errors.size() == 0) {
-//
-//            try {
-//                Database db = new Database();
-//                db.insertUser(user);
-//            } catch (SQLException e) {
-//                System.out.println("Something went wrong: " + e.getMessage());
-//            } catch (NoSuchAlgorithmException e) {
-//                e.printStackTrace();
-//            }
-//
-//            try {
-//                dayPaneController.start();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//            //closes stage after pressing the button
-//            Stage stage = (Stage) btSign.getScene().getWindow();
-//            stage.close();
-//        }
+        MyValidation validator = new MyValidation();
+        //Grab the values from the form
+        Hashtable user = new Hashtable();
+        user.put("name",name.getText());
+        user.put("email",email.getText());
+        user.put("uid",username2.getText());
+        user.put("pwd",password2.getText());
+
+        Hashtable<String, String> errors = validator.validateNewUser(user);
+
+        if (errors.containsKey("error")) {
+            System.out.println(errors.get("error"));
+            err2.setText(errors.get("error"));
+        }
+
+        if (errors.size() == 0) {
+
+            try {
+                Database db = new Database();
+                db.insertUser(user);
+            } catch (SQLException e) {
+                System.out.println("Something went wrong: " + e.getMessage());
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                dayPaneController.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            //closes stage after pressing the button
+            Stage stage = (Stage) btSign.getScene().getWindow();
+            stage.close();
+        }
 
     }
 

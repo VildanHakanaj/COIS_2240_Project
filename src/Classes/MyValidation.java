@@ -28,26 +28,35 @@ public class MyValidation {
     public Hashtable validateUserLogin(String username, String password) throws NoSuchAlgorithmException, SQLException {
         errors.clear();
        try{
-           Database db = new Database(); //Open the database
-
+            Database db = new Database(); //Open the database
             String empty = " can't be empty";
             String error = "Invalid username or password";
 
-            ResultSet rs = db.selectUserByUsername(username);
-    //        String user = "Vildan";
-    //        String pwd = "password";
+            String dbUsername = "";
+            String dbPassword = "";
 
-            String hash = hashPassword(password);
+//            String usernameTest = "Ani"; //Testing purpose
+//            String passTest = "Password"; //Testing purpose
 
+              //Check the password Just for testing
+            ResultSet set = db.selectUserByUsername(username);
+            if(set.next()){
+                dbUsername = set.getString("username");
+                dbPassword = set.getString("pass");
+            }
+            //Hash the password
+//           String hash = hashPassword(password);
+
+           //Validate the username and password
             if(username.trim().equals("")){
                 errors.put("error", "Name" + empty);
-            }else if(!username.equals(rs.getString("username"))){
+            }else if(!username.equals(dbUsername)){
                 errors.put("error", error);
             }
 
             if(password.trim().equals("")){
                 errors.put("error", "Password" + empty);
-            }else if(!hash.equals(rs.getString("password"))){
+            }else if(!hashPassword(password).equals(dbPassword)){
                 errors.put("error", error);
             }
        }catch(SQLException e){
