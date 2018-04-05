@@ -14,21 +14,26 @@ import java.util.regex.Pattern;
 public class MyValidation {
     //Hashtable for the error key valu pair
     private Hashtable<String, String> errors;
+    Database db = new Database(); //Open the database
     //The patter for the email validation
     private final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     //MyValidation constructor will initialize the
-    public MyValidation(){
+    public MyValidation() throws SQLException {
         errors = new Hashtable<String, String>();
         errors.clear();
     }
 
+    //This method will be called when
+    // the user click the login button
+    //How to use it ??
+    //MyValidation validator = new MyValidation();
+    //validator.validateUserLogin(username, password);
     //Validate the user login
     public Hashtable validateUserLogin(String username, String password) throws NoSuchAlgorithmException, SQLException {
         errors.clear();
        try{
-            Database db = new Database(); //Open the database
             String empty = " can't be empty";
             String error = "Invalid username or password";
 
@@ -65,29 +70,41 @@ public class MyValidation {
         return errors;
     }
 
-//    public Hashtable validateNewUser(Hashtable user){
-//        errors.clear();
-//        String emptyError = "Field Cannot be empty";
-//        String name = String.valueOf(user.get("name"));
-//        String email = String.valueOf(user.get("email"));
-//        String username = String.valueOf(user.get("uid"));
-//        String pwd = String.valueOf(user.get("pwd"));
-//
-//        if(name.trim().isEmpty()){
-//            errors.put("error", "Name " + emptyError);
-//        } else if(email.trim().isEmpty()){
-//            errors.put("error", "Email" + emptyError);
-//        } else if(!validateEmail(email)){
-//            errors.put("error", "Enter valid email");
-//        } else if(username.trim().isEmpty()){
-//            errors.put("error", "Username field " + emptyError);
-//        } else if(pwd.trim().isEmpty()){
-//            errors.put("error", "Password " + emptyError);
-//        }else if(pwd.length() < 8){
-//            errors.put("error", "Password needs to be at least 8 characters long");
-//        }
-//        return errors;
-//    }
+
+    public Hashtable validateNewUser(Hashtable user) throws SQLException {
+        errors.clear();
+        //Get the values from the signup form
+        String emptyError = "can't be empty";
+        String name = String.valueOf(user.get("name"));
+        String email = String.valueOf(user.get("email"));
+        String username = String.valueOf(user.get("uid"));
+        String pwd = String.valueOf(user.get("pwd"));
+
+        //Select the username by username
+        ResultSet set = db.selectUserByUsername(username);
+
+        if(name.trim().isEmpty()){
+            errors.put("error", "Name " + emptyError);
+        }
+
+        if(email.trim().isEmpty()){
+            errors.put("error", "Email" + emptyError);
+        } else if(!validateEmail(email)){
+            errors.put("error", "Enter valid email");
+        }
+        if(username.trim().isEmpty()){
+            errors.put("error", "Username field " + emptyError);
+        } else if(db.selectUserByUsername(username).next()) {
+            errors.put("error", "Username already exists");
+        }
+
+        if(pwd.trim().isEmpty()){
+            errors.put("error", "Password " + emptyError);
+        }else if(pwd.length() < 8){
+            errors.put("error", "Password needs to be at least 8 characters long");
+        }
+        return errors;
+    }
 
     //Validates if the email is the correct format.
     private boolean validateEmail(String emailStr) {

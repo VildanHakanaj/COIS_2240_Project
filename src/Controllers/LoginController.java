@@ -51,8 +51,8 @@ public class LoginController {
     private PasswordField password2;
 
 
-    public void initialize() {
-
+    public void initialize() throws SQLException {
+        Database db = new Database();
     }
 
     public void start() throws Exception {
@@ -64,7 +64,7 @@ public class LoginController {
 
         stage.setTitle("Login");
         stage.setScene(new Scene(grid));
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
         stage.getIcons().addAll(new Image("/Photos/6.jpg"));
 
         stage.show();
@@ -73,6 +73,7 @@ public class LoginController {
     public void login() throws SQLException {
         MyValidation validator = new MyValidation();
         Hashtable<String, String> user = new Hashtable<String, String>();
+
 
         String uid = username1.getText();
         String pwd = password1.getText();
@@ -98,7 +99,7 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-    public void signUp() {
+    public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();
         //Grab the values from the form
         Hashtable user = new Hashtable();
@@ -117,7 +118,6 @@ public class LoginController {
         if (errors.size() == 0) {
 
             try {
-                Database db = new Database();
                 db.insertUser(user);
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
