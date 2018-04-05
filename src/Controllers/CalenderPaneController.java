@@ -162,7 +162,7 @@ public class CalenderPaneController {
         assignNumbers();
         updateNumbers();
         assignOnOffDays();
-        setDayBoxColour("beige", "white");
+        setDayBoxColour("AntiqueWhite", "snow");
     }
 
     // Method Name: assignOnOffdays
@@ -199,13 +199,21 @@ public class CalenderPaneController {
     // Behaviour:   Sets the colour of the dayBoxs so that the "off" boxes have a distinct colour from the "on" boxes.
     // returns:     void
     private void setDayBoxColour(String offColour, String onColour) {
+        int currentDay = date.getDay() + 1;
+        int currentMonth = date.getMonth() + 1;
+        int currentYear = date.getYear() + 1900;
         String colour;
         int row, col;
         for(row = 1; row <= 5; row++) {
             for(col = 1; col <= 7; col++) {
                 colour = "-fx-background-color: ";
                 if (this.dayIsPartOfCurrentMonth[row - 1][col - 1]) {
-                    colour += onColour;
+                    if ((this.selectedYear == currentYear) && (this.selectedMonth == currentMonth)
+                            && (this.dayBoxNums[row - 1][col - 1]) == currentDay) {
+                        colour += "LightSkyBlue";
+                    } else {
+                        colour += onColour;
+                    }
                 } else {
                     colour += offColour;
                 }
