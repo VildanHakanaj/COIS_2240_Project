@@ -91,7 +91,8 @@ public class LoginController {
 
             if (pass.equals(pwd)){
 
-                try { dayPaneController.start();
+                try {
+                    dayPaneController.start();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
