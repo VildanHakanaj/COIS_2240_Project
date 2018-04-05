@@ -22,6 +22,12 @@ import java.time.LocalDate;
 
 public class NewEventController {
 
+    DayPaneController thi;
+
+    public NewEventController(DayPaneController thi){
+        this.thi = thi;
+    }
+
     @FXML
     private Rectangle eventBar;
 
@@ -159,7 +165,15 @@ public class NewEventController {
     // initialize and open a new window
     public void start() throws Exception {
 
-        GridPane grid = FXMLLoader.load(getClass().getResource("/FXML/newEvent.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/newEvent.fxml"));
+
+        loader.setController(this);
+
+        GridPane grid = loader.load();
+
+
+
         grid.getStylesheets().add("Stylesheets/event.css");
 
         Stage eventStage = new Stage();
@@ -251,6 +265,9 @@ public class NewEventController {
             Stage stage = (Stage) btConfirm.getScene().getWindow();
             stage.close();
             System.out.println("Confirm button pressed");
+
+            thi.updateDate();
+
 
         }
     }

@@ -64,56 +64,15 @@ public class EventController {
     @FXML
     private Label week;
 
-    public int ID;
+    private int ID;
 
     private Event event;
 
     public void setID(int IDt) {
         ID = IDt;
-        System.out.println("EC" + ID);
+        System.out.println("ID that is being passed to the conroller: " + ID);
     }
 
-    public void setEvent(Event ev){
-        this.event = ev;
-        System.out.println("ECE"+event);
-    }
-
-    public void initialize() throws SQLException {
-
-
-        // not taking in the ID from the class even though it is set
-        System.out.println("IIDt" + ID);
-
-        Event event = new Event(ID);
-        System.out.println("IECe"+event);
-
-
-        eventBar.setFill(Color.valueOf(event.getColour()));
-        eventTitle.setText(event.getTitleField());
-        descriptionField.setText(event.getDescriptionField());
-        startTimeValue.setText(String.valueOf(event.getStart()));
-        endTimeValue.setText(event.getEnd());
-        privacySetting.setText(event.getPrivacy());
-        repeatValue.setText(event.getRepeat());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        date.setText(event.getDate());
-
-        if (event.getThirty() == "true"){
-            thirty.setText("30 minutes before");
-        } else { thirty.setText(""); }
-
-        if (event.getHour() == "true"){
-            hour.setText("1 hour before");
-        } else { hour.setText(""); }
-
-        if (event.getDay() == "true"){
-            day.setText("1 day before");
-        } else { day.setText(""); }
-
-        if (event.getWeek() == "true"){
-            week.setText("1 week before");
-        } else { week.setText(""); }
-    }
 
     public void delete(){
         // get event id and remove the information from the database
@@ -141,11 +100,87 @@ public class EventController {
         stage.close();
     }
 
+
+    /*#################################################################
+    #
+    #
+    #   this is the problematic portion
+    #
+    #
+     */
+    public void initialize(){
+
+
+                // prove that it is taking the ID value but making it null
+        System.out.println("Value of ID inside the initialize() method: " + ID);
+
+        try {
+            Event event = new Event(ID); // <- if you hardcode the ID value it will create the proper event and display properly
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+                //this will hardcode the window to open with the title being "title"
+        /*eventTitle.setText("title");*/
+
+
+
+                // this is the portion of code that should draw the correct values however because the ID is null it will always create event with ID 0
+                // uncommenting this will cause it to draw the window according to the current ID being passed
+        /*eventBar.setFill(Color.valueOf(event.getColour()));
+        eventTitle.setText(event.getTitleField());
+        descriptionField.setText(event.getDescriptionField());
+        startTimeValue.setText(String.valueOf(event.getStart()));
+        endTimeValue.setText(event.getEnd());
+        privacySetting.setText(event.getPrivacy());
+        repeatValue.setText(event.getRepeat());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+        date.setText(event.getDate());
+
+        if (event.getThirty() == "true"){
+            thirty.setText("30 minutes before");
+        } else { thirty.setText(""); }
+
+        if (event.getHour() == "true"){
+            hour.setText("1 hour before");
+        } else { hour.setText(""); }
+
+        if (event.getDay() == "true"){
+            day.setText("1 day before");
+        } else { day.setText(""); }
+
+        if (event.getWeek() == "true"){
+            week.setText("1 week before");
+        } else { week.setText(""); }*/
+    }
+
+    /*
+    #
+    #
+    #   End of problematic portion
+    #
+    #
+    ##################################################################*/
+
+
+
+
+
     // create and open a new window
     public void start() throws Exception{
+        // not taking in the ID from the class even though it is set
+        System.out.println("IIDt" + ID);
+
+        Event event = new Event(ID);
+        System.out.println("IECe"+event);
+
+        String title = event.getTitleField();
+        System.out.println(title);
 
 
-        GridPane grid = FXMLLoader.load(getClass().getResource("event.fxml"));
+
+        GridPane grid = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/newEvent.fxml"));
         grid.getStylesheets().add("StyleSheets/event.css");
 
         Stage eventStage = new Stage();
@@ -156,4 +191,7 @@ public class EventController {
 
         eventStage.show();
     }
+
+
+
 }
