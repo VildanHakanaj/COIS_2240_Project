@@ -28,8 +28,6 @@ public class CalenderPaneController {
     private static Scene scene;             // Assumes only 1 calendar window at any given time (Should be true regardless).
     private static AnchorPane layout;
 
-
-
     private java.util.Date date;            // Used to get current month and year.
     private int selectedYear, selectedMonth;
 
