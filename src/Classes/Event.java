@@ -22,12 +22,16 @@ public class Event {
     private int start;
     private String end;
     private int ID;
-    private String getStrt;
+    public String getStrt;
 
     public Event() {
 
     }
 
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
 
     public Event(int ID)

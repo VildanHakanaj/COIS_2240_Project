@@ -158,8 +158,11 @@ public class DayPaneController {
 
                 // add button to screen at column equal to their index, and row equal to their start time
                 btArr[i] = (button);
-                gride.add(btArr[i], i, bt.getStart());
 
+                // check for fringe case if user does not set initial time
+                if (bt.getStrt().equals("12AM")){
+                    gride.add(btArr[i], i, 0);
+                } else { gride.add(btArr[i], i, bt.getStart()); }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -180,7 +183,7 @@ public class DayPaneController {
 
     // open NewEventPane and pass it the current date
     public void create(){
-        NewEventController newEventController = new NewEventController(date.getValue());
+        NewEventController newEventController = new NewEventController(date.getValue(), this);
         try {
             newEventController.start();
         } catch (Exception e) {
