@@ -101,14 +101,15 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+    //The signup
     public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();
         //Grab the values from the form
         Hashtable user = new Hashtable();
-        user.put("name",name.getText());
-        user.put("email",email.getText());
-        user.put("uid",username2.getText());
-        user.put("pwd",password2.getText());
+        user.put("name", name.getText());
+        user.put("email", email.getText());
+        user.put("uid", username2.getText());
+        user.put("pwd", password2.getText());
 
         Hashtable<String, String> errors = validator.validateNewUser(user);
 
