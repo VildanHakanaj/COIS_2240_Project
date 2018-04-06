@@ -1,5 +1,6 @@
 package Controllers;
 
+import Classes.Database;
 import Classes.Event;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ public class DayPaneController {
 
     NewEventController newEventController = new NewEventController();
     EventController eventController = new EventController();
+    private Database db = new Database();
 
     @FXML
     public GridPane gride;
@@ -45,6 +47,9 @@ public class DayPaneController {
 
     @FXML
     private DatePicker date;
+
+    public DayPaneController() throws SQLException {
+    }
 
     // initialize datePicker date and title
     public void initialize(){
@@ -107,6 +112,7 @@ public class DayPaneController {
         id = new int[size];
 
         try {
+            db.connect();
             String url = "jdbc:sqlite:src/data.db";
             Connection conn = DriverManager.getConnection(url);
 
@@ -168,7 +174,8 @@ public class DayPaneController {
                 gride.add(btArr[i], i, bt.getStart());
 
             }
-
+            //Close the connection
+            db.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }

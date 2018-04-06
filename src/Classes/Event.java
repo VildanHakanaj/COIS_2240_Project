@@ -34,6 +34,8 @@ public class Event {
         this.ID = ID;
     }
 
+    //There is bug with this code.
+    //Result set will return a
     //This will pull the event from the database;
     public Event(int ID) throws SQLException {
         try {
