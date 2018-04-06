@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         try {
-            dayPaneController.start();
+            calenderPaneController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }

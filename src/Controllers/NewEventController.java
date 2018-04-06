@@ -165,14 +165,11 @@ public class NewEventController {
     // initialize and open a new window
     public void start() throws Exception {
 
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/newEvent.fxml"));
 
         loader.setController(this);
 
         GridPane grid = loader.load();
-
-
 
         grid.getStylesheets().add("Stylesheets/event.css");
 

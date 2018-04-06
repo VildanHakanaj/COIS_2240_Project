@@ -71,7 +71,8 @@ public class DayPaneController {
         Stage eventStage = new Stage();
 
 
-        eventStage.initStyle(StageStyle.UNDECORATED);
+        // eventStage.initStyle(StageStyle.UNDECORATED);
+        eventStage.setResizable(false);
         eventStage.setTitle("Day Pane");
         eventStage.setScene(new Scene(root));
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));

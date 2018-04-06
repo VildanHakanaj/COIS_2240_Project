@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -12,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 
 public class CalenderPaneController {
 
@@ -25,6 +27,8 @@ public class CalenderPaneController {
     private static Stage window;            // Static values allow handlers to close THE window.
     private static Scene scene;             // Assumes only 1 calendar window at any given time (Should be true regardless).
     private static AnchorPane layout;
+
+
 
     private java.util.Date date;            // Used to get current month and year.
     private int selectedYear, selectedMonth;
@@ -98,10 +102,39 @@ public class CalenderPaneController {
     // Returns:     void
     public void dayBoxHandler(MouseEvent event) {
         int row, col;
+        int dayNum, month, year;
         String source = event.getSource().toString();
         row = getDayBoxRow(source);
         col = getDayBoxCol(source);
         System.out.println("Pos: " + row + ", " + col);
+        // Get the values pertaining to the day at the box.
+        dayNum = this.dayBoxNums[row - 1][col - 1];
+        if (this.dayIsPartOfCurrentMonth[row - 1][col - 1]) {
+            System.out.println("Flag");
+            month = this.selectedMonth;
+            year = this.selectedYear;
+        } else {
+            if (row == 1) {                     // Previous month from the selected month
+                if (this.selectedMonth == 1) {
+                    month = 12;
+                    year = this.selectedYear - 1;
+                } else {
+                    month = this.selectedMonth - 1;
+                    year = this.selectedYear;
+                }
+            } else {                            // Next month from the selected month.
+                if (this.selectedMonth == 12) {
+                    month = 1;
+                    year = this.selectedYear + 1;
+                } else {
+                    month = this.selectedMonth + 1;
+                    year = this.selectedYear;
+                }
+            }
+        }
+        System.out.println(dayNum + " " + Month.values()[month].toString() + " " + year);
+
+        LocalDate clickedDate = LocalDate.of(year, month, dayNum);
     }
 
     // Method Name: switchToDayPane
