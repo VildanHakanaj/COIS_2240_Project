@@ -76,9 +76,12 @@ public class NewEventController {
     // global variable to hold date passed to NewEventController
     private LocalDate currentDate;
 
+    private DayPaneController dayPaneController;
+
     // constructor to set currentDate to date that was passed
-    public NewEventController(LocalDate currentDate){
+    public NewEventController(LocalDate currentDate, DayPaneController dayPaneController){
         this.currentDate = currentDate;
+        this.dayPaneController = dayPaneController;
     }
 
     // cancel creating an event and remove all fields
@@ -203,13 +206,17 @@ public class NewEventController {
             System.out.println(privacyField.getValue());
             System.out.println(repeatsField.getValue());
             if (thirty.isSelected()) {
-                System.out.println("Reminder 30");
-            } if (hour.isSelected()) {
-                System.out.println("Reminder hour");
-            } if (day.isSelected()) {
-                System.out.println("Reminder day");
-            } if (week.isSelected()) {
-                System.out.println("Reminder week");}
+                thirty.setText("Thirty minutes before");
+            } else thirty.setText("");
+            if (hour.isSelected()) {
+                hour.setText("Hour before");
+            } else hour.setText("");
+            if (day.isSelected()) {
+                day.setText("Day before");
+            } else day.setText("");
+            if (week.isSelected()) {
+                week.setText("Week before");
+            } else week.setText("");
 
             // format colorPicker value to work with event bar when pulling out of database
             System.out.println(colorPicker.getValue());
@@ -239,12 +246,13 @@ public class NewEventController {
                 statement.close();
                 conn.close();
             } catch (SQLException e) {
-
                 System.out.println("Something went wrong: " + e.getMessage());
             }
             Stage stage = (Stage) btConfirm.getScene().getWindow();
             stage.close();
-            System.out.println("Confirm button pressed");
+
+            // update current view
+            dayPaneController.updateDate();
         }
     }
 }
