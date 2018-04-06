@@ -77,8 +77,27 @@ public class LoginController {
 
     public void login() throws SQLException {
         //Validator
+//        Hashtable<String, String> event = new Hashtable<String, String>();
+//        event.put("uid", "3");
+//        event.put("Title", "Event 1");
+//        event.put("Date", "2018-04-05");
+//        event.put("Duration", "15");
+//        event.put("Description", "This is a description");
+//        event.put("", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        event.put("uid", "3");
+//        db.insertEvent();
         MyValidation validator = new MyValidation();
-
         //I used a hashtable because of the easy storage and the ability of key value pair
         Hashtable<String, String> user = new Hashtable<String, String>();
 
