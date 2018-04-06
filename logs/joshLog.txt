@@ -1,0 +1,233 @@
+commit ac847fcdbffae727604e32977bf8de0263958a5c
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Fri Apr 6 17:15:14 2018 -0400
+
+    - Pushing some things that might have been left out in the last push
+
+commit 2a7af7488082d50a11ce7276f2720e4540706ea9
+Merge: 1c261a7 95866c9
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Fri Apr 6 17:11:13 2018 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 1c261a70c9bed8b4f371d5de5252c08e848e9cdb
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Fri Apr 6 17:05:58 2018 -0400
+
+    - Made some final changes to the state chart diagram.
+    - Added exiting program to the Login Sequence Diagram.
+    - Added missing step to the DayPane UML PDF file.
+    - Added the following descriptions to the group report:
+            - StateChart.
+            - All 3 sequence diagrams.
+
+commit d811df7a24494be2ae6eafd943404e0ee211cde5
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Fri Apr 6 13:41:13 2018 -0400
+
+    - Added opening calendar view on login and signup
+
+commit 893fd4f7c3b93467ae946fa55541e6a606b881dd
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Fri Apr 6 13:24:45 2018 -0400
+
+    - Deleted duplicate UML Class Diagram PDF file.
+    - Added Updated State Chart Diagram PDF file.
+    - Re-Added UML Sequence Diagram (Login View) PDF file.
+    - Added UML Sequence Diagram (Calendar View) PDF file.
+    - Added UML Sequence Diagram (DayPane View & Events) PDF file.
+    - Put all UML Diagrams together in their own folder.
+
+commit 7e7651db7c1e7e3797eefb9cfa60382fe910e396
+Merge: 4b3d85e 05fa8b0
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 20:48:07 2018 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+    # Conflicts:
+    #       .idea/workspace.xml
+    #       src/Controllers/NewEventController.java
+    #       src/Main.java
+    #       src/data.db
+
+commit 4b3d85e8a7a4d2b3f18ad75ec2eb9a35e8116680
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 20:27:06 2018 -0400
+
+    --amend
+
+commit 0c63554872b48df43f20462fd6b7a22290c663c0
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 20:23:55 2018 -0400
+
+    - Added a scroll bar to the day pane
+    - Changed some windows settings on dayPane
+
+commit 451d04e62582194e6d052a23903201bc9ef8d384
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 20:17:26 2018 -0400
+
+    - Added a scroll bar to the day pane
+    - Changed some windows settings on dayPane
+
+commit b3fa4edb72f14ea410304c1e57b12fcfe647f644
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 18:09:46 2018 -0400
+
+    - Added a scroll bar to the day pane
+
+commit 11088d2eb90e8afbce99e26278aa18d0e227c30d
+Merge: 1576efd 2b4c4e6
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 17:09:39 2018 -0400
+
+    - Merged my branch
+    - Added calender pane
+
+commit 1576efd29906ca259a20ff1df64a23497c1454d9 (origin/LocalCalenderBranch)
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Thu Apr 5 16:08:58 2018 -0400
+
+    - minor changes
+
+commit 6a759a6dbff9ff8a7b3c124a9fe189bd3d9fa02a
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 23:02:31 2018 -0400
+
+    - Fixed some minor bugs
+
+commit 4de80fa04b4f665720f746a71919ef5dce274ef7
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 20:50:39 2018 -0400
+
+    - Cleaned up the scene layout
+    - Added anchor panes with borders to labels for aesthetics.
+
+commit ff6b212ba8644b5c5d83669c133f90bbb90b7e2b
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 20:05:35 2018 -0400
+
+    - Added a section to the dayBoxcolour method to make the current day blue.
+    - Changed some colours on the scene
+    - Slightly changed the orientation of the scene
+
+commit 5663fff429203784806f58d8306ffacf474186dd
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 11:45:00 2018 -0400
+
+    - cleaned up some imports
+
+commit e25f697d316ed59ece6c6cf220aa7e1fe7c28500
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 11:38:09 2018 -0400
+
+    - tidied up a bit
+
+commit a9a660b965e501d654d2be0e7f4b86864ba2eee2
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 11:37:21 2018 -0400
+
+    - Added dynamic colouring of the dayBoxes for "on" and "off" days
+
+commit cdace4134d593be1b6b91e04ae75f116bd7cf313
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 10:42:50 2018 -0400
+
+    - Cleaned up the CalenderPaneController a bit
+    - General commenting
+
+commit 2a06202574f21b1f559ed9e5300480e7238e12ca
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Wed Apr 4 02:35:05 2018 -0400
+
+    - Added new row of dayBoxs in the fxml file.
+    - Added a methods to dynamically assign number values to each day box
+      based on the day of the week.
+    - Added methods to deal with switching the view to prev and next months.
+    - Combined month and year labels for aesthetic purposes.
+    - Added method to change all lbls (boxNums) to current months numbers.
+    - Added method to update all of the scene stuff for both init and prev/next month buttons.
+
+commit f82a3b1c12783356a25f4b45d601b98e84e0affc
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Tue Apr 3 18:59:17 2018 -0400
+
+    - Added method for dynamically calculating days in month given year (considers leap years).
+    - Added enums WeekDay and Month
+    - Added bar at top of pane for moving/closing window (resizable = false)
+    - Added various class methods/variables for date operations.
+    - Added two buttons for moving between months.
+    - Comments, etc
+
+commit 816fb7fa7dd8b945ce55bd5b11bd5300fee43176
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Tue Apr 3 16:56:18 2018 -0400
+
+    - Added button and handler to switch to the dayPane
+    - Added handler for clicking on day a dayBox
+    - Added methods to find col/row of dayBox
+    - Added label to scene
+    - Added a lot of commenting
+
+commit 2c2b7cbb7f7824eefe49f9c0d45cbb6854a80dbe
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Tue Apr 3 15:04:04 2018 -0400
+
+    - Added button and handler to switch to the dayPane
+
+commit 8291aa970edcade2b59df57aeb12e48d10cd5d6a
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 19:35:08 2018 -0400
+
+    - Add state chart diagram for the project
+         - will update and re-upload later
+
+commit 32a76736191611026eadcce24892b29bbca9013f (origin/Base)
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 19:23:31 2018 -0400
+
+    - Added folder for UML Diagrams
+    - Added Sequence Diagram for loginPane
+
+commit f0e1e81c7410b99d9013ed70d6e73e7c0c5333ea
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 19:05:16 2018 -0400
+
+    - Added CalenderPaneController.java
+         - Opens properly, no real functionality yet.
+    - Added calenderPane.fxml
+    - Added 1 instance of CalenderPaneController.java within main method.
+
+commit 29586233f7cfd0cff6b529d53c4b520c3e858fdd
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 19:04:11 2018 -0400
+
+    - Added CalenderPaneController.java
+         - Opens properly, no real functionality yet.
+    - Added calenderPane.fxml
+    - Added 1 instance of CalenderPaneController.java within main method.
+
+commit 127816bf5737af9f30d5cd32f3ad3a88d3aabc0e
+Merge: f467e91 bbf8c54
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 18:59:48 2018 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+    # Conflicts:
+    #       .idea/workspace.xml
+    #       out/production/Agenda/Controllers/DayPaneController$1.class
+    #       out/production/Agenda/Controllers/DayPaneController.class
+    #       out/production/Agenda/data.db
+    #       src/data.db
+
+commit f467e9113ba143f8ac85f9dd675e9fc4703ad908
+Author: Joshua <joshuacroft@trentu.ca>
+Date:   Mon Apr 2 18:58:23 2018 -0400
+
+     - Added CalenderPanecontroller.java
+           - Opens but is not yet functional.
+     - Added calenderPane.fxml
+     - Added 1 line in main for an instance of CalenderPaneController.

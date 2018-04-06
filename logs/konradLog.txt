@@ -1,0 +1,247 @@
+commit ce7e37b9a1747e9e17fc1186c9d26c46db1e9dd3
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 17:42:36 2018 -0400
+
+    Generated initial JAR
+
+    Removed runtime error
+
+commit beec1a76a71fdea288a81e2f855b6ae21afb8e12
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 17:31:26 2018 -0400
+
+    Removed existing duplicate project report
+
+commit ab21deab7deb41dc270ffc560b9830e711ea3334
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 17:24:52 2018 -0400
+
+    Typo
+
+commit e35b797b625ee8dfdcd62bf31076e92fd675b596
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 17:21:37 2018 -0400
+
+    Uploaded intial README
+
+commit bf85db9df60c187e8615477615dca9336b58375e
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 16:37:58 2018 -0400
+
+    Changed font in project report
+
+commit 2a810506a148e22348159e124c7414a23c024006
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Apr 6 16:36:14 2018 -0400
+
+    Uploading testing screenshots
+
+commit c8efd8e0c23e851e23d3b77f667ffec96fef91a8 (origin/Commenting)
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 23:17:27 2018 -0400
+
+    Deleting event now updates dayPane
+
+commit 1f7dae1b1b10b69c7fbc63696d29c5916ce69f43
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 23:09:08 2018 -0400
+
+    New event controller updated
+
+    Josh's merge pushed an older version of this file
+
+commit 6d180de7f6e1b1d67a13dda065d6107310056a5c
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 23:07:38 2018 -0400
+
+    Fixed a fringe case error
+
+    If the user did not initialize the time, it would start at 12pm instead of 12am
+
+commit 0e09aba26edddda3fe68d6d40bce97fe9d21c844
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 22:10:01 2018 -0400
+
+    First working version of the app
+
+commit 989866da964f8947d3ba07fbafc788e97da47416
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 20:07:36 2018 -0400
+
+    Bug patched
+
+    Event pane will now display the correct information
+
+commit cc6b3840c93f031add49e0aaaa50459f8afab55c
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 18:58:08 2018 -0400
+
+    Updated extra file
+
+    Forgot to commit removing the controller file from the FXML file
+
+commit 00b3566b3fbc632f86544ba950edda5022a4cdb4
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Apr 5 18:48:24 2018 -0400
+
+    DayPane now updates on creation of event
+
+    NewEvent.fxml
+     - Remove controller declaration
+
+    DayPaneController
+     - Passes NewEventController constructor itself
+
+    NewEventController
+     - Declares fxml controller to itself
+     - Takes DayPaneController instance
+     - Opens and closes database before updateDate is called
+     - Calls updateDate on confirm button press
+
+commit 2b4c4e60ee616fa112d6817a4fed319c6d5ca3d6
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Wed Apr 4 11:35:02 2018 -0400
+
+    removed duplicate event fxml file
+
+commit 739bb130281997e21d83975cfede2a9815abfffd (origin/CalenderPaneBranch)
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Mon Apr 2 19:47:46 2018 -0400
+
+    Removed lib folder, it is redundant
+
+commit a0410118b979b528c593c9282fbc41d20ad63ca0
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Mon Apr 2 19:39:13 2018 -0400
+
+    Default
+
+    The default working branch
+    - Base version of the program
+    - Most stable, use this and build off of it
+    - Commit once your branch is working properly
+
+commit bbf8c54257bf511a20452bb5db81f1fe2d7aea49
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Mon Apr 2 15:33:08 2018 -0400
+
+    Bug found
+
+    The bug is identified and I am working on a fix
+
+commit feec27e778d25121ccc0757f05fb200f979d4197
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Mon Apr 2 13:32:09 2018 -0400
+
+    Found error
+
+    Error is a null pointer in the initialize method of EventController
+    - Created a default event in the database if this error is to occur during runtime
+    - Need to pass the ID in the instantiated EventController in the day pane into the initialize method
+
+commit 077311c3ff390efc8166eecb93975513424816e3
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Sun Apr 1 04:31:48 2018 -0400
+
+    1 last thing
+
+    Everything is working properly however the result set being generated in the DayPaneController is not returning anything and I cannot figure out why
+
+commit cb2c120d118ef15368cb4ed70bec23182bc6f1f3
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Sat Mar 31 02:28:28 2018 -0400
+
+    Almost done
+
+    Boxes are now properly generated
+
+    All that is left to do is to open an event window after passing it the appropriate ID when an event button is pressed
+
+commit 1a512eb8fe22e3250705a5a917ad25896b8f8359
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Fri Mar 30 16:51:29 2018 -0400
+
+    Login complete
+
+    Finished login system, users can create an account, or log into an existing account. The window prompts errors if the user does something wrong like invalid email, wrong password, or empty field
+
+    Found a bug when loading the eventPane, so my next mission is to get the boxes to draw on the dayPane automatically. I created a new class and just commented what it should do in order to do this
+
+commit 9c4a560f552a712dcc80df188f88f74577c97d5c
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Fri Mar 30 15:59:47 2018 -0400
+
+    Signup
+
+    Signup tab now checks all fields and stores account values in database when there are no errors
+
+commit df117c637d4cdbd11a54d3f365e07bf6c0bd1df3
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Fri Mar 30 09:10:39 2018 -0400
+
+    Finished my part of the database
+
+    I got tired of waiting for my group to do the database so I learned it and did my part for myself.
+
+    Now all I need to do is create buttons on the appropriate dates corresponding to the events. But I just pulled an all nighter and I'm tired.
+
+commit 264f527760ac85d002b4dfcfcb4159d8194438a2
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Fri Mar 30 03:26:19 2018 -0400
+
+    Database
+
+    Integrated a database into the back
+
+    All that's left for me is to display the events and make them interacteable
+
+    All that's left for Ani is to do his user system
+
+commit f9bb2051a995e4da96067412db62239a131ab3f3
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Mar 29 21:06:03 2018 -0400
+
+    Integrated
+
+    Integrated the login pane with the rest of the working project
+
+    Created css style sheet for styling that was done
+
+    Updated login controller to allow input to be taken out of text and password fields
+
+commit 980ef3451237426fe5f63031db05563f6d60672d
+Merge: 7593437 a7df4b7
+Author: konradbartlett@trentu.ca <konradbartlett@trentu.ca>
+Date:   Thu Mar 29 16:44:51 2018 -0400
+
+    Merge branch 'master' of https://github.com/VildanHakanaj/COIS_2240_Project
+
+commit 7593437f49bff81be735013d383ee122c6d8c422
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Thu Mar 29 16:03:49 2018 -0400
+
+    garbage
+
+commit 4a778d2d5d1b47786a53bde1e1889958c6a73c69
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Sat Mar 17 15:56:06 2018 -0400
+
+    Created Day Pane
+
+    Created an unstyled day view pane
+    - the date at the top will be whatever the date of the selected day is
+    - the calendar view will take a little bit of time to create because there's actual logic behind it, not just fxml editing
+
+commit 553b0c5d101fd1684e64a9b46851a67def9ce43e
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Sat Mar 17 15:15:57 2018 -0400
+
+    Added Event Pane
+
+    Adjusted NewEventPage
+    - end time value can no longer be less than start time value
+
+commit 3b97204f077c9505262a0111176f7db67daa1001
+Author: Konrad Bartlett <konradbartlett@trentu.ca>
+Date:   Fri Mar 16 22:07:23 2018 -0400
+

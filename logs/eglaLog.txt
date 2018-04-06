@@ -1,0 +1,125 @@
+commit 3c18bf5246e1b32f41f72e649f9e31441559c5d2 (HEAD -> master, origin/master)
+Merge: 28d2d73 ce7e37b
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 18:18:13 2018 -0400
+
+    merge conflict again
+
+commit 28d2d73b98e06890f099374c9d518abee654ba7e
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 18:17:25 2018 -0400
+
+    .
+
+commit 95866c9fe463d7d6431dc6b026ff47d8788d3603
+Merge: d9ef196 bf85db9
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 17:00:28 2018 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit d9ef1963a3f43ef3a91507c0f00720a6734a2959
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 16:59:57 2018 -0400
+
+    Minor changes
+
+commit e38a31ee723221531886a6582ade9b086fa96250
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 16:25:47 2018 -0400
+
+    Adde the insert event function
+    +This function will take a string hashtable and store the values
+    + I then cast them to the appropriate type so the code is clean and sustainable
+
+commit e30d91e98db0c05b88922bb0bdbd4be693e604b6
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 15:39:42 2018 -0400
+
+    .
+
+commit e0f56c617f929a26872d131eb69074841e623714 (origin/eventDb)
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 15:17:59 2018 -0400
+
+    Added a gitignore
+
+commit e0048185ccb53941cde83a6d9a6c78dd996c69c5
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 12:38:08 2018 -0400
+
+    Added the activity diagram description to the project report
+
+commit ae5c38c2e79d9e0c2b8f806049c0d67265ca7bd1
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 12:21:59 2018 -0400
+
+    Fineshed the ACTIVITY UML Diagram
+
+commit 87de2ce8eac4af96a0337470dd73cbb8ee81570f
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 11:37:01 2018 -0400
+
+    Added the report project
+    - Not finished version
+
+commit 19ae3034aa9c5fe2e5524088cd8f3579b47ed485
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 11:35:29 2018 -0400
+
+    remove the test file
+
+commit 19ed57f5d3740c9fc2eb822bf051ea11a25b9912
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 11:33:57 2018 -0400
+
+    test file
+
+commit 80252efaf811764dcebc3c6a2edc600738fd7a25
+Merge: f696e23 d350d6c
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 11:20:48 2018 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit d350d6cb4712199a9517c357487b306e9f6ae52a
+Author: eglanura <35471367+eglanura@users.noreply.github.com>
+Date:   Fri Apr 6 11:15:18 2018 -0400
+
+    Query
+
+    This contains all the queries used in the  Database:
+    - You can edit the code easily in case you need to change the queries.
+    - You can add queries to this file so we know what we have used
+
+commit f696e23f5e3d63ad1426a9be24c50a294a4f1bcb
+Author: Egla Nura <eglanura@trentu.ca>
+Date:   Fri Apr 6 11:08:58 2018 -0400
+
+    Added the query file
+
+commit de637996a94fcb6e4141608ef41bdc15b0ab3eb4
+Author: eglanura <35471367+eglanura@users.noreply.github.com>
+Date:   Thu Apr 5 21:00:48 2018 -0400
+
+    the good version
+
+commit f5c0c478a316f9a3933131cdb5c1e272b03a88d8
+Author: eglanura <35471367+eglanura@users.noreply.github.com>
+Date:   Thu Apr 5 20:59:35 2018 -0400
+
+    deleted had to change some stuff
+
+commit 05fa8b0e556c5fa4b1f7c5921b371372da98c2f7
+Author: eglanura <35471367+eglanura@users.noreply.github.com>
+Date:   Thu Apr 5 20:12:40 2018 -0400
+
+    uml diagram fixed
+
+    updated
+
+commit 568bb4746e392cef59a9865638649d159ad0948f
+Author: eglanura <35471367+eglanura@users.noreply.github.com>
+Date:   Thu Apr 5 19:51:03 2018 -0400
+
+    uml class diagram

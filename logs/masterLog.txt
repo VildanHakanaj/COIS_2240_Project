@@ -1,0 +1,240 @@
+| * ac847fc - (75 minutes ago) - Pushing some things that might have been left out in the last push - Joshua
+| *   2a7af74 - (79 minutes ago) Merge remote-tracking branch 'origin/master' - Joshua
+| |\
+| * | 1c261a7 - (84 minutes ago) - Made some final changes to the state chart diagram. - Added exiting program to the Login Sequence Diagram. - Added missing step to the DayPane UML PDF file. - Added the following descriptions to the group report:         - StateChart.   - All 3 sequence diagrams. - Joshua
+* | | 28d2d73 - (13 minutes ago) . - Egla Nura
+| |/
+|/|
+| | * b2206ef - (15 minutes ago) Added some styling to the newEvent - Egla Nura (origin/style, style)
+| | * 6c2f311 - (80 minutes ago) Added the css file - Egla Nura
+| | * 65d526e - (82 minutes ago) This branch will have all the stylesheet - Egla Nura
+| |/
+|/|
+* |   95866c9 - (2 hours ago) Merge remote-tracking branch 'origin/master' - Egla Nura
+|\ \
+| * | bf85db9 - (2 hours ago) Changed font in project report - Konrad Bartlett
+| * | 2a81050 - (2 hours ago) Uploading testing screenshots - Konrad Bartlett
+* | | d9ef196 - (2 hours ago) Minor changes - Egla Nura
+|/ /
+* | e38a31e - (2 hours ago) Adde the insert event function +This function will take a string hashtable and store the values + I then cast them to the appropriate type so the code is clean and sustainable - Egla Nura
+* | e30d91e - (3 hours ago) . - Egla Nura
+* | e0f56c6 - (3 hours ago) Added a gitignore - Egla Nura (origin/eventDb)
+|/
+* d811df7 - (5 hours ago) - Added opening calendar view on login and signup - Joshua
+* 893fd4f - (5 hours ago) - Deleted duplicate UML Class Diagram PDF file. - Added Updated State Chart Diagram PDF file. - Re-Added UML Sequence Diagram (Login View) PDF file. - Added UML Sequence Diagram (Calendar View) PDF file. - Added UML Sequence Diagram (DayPane View & Events) PDF file. - Put all UML Diagrams together in their own folder. - Joshua
+* e004818 - (6 hours ago) Added the activity diagram description to the project report - Egla Nura
+* ae5c38c - (6 hours ago) Fineshed the ACTIVITY UML Diagram - Egla Nura
+* 87de2ce - (7 hours ago) Added the report project - Not finished version - Egla Nura
+* 19ae303 - (7 hours ago) remove the test file - Egla Nura
+* 19ed57f - (7 hours ago) test file - Egla Nura
+*   80252ef - (7 hours ago) Merge remote-tracking branch 'origin/master' - Egla Nura
+|\
+| * d350d6c - (7 hours ago) Query - eglanura
+* | f696e23 - (7 hours ago) Added the query file - Egla Nura
+|/
+* c7e09c7 - (14 hours ago) Added comments - Vildan Hakanaj
+*   06392fe - (15 hours ago) Merge conflict - Vildan Hakanaj
+|\
+| * 8c4afcb - (16 hours ago) Finished the database class - Vildan Hakanaj (origin/loginValidation)
+| * 3d22147 - (20 hours ago) reset - Vildan Hakanaj
+| *   6d16b9e - (20 hours ago) clear - Vildan Hakanaj
+| |\
+eglan@Egla-Nura:~/Desktop/Project (master *)$ claer
+bash: claer: command not found
+eglan@Egla-Nura:~/Desktop/Project (master *)$ clear
+eglan@Egla-Nura:~/Desktop/Project (master *)$ git lg2
+*   3c18bf5 - Fri, 6 Apr 2018 18:18:13 -0400 (12 minutes ago) (HEAD -> master, origin/master)
+|\            merge conflict again - Egla Nura
+| * ce7e37b - Fri, 6 Apr 2018 17:42:36 -0400 (48 minutes ago)
+| |           Generated initial JAR - Konrad Bartlett
+| * beec1a7 - Fri, 6 Apr 2018 17:31:26 -0400 (59 minutes ago)
+| |           Removed existing duplicate project report - Konrad Bartlett
+| * ab21dea - Fri, 6 Apr 2018 17:24:52 -0400 (65 minutes ago)
+| |           Typo - Konrad Bartlett
+| * e35b797 - Fri, 6 Apr 2018 17:21:37 -0400 (69 minutes ago)
+| |           Uploaded intial README - Konrad Bartlett
+| * ac847fc - Fri, 6 Apr 2018 17:15:14 -0400 (75 minutes ago)
+| |           - Pushing some things that might have been left out in the last push - Joshua
+| *   2a7af74 - Fri, 6 Apr 2018 17:11:13 -0400 (79 minutes ago)
+| |\            Merge remote-tracking branch 'origin/master' - Joshua
+| * | 1c261a7 - Fri, 6 Apr 2018 17:05:58 -0400 (84 minutes ago)
+| | |           - Made some final changes to the state chart diagram. - Added exiting program to the Login Sequence Diagram. - Added missing step to the DayPane UML PDF file. - Added the following descriptions to the group report:  - StateChart.   - All 3 sequence diagrams. - Joshua
+* | | 28d2d73 - Fri, 6 Apr 2018 18:17:25 -0400 (13 minutes ago)
+| |/            . - Egla Nura
+|/|
+| | * b2206ef - Fri, 6 Apr 2018 18:14:37 -0400 (16 minutes ago) (origin/style, style)
+| | |           Added some styling to the newEvent - Egla Nura
+| | * 6c2f311 - Fri, 6 Apr 2018 17:10:08 -0400 (80 minutes ago)
+| | |           Added the css file - Egla Nura
+| | * 65d526e - Fri, 6 Apr 2018 17:07:55 -0400 (82 minutes ago)
+| |/            This branch will have all the stylesheet - Egla Nura
+|/|
+* |   95866c9 - Fri, 6 Apr 2018 17:00:28 -0400 (2 hours ago)
+|\ \            Merge remote-tracking branch 'origin/master' - Egla Nura
+| * | bf85db9 - Fri, 6 Apr 2018 16:37:58 -0400 (2 hours ago)
+| | |           Changed font in project report - Konrad Bartlett
+| * | 2a81050 - Fri, 6 Apr 2018 16:36:14 -0400 (2 hours ago)
+| | |           Uploading testing screenshots - Konrad Bartlett
+* | | d9ef196 - Fri, 6 Apr 2018 16:59:57 -0400 (2 hours ago)
+|/ /            Minor changes - Egla Nura
+* | e38a31e - Fri, 6 Apr 2018 16:25:47 -0400 (2 hours ago)
+| |           Adde the insert event function +This function will take a string hashtable and store the values + I then cast them to the appropriate type so the code is clean and sustainable - Egla Nura
+* | e30d91e - Fri, 6 Apr 2018 15:39:42 -0400 (3 hours ago)
+| |           . - Egla Nura
+* | e0f56c6 - Fri, 6 Apr 2018 15:17:59 -0400 (3 hours ago) (origin/eventDb)
+|/            Added a gitignore - Egla Nura
+* d811df7 - Fri, 6 Apr 2018 13:41:13 -0400 (5 hours ago)
+|           - Added opening calendar view on login and signup - Joshua
+* 893fd4f - Fri, 6 Apr 2018 13:24:45 -0400 (5 hours ago)
+|           - Deleted duplicate UML Class Diagram PDF file. - Added Updated State Chart Diagram PDF file. - Re-Added UML Sequence Diagram (Login View) PDF file. - Added UML Sequence Diagram (Calendar View) PDF file. - Added UML Sequence Diagram (DayPane View & Events) PDF file. - Put all UML Diagrams together in their own folder. - Joshua
+* e004818 - Fri, 6 Apr 2018 12:38:08 -0400 (6 hours ago)
+|           Added the activity diagram description to the project report - Egla Nura
+* ae5c38c - Fri, 6 Apr 2018 12:21:59 -0400 (6 hours ago)
+|           Fineshed the ACTIVITY UML Diagram - Egla Nura
+* 87de2ce - Fri, 6 Apr 2018 11:37:01 -0400 (7 hours ago)
+|           Added the report project - Not finished version - Egla Nura
+* 19ae303 - Fri, 6 Apr 2018 11:35:29 -0400 (7 hours ago)
+|           remove the test file - Egla Nura
+* 19ed57f - Fri, 6 Apr 2018 11:33:57 -0400 (7 hours ago)
+|           test file - Egla Nura
+*   80252ef - Fri, 6 Apr 2018 11:20:48 -0400 (7 hours ago)
+|\            Merge remote-tracking branch 'origin/master' - Egla Nura
+| * d350d6c - Fri, 6 Apr 2018 11:15:18 -0400 (7 hours ago)
+| |           Query - eglanura
+* | f696e23 - Fri, 6 Apr 2018 11:08:58 -0400 (7 hours ago)
+|/            Added the query file - Egla Nura
+* c7e09c7 - Fri, 6 Apr 2018 04:39:50 -0400 (14 hours ago)
+|           Added comments - Vildan Hakanaj
+*   06392fe - Fri, 6 Apr 2018 03:06:38 -0400 (15 hours ago)
+|\            Merge conflict - Vildan Hakanaj
+| * 8c4afcb - Fri, 6 Apr 2018 02:38:45 -0400 (16 hours ago) (origin/loginValidation)
+| |           Finished the database class - Vildan Hakanaj
+| * 3d22147 - Thu, 5 Apr 2018 22:42:09 -0400 (20 hours ago)
+| |           reset - Vildan Hakanaj
+| *   6d16b9e - Thu, 5 Apr 2018 22:33:16 -0400 (20 hours ago)
+| |\            clear - Vildan Hakanaj
+| | *   c5c48d4 - Thu, 5 Apr 2018 22:24:19 -0400 (20 hours ago)
+| | |\            fixed merge conflict - Vildan Hakanaj
+| | * | c5de4bf - Thu, 5 Apr 2018 22:20:25 -0400 (20 hours ago)
+| | | |           --amend - Vildan Hakanaj
+| | * | 12c2db3 - Thu, 5 Apr 2018 22:18:59 -0400 (20 hours ago)
+| | | |           Deleted the f*@ workspace.xml file - Vildan Hakanaj
+| | * | e17850d - Thu, 5 Apr 2018 20:12:34 -0400 (22 hours ago)
+| | | |           Added the insert user method - Vildan Hakanaj
+| * | | e08bcaf - Thu, 5 Apr 2018 22:10:16 -0400 (20 hours ago)
+| | | |           --amend - Vildan Hakanaj
+| * | | 471aec1 - Thu, 5 Apr 2018 21:58:58 -0400 (21 hours ago)
+| | | |           Added some functions related to the events but there is a bug in the code im working on solving it - Vildan Hakanaj
+* | | | d467b38 - Thu, 5 Apr 2018 20:12:34 -0400 (22 hours ago)
+| | | |           Added the insert user method - Vildan Hakanaj
+* | | | c8efd8e - Thu, 5 Apr 2018 23:17:27 -0400 (19 hours ago) (origin/Commenting)
+| | | |           Deleting event now updates dayPane - konradbartlett@trentu.ca
+* | | | 1f7dae1 - Thu, 5 Apr 2018 23:09:08 -0400 (19 hours ago)
+| | | |           New event controller updated - konradbartlett@trentu.ca
+* | | | 6d180de - Thu, 5 Apr 2018 23:07:38 -0400 (19 hours ago)
+| |_|/            Fixed a fringe case error - konradbartlett@trentu.ca
+|/| |
+* | | 0e09aba - Thu, 5 Apr 2018 22:10:01 -0400 (20 hours ago)
+| | |           First working version of the app - konradbartlett@trentu.ca
+* | | de63799 - Thu, 5 Apr 2018 21:00:48 -0400 (21 hours ago)
+| | |           the good version - eglanura
+* | | f5c0c47 - Thu, 5 Apr 2018 20:59:35 -0400 (22 hours ago)
+| | |           deleted had to change some stuff - eglanura
+* | |   7e7651d - Thu, 5 Apr 2018 20:48:07 -0400 (22 hours ago)
+|\ \ \            Merge remote-tracking branch 'origin/master' - Joshua
+| * | | 05fa8b0 - Thu, 5 Apr 2018 20:12:40 -0400 (22 hours ago)
+| | |/            uml diagram fixed - eglanura
+| |/|
+| * | 989866d - Thu, 5 Apr 2018 20:07:36 -0400 (22 hours ago)
+| | |           Bug patched - konradbartlett@trentu.ca
+| * |   c327630 - Thu, 5 Apr 2018 19:51:46 -0400 (23 hours ago)
+| |\ \            Merge remote-tracking branch 'origin/master' - Vildan Hakanaj
+| | * | 568bb47 - Thu, 5 Apr 2018 19:51:03 -0400 (23 hours ago)
+| | | |           uml class diagram - eglanura
+| * | |   b4685bd - Thu, 5 Apr 2018 19:49:00 -0400 (23 hours ago)
+| |\ \ \            Fixed the merge conlict - Vildan Hakanaj
+| | | |/
+| | |/|
+| | * | 5534577 - Thu, 5 Apr 2018 19:46:13 -0400 (23 hours ago)
+| | | |           Fixed a insert user bug - Vildan Hakanaj
+| | * | 8cf613c - Thu, 5 Apr 2018 19:17:29 -0400 (23 hours ago)
+| | | |           --amend - Vildan Hakanaj
+| | * | f265375 - Thu, 5 Apr 2018 18:33:10 -0400 (24 hours ago)
+| | | |           The database is working - Vildan Hakanaj
+| | * | 5a0e5a4 - Wed, 4 Apr 2018 16:32:31 -0400 (2 days ago)
+| | | |           --amend - Vildan Hakanaj
+| | * | e723a33 - Wed, 4 Apr 2018 16:27:35 -0400 (2 days ago)
+| | | |           Almost done cleaning up the code just need to figure out a bug in the database class - Vildan Hakanaj
+| | * | 5880065 - Wed, 4 Apr 2018 13:30:25 -0400 (2 days ago)
+| | | |           fixed the validation created a selecByUsername function +fixed the validation to actually validate correctly login users +need to add a global variable to maintain the login state - Vildan Hakanaj
+| | * | afe480a - Wed, 4 Apr 2018 12:02:37 -0400 (2 days ago)
+| | | |           changed the access modifier - Vildan Hakanaj
+| | * | b3f45e4 - Wed, 4 Apr 2018 11:43:19 -0400 (2 days ago)
+| | | |           added other helpful function for thedatabse - Vildan Hakanaj
+| | * | cad4eb3 - Wed, 4 Apr 2018 11:38:44 -0400 (2 days ago)
+| | | |           added the database file with delete user function - Vildan Hakanaj
+| | * | 8520fa6 - Wed, 4 Apr 2018 11:37:38 -0400 (2 days ago)
+| | | |           added the hashing function for the passwords - Vildan Hakanaj
+| * | |   4e8293a - Thu, 5 Apr 2018 19:37:47 -0400 (23 hours ago)
+| |\ \ \            This is just test - Vildan Hakanaj
+| | | |/
+| | |/|
+| | * | cc6b384 - Thu, 5 Apr 2018 18:58:08 -0400 (24 hours ago)
+| | | |           Updated extra file - konradbartlett@trentu.ca
+| * | | 53c3b90 - Thu, 5 Apr 2018 19:25:25 -0400 (23 hours ago)
+| | |/            --amend - Vildan Hakanaj
+| |/|
+* | | 4b3d85e - Thu, 5 Apr 2018 20:27:06 -0400 (22 hours ago)
+| | |           --amend - Joshua
+* | | 0c63554 - Thu, 5 Apr 2018 20:23:55 -0400 (22 hours ago)
+| | |           - Added a scroll bar to the day pane - Changed some windows settings on dayPane - Joshua
+* | | 451d04e - Thu, 5 Apr 2018 20:17:26 -0400 (22 hours ago)
+| |/            - Added a scroll bar to the day pane - Changed some windows settings on dayPane - Joshua
+|/|
+* | 00b3566 - Thu, 5 Apr 2018 18:48:24 -0400 (24 hours ago)
+| |           DayPane now updates on creation of event - konradbartlett@trentu.ca
+* | b3fa4ed - Thu, 5 Apr 2018 18:09:46 -0400 (24 hours ago)
+| |           - Added a scroll bar to the day pane - Joshua
+* |   11088d2 - Thu, 5 Apr 2018 17:09:39 -0400 (25 hours ago)
+|\ \            - Merged my branch - Added calender pane - Joshua
+| * | 2b4c4e6 - Wed, 4 Apr 2018 11:35:02 -0400 (2 days ago)
+| | |           removed duplicate event fxml file - konradbartlett@trentu.ca
+| * | 739bb13 - Mon, 2 Apr 2018 19:47:46 -0400 (4 days ago) (origin/CalenderPaneBranch)
+| | |           Removed lib folder, it is redundant - Konrad Bartlett
+| * | a041011 - Mon, 2 Apr 2018 19:39:13 -0400 (4 days ago)
+| | |           Default - Konrad Bartlett
+* | | 1576efd - Thu, 5 Apr 2018 16:08:58 -0400 (26 hours ago) (origin/LocalCalenderBranch)
+| | |           - minor changes - Joshua
+* | | 6a759a6 - Wed, 4 Apr 2018 23:02:31 -0400 (2 days ago)
+| | |           - Fixed some minor bugs - Joshua
+* | | 4de80fa - Wed, 4 Apr 2018 20:50:39 -0400 (2 days ago)
+| | |           - Cleaned up the scene layout - Added anchor panes with borders to labels for aesthetics. - Joshua
+* | | ff6b212 - Wed, 4 Apr 2018 20:05:35 -0400 (2 days ago)
+| | |           - Added a section to the dayBoxcolour method to make the current day blue. - Changed some colours on the scene - Slightly changed the orientation of the scene - Joshua
+* | | 5663fff - Wed, 4 Apr 2018 11:45:00 -0400 (2 days ago)
+| | |           - cleaned up some imports - Joshua
+* | | e25f697 - Wed, 4 Apr 2018 11:38:09 -0400 (2 days ago)
+| | |           - tidied up a bit - Joshua
+* | | a9a660b - Wed, 4 Apr 2018 11:37:21 -0400 (2 days ago)
+| | |           - Added dynamic colouring of the dayBoxes for "on" and "off" days - Joshua
+* | | cdace41 - Wed, 4 Apr 2018 10:42:50 -0400 (2 days ago)
+| | |           - Cleaned up the CalenderPaneController a bit - General commenting - Joshua
+* | | 2a06202 - Wed, 4 Apr 2018 02:35:05 -0400 (3 days ago)
+| | |           - Added new row of dayBoxs in the fxml file. - Added a methods to dynamically assign number values to each day box   based on the day of the week. - Added methods to deal with switching the view to prev and next months. - Combined month and year labels for aesthetic purposes. - Added method to change all lbls (boxNums) to current months numbers. - Added method to update all of the scene stuff for both init and prev/next month buttons. - Joshua
+* | | f82a3b1 - Tue, 3 Apr 2018 18:59:17 -0400 (3 days ago)
+| | |           - Added method for dynamically calculating days in month given year (considers leap years). - Added enums WeekDay and Month - Added bar at top of pane for moving/closing window (resizable = false) - Added various class methods/variables for date operations. - Added two buttons for moving between months. - Comments, etc - Joshua
+* | | 816fb7f - Tue, 3 Apr 2018 16:56:18 -0400 (3 days ago)
+| | |           - Added button and handler to switch to the dayPane - Added handler for clicking on day a dayBox - Added methods to find col/row of dayBox - Added label to scene - Added a lot of commenting - Joshua
+* | | 2c2b7cb - Tue, 3 Apr 2018 15:04:04 -0400 (3 days ago)
+|/ /            - Added button and handler to switch to the dayPane - Joshua
+* | 8291aa9 - Mon, 2 Apr 2018 19:35:08 -0400 (4 days ago)
+| |           - Add state chart diagram for the project      - will update and re-upload later - Joshua
+* | 32a7673 - Mon, 2 Apr 2018 19:23:31 -0400 (4 days ago) (origin/Base)
+| |           - Added folder for UML Diagrams - Added Sequence Diagram for loginPane - Joshua
+* | f0e1e81 - Mon, 2 Apr 2018 19:05:16 -0400 (4 days ago)
+| |           - Added CalenderPaneController.java      - Opens properly, no real functionality yet. - Added calenderPane.fxml - Added 1 instance of CalenderPaneController.java within main method. - Joshua
+* | 2958623 - Mon, 2 Apr 2018 19:04:11 -0400 (4 days ago)
+| |           - Added CalenderPaneController.java      - Opens properly, no real functionality yet. - Added calenderPane.fxml - Added 1 instance of CalenderPaneController.java within main method. - Joshua
+* |   127816b - Mon, 2 Apr 2018 18:59:48 -0400 (4 days ago)
+|\ \            Merge remote-tracking branch 'origin/master' - Joshua
+| * | bbf8c54 - Mon, 2 Apr 2018 15:33:08 -0400 (4 days ago)
