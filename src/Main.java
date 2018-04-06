@@ -7,6 +7,7 @@ import javafx.application.Application;
 
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -16,6 +17,10 @@ public class Main extends Application {
     LoginController loginController = new LoginController();
     EventController eventController = new EventController();
     DayPaneController dayPaneController = new DayPaneController();
+
+    public Main() throws SQLException {
+
+    }
 
     @Override
     public void start(Stage stage) {

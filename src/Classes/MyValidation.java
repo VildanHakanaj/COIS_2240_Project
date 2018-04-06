@@ -70,7 +70,6 @@ public class MyValidation {
         return errors;
     }
 
-
     public Hashtable validateNewUser(Hashtable user) throws SQLException {
         errors.clear();
         //Get the values from the signup form
@@ -111,7 +110,6 @@ public class MyValidation {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
         return matcher.find();
     }
-
 
     //This function will hash the password that you get from the user in the signup form
     public static String hashPassword(String password) throws NoSuchAlgorithmException {

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Event {
 
     //EventController eventController = new EventController();
-
+    private Database db = new Database();
     private String titleField;
     private String date;
     private int duration;
@@ -23,8 +23,9 @@ public class Event {
     private int start;
     private String end;
     private int ID;
+    private int userId;
 
-    public Event() {
+    public Event() throws SQLException {
 
     }
 
@@ -33,31 +34,25 @@ public class Event {
         this.ID = ID;
     }
 
-
-    public Event(int ID)
-            throws SQLException {
-
-        String url = "jdbc:sqlite:src/data.db";
-        Connection conn = DriverManager.getConnection(url);
-
+    //This will pull the event from the database;
+    public Event(int ID) throws SQLException {
         try {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE ID=" + ID);
-            while (rs.next()) {
-                titleField = rs.getString("Title");
-                date = rs.getString("Date");
-                duration = rs.getInt("Duration");
-                descriptionField = rs.getString("Description");
-                privacy = rs.getString("Privacy");
-                thirty = rs.getString("Thirty");
-                hour = rs.getString("Hour");
-                day = rs.getString("Day");
-                week = rs.getString("Week");
-                repeat = rs.getString("Repeat");
-                colour = rs.getString("Colour");
-                start = rs.getInt("Start");
-                end = rs.getString("End");
-                ID = rs.getInt("ID");
+            ResultSet rs = db.selectEventById(ID);
+            while(rs.next()){
+                titleField =        rs.getString("Title");
+                date =              rs.getString("Date");
+                duration =          rs.getInt("Duration");
+                descriptionField =  rs.getString("Description");
+                privacy =           rs.getString("Privacy");
+                thirty =            rs.getString("Thirty");
+                hour =              rs.getString("Hour");
+                day =               rs.getString("Day");
+                week =              rs.getString("Week");
+                repeat =            rs.getString("Repeat");
+                colour =            rs.getString("Colour");
+                start =             rs.getInt("Start");
+                end =               rs.getString("End");
+                ID =                rs.getInt("ID");
 
                 System.out.println(titleField +"\n"+ date +"\n"+ duration +"\n"+ descriptionField
                         +"\n"+ privacy +"\n"+ thirty +"\n"+ hour +"\n"+ day +"\n"+ week +"\n"+
@@ -68,7 +63,7 @@ public class Event {
         }
     }
 
-    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) {
+    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) throws SQLException {
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;

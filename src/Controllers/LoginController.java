@@ -1,6 +1,7 @@
 package Controllers;
 
 import Classes.Database;
+import Classes.Event;
 import Classes.MyValidation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class LoginController {
 
     // Uncomment when projects are combined
     DayPaneController dayPaneController = new DayPaneController();
-    Database db = new Database();
+   private Database db = new Database();
 
     @FXML
     private Button btLogin;
@@ -84,6 +85,7 @@ public class LoginController {
 
         //Validate the login
         try {
+            Event event = new Event(1);
             //Validate the login
             Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
             //If there is noerrors then go ahead and let the user in.
@@ -104,6 +106,7 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
     public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();
         //Grab the values from the form

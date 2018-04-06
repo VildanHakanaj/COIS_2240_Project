@@ -29,13 +29,14 @@ public class Database {
 
             stm = conn.createStatement();
             stm.executeUpdate("CREATE INDEX IF NOT EXISTS `username` ON `users` ( `username` );"); //Set an index on the user table
-            stm.executeUpdate("INSERT INTO users (name, email, username, pass) VALUES ('Vildan', 'email@gmail.com', 'username', 'password')");
+//            stm.executeUpdate("INSERT INTO users (name, email, username, pass) VALUES ('Vildan', 'email@gmail.com', 'username', 'password')");
             stm.close();
+
             //Create events table if it doesn't exist
-            sql = "CREATE TABLE IF NOT EXISTS`Events` (" +
+            sql = "CREATE TABLE IF NOT EXISTS `Events` (" +
                     "`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "`fk_userID` INTEGER NOT NULL," +
-                    "`Title` NUMERIC," +
+                    "`Title` TEXT," +
                     "`Date` BLOB," +
                     "`Duration` INTEGER," +
                     "`Description` TEXT," +
@@ -78,8 +79,9 @@ public class Database {
         String sql ="INSERT INTO users (name, email, username, pass) VALUES('" + name + "', '" + email + "', '" + uid + "', '" + pwd + "');";
         stm = conn.createStatement();
         stm.executeQuery(sql);
-
+        stm.close();
         closeConnection(); //Close the connection;
+
     }
 ////    //Deletes the user
 ////    public void deleteUserAndEvents(String username) throws SQLException {
@@ -107,7 +109,34 @@ public class Database {
         conn = connect();
         stm = conn.createStatement();
         return stm.executeQuery(sql);
+
     }
+
+
+
+//    public ResultSet selectEvent(int id){
+//        String sql = "SELECT * FROM Events";
+//        return stm
+//    }
+
+    /*--------------------------------------------------------------
+    * EVENT FUNCTION FOR DATABASE
+    * ------------------------------------------------------------*/
+
+    public ResultSet selectEventById(int id) throws SQLException {
+        String sql = "SELECT * FROM Events WHERE ID = " + id;
+        conn = connect();
+        stm = conn.createStatement();
+        ResultSet set = stm.executeQuery(sql);
+        if(set.next()){
+            System.out.println(set.getString("Title"));
+        }
+        return set;
+    }
+
+
+
+
 
     //A connection method so we dont have to type the url all over again
     //Returns the connection handle
