@@ -1,22 +1,23 @@
 
-import Classes.MyValidation;
+import Controllers.CalenderPaneController;
 import Controllers.DayPaneController;
 import Controllers.EventController;
-import Controllers.LoginController;
 import javafx.application.Application;
 
 import javafx.stage.Stage;
 
+<<<<<<< HEAD
 import java.sql.SQLException;
 import java.util.Scanner;
 
+=======
+>>>>>>> master
 public class Main extends Application {
 
     // just start the code. keeps controllers similar to other controllers
 
-    LoginController loginController = new LoginController();
-    EventController eventController = new EventController();
-    DayPaneController dayPaneController = new DayPaneController();
+    //LoginController loginController = new LoginController();
+    CalenderPaneController calenderPaneController = new CalenderPaneController();
 
     public Main() throws SQLException {
 
@@ -26,8 +27,7 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         try {
-            //Start from the login pane
-            loginController.start();
+            calenderPaneController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }

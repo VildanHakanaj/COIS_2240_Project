@@ -20,7 +20,7 @@ public class LoginController {
 
     // Uncomment when projects are combined
     DayPaneController dayPaneController = new DayPaneController();
-   private Database db = new Database();
+    private Database db = new Database();
 
     @FXML
     private Button btLogin;
@@ -90,11 +90,9 @@ public class LoginController {
             Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
             //If there is noerrors then go ahead and let the user in.
             if(errors.size() == 0){
-                try {
-                    dayPaneController.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
+                //########### Open up next window ###########
+
                 //closes stage after pressing the button
                 Stage stage = (Stage) username1.getScene().getWindow();
                 stage.close();
@@ -107,14 +105,15 @@ public class LoginController {
         }
     }
 
+    //The signup
     public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();
         //Grab the values from the form
         Hashtable user = new Hashtable();
-        user.put("name",name.getText());
-        user.put("email",email.getText());
-        user.put("uid",username2.getText());
-        user.put("pwd",password2.getText());
+        user.put("name", name.getText());
+        user.put("email", email.getText());
+        user.put("uid", username2.getText());
+        user.put("pwd", password2.getText());
 
         Hashtable<String, String> errors = validator.validateNewUser(user);
 
@@ -133,11 +132,7 @@ public class LoginController {
                 e.printStackTrace();
             }
 
-            try {
-                dayPaneController.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            //############# open up next window
 
             //closes stage after pressing the button
             Stage stage = (Stage) btSign.getScene().getWindow();

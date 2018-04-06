@@ -1,3 +1,5 @@
+
+
 package Controllers;
 
 import Classes.Event;
@@ -21,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 
 public class EventController {
 
-
+    // FX:ID variables
     @FXML
     private Button btDelete;
 
@@ -64,57 +66,15 @@ public class EventController {
     @FXML
     private Label week;
 
-    public int ID;
+    // ID to be global variable
+    private int ID;
 
-    private Event event;
-
-    public void setID(int IDt) {
-        ID = IDt;
-        System.out.println("EC" + ID);
+    // set this ID equal to ID that was passed
+    public EventController(int ID) throws SQLException {
+        this.ID = ID;
     }
 
-    public void setEvent(Event ev){
-        this.event = ev;
-        System.out.println("ECE"+event);
-    }
-
-    public void initialize() throws SQLException {
-
-
-        // not taking in the ID from the class even though it is set
-        System.out.println("IIDt" + ID);
-
-        Event event = new Event(ID);
-        System.out.println("IECe"+event);
-
-
-        eventBar.setFill(Color.valueOf(event.getColour()));
-        eventTitle.setText(event.getTitleField());
-        descriptionField.setText(event.getDescriptionField());
-        startTimeValue.setText(String.valueOf(event.getStart()));
-        endTimeValue.setText(event.getEnd());
-        privacySetting.setText(event.getPrivacy());
-        repeatValue.setText(event.getRepeat());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        date.setText(event.getDate());
-
-        if (event.getThirty() == "true"){
-            thirty.setText("30 minutes before");
-        } else { thirty.setText(""); }
-
-        if (event.getHour() == "true"){
-            hour.setText("1 hour before");
-        } else { hour.setText(""); }
-
-        if (event.getDay() == "true"){
-            day.setText("1 day before");
-        } else { day.setText(""); }
-
-        if (event.getWeek() == "true"){
-            week.setText("1 week before");
-        } else { week.setText(""); }
-    }
-
+    // if delete button is pressed remove event from database and close window
     public void delete(){
         // get event id and remove the information from the database
         try {
@@ -136,24 +96,43 @@ public class EventController {
         stage.close();
     }
 
+    // if close button is pressed close window
     public void exit(){
         Stage stage = (Stage) btClose.getScene().getWindow();
         stage.close();
     }
 
+    // set values inside the event window
+    public void initialize() throws Exception{
+
+        // instantiate a new event equal to ID of event that was pressed
+        Event event = new Event(ID);
+
+        // populate fields with information from that event
+        eventBar.setFill(Color.valueOf(event .getColour()));
+        eventTitle.setText(event.getTitleField());
+        descriptionField.setText(event.getDescriptionField());
+        startTimeValue.setText(event.getStrt());
+        endTimeValue.setText(event.getEnd());
+        privacySetting.setText(event.getPrivacy());
+        repeatValue.setText(event.getRepeat());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+        date.setText(event.getDate());
+        thirty.setText(event.getThirty());
+        hour.setText(event.getHour());
+        day.setText(event.getDay());
+        week.setText(event.getWeek());
+    }
+
     // create and open a new window
     public void start() throws Exception{
-
-
-        GridPane grid = FXMLLoader.load(getClass().getResource("event.fxml"));
-        grid.getStylesheets().add("StyleSheets/event.css");
-
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/event.fxml"));
+        loader.setController(this);
+        GridPane grid = loader.load();
         Stage eventStage = new Stage();
-
         eventStage.setTitle(String.valueOf(ID));
         eventStage.setScene(new Scene(grid));
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
-
         eventStage.show();
     }
 }

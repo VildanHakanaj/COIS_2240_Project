@@ -91,6 +91,7 @@ public class MyValidation {
         } else if(!validateEmail(email)){
             errors.put("error", "Enter valid email");
         }
+
         if(username.trim().isEmpty()){
             errors.put("error", "Username field " + emptyError);
         } else if(db.selectUserByUsername(username).next()) {

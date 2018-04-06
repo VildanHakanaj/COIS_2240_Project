@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="573.0" prefWidth="648.0" style="-fx-background-color: Silver;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CalenderPaneController">
+   <children>
+      <Pane fx:id="dayBox_4_1" layoutX="65.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_1" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_2" layoutX="141.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_2" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_3" layoutX="217.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_3" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_5" layoutX="369.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_5" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_4" layoutX="293.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_4" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_7" layoutX="521.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_7" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_4_6" layoutX="445.0" layoutY="348.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_4_6" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_1" layoutX="65.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_1" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_2" layoutX="141.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_2" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_3" layoutX="217.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_3" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_5" layoutX="369.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_5" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_4" layoutX="293.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_4" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_7" layoutX="521.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_7" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_3_6" layoutX="445.0" layoutY="271.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_3_6" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_1" layoutX="65.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_1" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_2" layoutX="141.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_2" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_3" layoutX="217.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_3" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_5" layoutX="369.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_5" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_4" layoutX="293.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_4" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_7" layoutX="521.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_7" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_2_6" layoutX="445.0" layoutY="194.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_2_6" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_6" layoutX="445.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_6" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_7" layoutX="521.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_7" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_4" layoutX="293.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_4" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_5" layoutX="369.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_5" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_3" layoutX="217.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_3" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_2" layoutX="141.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_2" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_1_1" layoutX="65.0" layoutY="118.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_1_1" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Button fx:id="btnPrevMonth" layoutX="64.0" layoutY="517.0" mnemonicParsing="false" onAction="#prevMonth" prefHeight="25.0" prefWidth="203.0" text="&lt;&lt; Previous Month" />
+      <Button fx:id="btnNextMonth" layoutX="388.0" layoutY="517.0" mnemonicParsing="false" onAction="#nextMonth" prefHeight="25.0" prefWidth="203.0" text="Next Month &gt;&gt;" />
+      <Pane fx:id="dayBox_5_6" layoutX="445.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_6" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_7" layoutX="521.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_7" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_4" layoutX="293.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_4" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_5" layoutX="369.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_5" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_3" layoutX="217.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_3" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_2" layoutX="141.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_2" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="dayBox_5_1" layoutX="65.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="boxNum_5_1" layoutX="7.0" layoutY="6.0" text="1" />
+         </children>
+      </Pane>
+      <AnchorPane layoutX="404.0" layoutY="27.0" prefHeight="38.0" prefWidth="177.0" style="-fx-background-color: beige; -fx-border-style: dashed;" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="67.0">
+         <children>
+            <Label fx:id="lblMonthYear" alignment="CENTER_RIGHT" layoutX="127.0" layoutY="3.0" style="-fx-background-color: beige;" text="year" textAlignment="CENTER" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="293.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="WEDNESDAY" textAlignment="CENTER" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="217.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="TUESDAY" textAlignment="CENTER" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="141.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="MONDAY" textAlignment="CENTER" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="65.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="SUNDAY" textAlignment="CENTER" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="369.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="THURSDAY" textAlignment="CENTER" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="445.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="FRIDAY" textAlignment="CENTER" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="521.0" layoutY="84.0" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: beige; -fx-border-style: dashed;">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" style="-fx-background-color: beige;" text="SATURDAY" textAlignment="CENTER" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="4.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

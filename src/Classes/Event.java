@@ -7,8 +7,12 @@ import java.time.LocalDate;
 
 public class Event {
 
+<<<<<<< HEAD
     //EventController eventController = new EventController();
     private Database db = new Database();
+=======
+    private String strt;
+>>>>>>> master
     private String titleField;
     private String date;
     private int duration;
@@ -24,11 +28,11 @@ public class Event {
     private String end;
     private int ID;
     private int userId;
+    private String getStrt;
 
     public Event() throws SQLException {
 
     }
-
 
     public void setID(int ID) {
         this.ID = ID;
@@ -40,21 +44,47 @@ public class Event {
     public Event(int ID) throws SQLException {
         try {
             ResultSet rs = db.selectEventById(ID);
-            while(rs.next()){
-                titleField =        rs.getString("Title");
-                date =              rs.getString("Date");
-                duration =          rs.getInt("Duration");
-                descriptionField =  rs.getString("Description");
-                privacy =           rs.getString("Privacy");
-                thirty =            rs.getString("Thirty");
-                hour =              rs.getString("Hour");
-                day =               rs.getString("Day");
-                week =              rs.getString("Week");
-                repeat =            rs.getString("Repeat");
-                colour =            rs.getString("Colour");
-                start =             rs.getInt("Start");
-                end =               rs.getString("End");
-                ID =                rs.getInt("ID");
+            while(rs.next()) {
+                titleField = rs.getString("Title");
+                date = rs.getString("Date");
+                duration = rs.getInt("Duration");
+                descriptionField = rs.getString("Description");
+                privacy = rs.getString("Privacy");
+                thirty = rs.getString("Thirty");
+                hour = rs.getString("Hour");
+                day = rs.getString("Day");
+                week = rs.getString("Week");
+                repeat = rs.getString("Repeat");
+                colour = rs.getString("Colour");
+                start = rs.getInt("Start");
+                end = rs.getString("End");
+                ID = rs.getInt("ID");
+            }
+    public Event(int ID) throws SQLException {
+
+        String url = "jdbc:sqlite:src/data.db";
+        Connection conn = DriverManager.getConnection(url);
+
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE ID=" + ID);
+            while (rs.next()) {
+                titleField = rs.getString("Title");
+                date = rs.getString("Date");
+                duration = rs.getInt("Duration");
+                descriptionField = rs.getString("Description");
+                privacy = rs.getString("Privacy");
+                thirty = rs.getString("Thirty");
+                hour = rs.getString("Hour");
+                day = rs.getString("Day");
+                week = rs.getString("Week");
+                repeat = rs.getString("Repeat");
+                colour = rs.getString("Colour");
+                start = rs.getInt("Start");
+                strt = rs.getString("Strt");
+                end = rs.getString("End");
+                ID = rs.getInt("ID");
+>>>>>>> master
 
                 System.out.println(titleField +"\n"+ date +"\n"+ duration +"\n"+ descriptionField
                         +"\n"+ privacy +"\n"+ thirty +"\n"+ hour +"\n"+ day +"\n"+ week +"\n"+
@@ -65,7 +95,11 @@ public class Event {
         }
     }
 
+<<<<<<< HEAD
     public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) throws SQLException {
+=======
+    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID, String strt) {
+>>>>>>> master
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;
@@ -80,6 +114,7 @@ public class Event {
         this.start = start;
         this.end = end;
         this.ID = ID;
+        this.strt = strt;
     }
 
     public String getTitleField() {
@@ -136,5 +171,9 @@ public class Event {
 
     public String getEnd() {
         return end;
+    }
+
+    public String getStrt(){
+        return strt;
     }
 }

@@ -2,8 +2,6 @@ package Controllers;
 
 import Classes.Database;
 import Classes.Event;
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,25 +11,16 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-import javafx.stage.StageStyle;
 
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import static javafx.scene.paint.Color.RED;
-
 
 public class DayPaneController {
 
@@ -39,6 +28,15 @@ public class DayPaneController {
     EventController eventController = new EventController();
     private Database db = new Database();
 
+    // Create global variable to receive date from CalendarPane
+    LocalDate clickedDate;
+
+    // Constructor to set this objects date to be the clicked date
+    public DayPaneController(LocalDate clickedDate) throws SQLException {
+        this.clickedDate = clickedDate;
+    }
+
+    // FX:ID variables
     @FXML
     public GridPane gride;
 
@@ -53,62 +51,60 @@ public class DayPaneController {
 
     // initialize datePicker date and title
     public void initialize(){
-
-        LocalDate now = LocalDate.now();
-        date.setValue(now);
-
-        title.setText(String.valueOf(now.getMonth() + " - " + now.getDayOfMonth()));
-
+        date.setValue(clickedDate);
+        title.setText(String.valueOf(clickedDate.getMonth() + " - " + clickedDate.getDayOfMonth()));
         updateDate();
     }
 
-
     // create and open a new window
     public void start() throws Exception{
-        BorderPane root = null;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/dayPane.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/dayPane.fxml"));
+        loader.setController(this);
+        BorderPane root = loader.load();
         root.getStylesheets().add("Stylesheets/dayPane.css");
-
         Stage eventStage = new Stage();
-
-
-        eventStage.initStyle(StageStyle.UNDECORATED);
+        eventStage.setResizable(false);
         eventStage.setTitle("Day Pane");
         eventStage.setScene(new Scene(root));
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
-
         eventStage.show();
-
     }
-
 
     // update the title and redraw event "buttons"
     public void updateDate() {
+        // title according to the current date
         title.setText(String.valueOf(date.getValue().getMonth() + " - " + date.getValue().getDayOfMonth()));
 
+        // select all existing boxes on grid
+        // clear the gride
+        // retain index 0 node for the gridoutline
         Node node = gride.getChildren().get(0);
         gride.getChildren().clear();
         gride.getChildren().add(0,node);
 
+        // string oD is the openedDate value that is currently on screen
         String oD = String.valueOf(date.getValue());
-        System.out.println(oD);
-        int size = countRows(oD);
-        System.out.println("rows:"+size);
 
-        int count = 0;
+        // call countRows to query how many entries are on the current date
+        int size = countRows(oD);
+
+        // box is the id of an event
         int box;
+
+        // create array to store buttons as well as event
         Button[] btArr;
         Event[] index;
+
+        // create array to store event ID from button
         int[] id;
+
+        // clear arrays from previous loops
         index = null;
         btArr = null;
         id = null;
+
+        // set array sizes to the number of rows in the database
         btArr = new Button[size];
-        index = new Event[size];
         id = new int[size];
 
         try {
@@ -117,59 +113,59 @@ public class DayPaneController {
             Connection conn = DriverManager.getConnection(url);
 
             Statement statement = conn.createStatement();
+
+            //***********************************//
             ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE Date='" + oD + "'");
 
+            // for every entry in the database
             for (int i = 0; i < countRows(oD); i++) {
-                count++;
-                System.out.println(count);
 
-                System.out.println("Debug:"+index[i]);
-
-                // result set is not properly giving value,
-                //
-                //
-                // result set is not properly giving value
+                // move to the next entry in resultSet
                 rs.next();
+
+                // set box value to ID value at current pointer in resultSet
                 box = rs.getInt("ID");
-                index[i] = new Event(box);
+
+                // set index i in ID at ID value of box
                 id[i] = box;
-                // create an event, take info from event and store it into the button, add that to the arraylist
 
-                System.out.println("Index:" + index[i]);
-
+                // draw the button on the grid
                 Event bt = new Event(box);
-                Button button = new Button(bt.getTitleField());
-                button.setMinHeight(bt.getDuration() * 30);
-                button.setStyle("-fx-background-color:"+bt.getColour());
-                button.setAlignment(Pos.TOP_LEFT);
-                int finalBox = box;
-                Event[] finalIndex = index;
+                Button button = new Button(bt.getTitleField());             // set titlefield
+                button.setMinHeight(bt.getDuration() * 30);                 // set height by increments of 30
+                button.setStyle("-fx-background-color:"+bt.getColour());    // set colour of box
+                button.setAlignment(Pos.TOP_LEFT);                          // set aligment of text
+
+                // create static array copying the ID array, for use in action event
                 int[] finalId = id;
-                button.setOnAction(new EventHandler<ActionEvent>(){
-                    @Override public void handle(ActionEvent e){
 
+                // on click open correct event
+                button.addEventHandler(MouseEvent.MOUSE_CLICKED,
+                        new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
 
-                        System.out.println("Button" + e.getSource() + "Column" + GridPane.getColumnIndex((Node) e.getSource()));
-                        int IDt = finalId[GridPane.getColumnIndex((Node) e.getSource())];
-                        Event ev = finalIndex[GridPane.getColumnIndex((Node) e.getSource())];
-                        eventController.setID(IDt);
-                        System.out.println("IDt:" + IDt);
-                        eventController.setEvent(ev);
+                                // set ID try equal to the index that is the column of the button
+                                // buttons are placed in 1 by one meaning their column index is the same as their ID index
+                                int IDt = finalId[GridPane.getColumnIndex((Node) event.getSource())];
 
-                        try {
-                            eventController.start();
-                        } catch (Exception e1) {
-                            e1.printStackTrace();
-                        }
+                                // open event pane
+                                try {
+                                    EventController ec = new EventController(IDt);  // pass ID of event
+                                    ec.start();                                     // initialize event
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
-                        //System.out.println(finalIndex[0]);
+                            }
+                        });
 
-
-                    }
-                });
-
+                // set alignment of events to start at the top
                 GridPane.setValignment(button, VPos.TOP);
 
+                // add button to screen at column equal to their index, and row equal to their start time
                 btArr[i] = (button);
                 gride.add(btArr[i], i, bt.getStart());
 
@@ -180,9 +176,6 @@ public class DayPaneController {
             e.printStackTrace();
         }
     }
-
-
-
 
     // move to the next day
     public void nextDate(){
@@ -196,8 +189,9 @@ public class DayPaneController {
         updateDate();
     }
 
-    // control if createEvent button is pressed, creates a new event
+    // open NewEventPane and pass it the current date
     public void create(){
+        NewEventController newEventController = new NewEventController(date.getValue());
         try {
             newEventController.start();
         } catch (Exception e) {
@@ -205,12 +199,14 @@ public class DayPaneController {
         }
     }
 
-    // count the number of rows present in the database
+    // count the number of rows present in the database for use in updateDate method
     public static int countRows(String date) {
         int count = 0;
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:src/data.db");
             Statement s = conn.createStatement();
+
+            //****************************
             ResultSet r = s.executeQuery("SELECT COUNT(*) AS ID FROM Event WHERE Date = '"+ date +"'");
             r.next();
             count = r.getInt("ID");
@@ -221,5 +217,4 @@ public class DayPaneController {
         System.out.println(count);
         return count;
     }
-
 }
