@@ -19,15 +19,9 @@ import java.sql.Statement;
 import java.time.Duration;
 import java.time.LocalDate;
 
-
 public class NewEventController {
 
-    DayPaneController thi;
-
-    public NewEventController(DayPaneController thi){
-        this.thi = thi;
-    }
-
+    // FX:ID variables
     @FXML
     private Rectangle eventBar;
 
@@ -79,19 +73,25 @@ public class NewEventController {
     @FXML
     private ColorPicker colorPicker;
 
+    // global variable to hold date passed to NewEventController
+    private LocalDate currentDate;
+
+    // constructor to set currentDate to date that was passed
+    public NewEventController(LocalDate currentDate){
+        this.currentDate = currentDate;
+    }
 
     // cancel creating an event and remove all fields
     @FXML
     private void cancel(){
-
-
-
         Stage stage = (Stage) btCancel.getScene().getWindow();
         stage.close();
         System.out.println("Cancel button pressed");
     }
 
     // listeners to actively update startTimeValue and endTimeValue labels in pane
+    // formats value from 0 - 48 and converts it to the standard notation
+    // updates time labels to current slider value
     @FXML
     private void startTimeSliderChange () {
         startTimeSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -113,6 +113,8 @@ public class NewEventController {
                     s1End = "AM";
                 }
                 startTimeValue.setText(String.format("%s", Math.round(out2) + s1End));
+
+                // minimum value of endTime must be at least equal to start time
                 endTimeSlider.setMin(startTimeSlider.getValue());
             }
         });
@@ -145,7 +147,7 @@ public class NewEventController {
         System.out.println("endTimeSlider edited " + out6);
     }
 
-    // update event colour everytime
+    // take colorPicker value and set eventBar to that colour
     @FXML
     private void colorPickerChange () {
         eventBar.setFill(colorPicker.getValue());
@@ -154,8 +156,7 @@ public class NewEventController {
 
     // set date to current date
     public void initialize() {
-        LocalDate now = LocalDate.now();
-        datePicker.setValue(now);
+        datePicker.setValue(currentDate);
     }
 
     // values for duration calculation
@@ -164,29 +165,19 @@ public class NewEventController {
 
     // initialize and open a new window
     public void start() throws Exception {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/newEvent.fxml"));
-
         loader.setController(this);
-
         GridPane grid = loader.load();
-
         grid.getStylesheets().add("Stylesheets/event.css");
-
         Stage eventStage = new Stage();
-
         eventStage.setTitle("New Event");
         eventStage.setScene(new Scene(grid));
-        //eventStage.initStyle(StageStyle.TRANSPARENT);
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
-
         eventStage.show();
     }
 
     @FXML
     private void confirm() {
-
-        int ID = 0;
 
         //check if duration is 0 terminate if it is
         if (out6 == 25) {
@@ -203,8 +194,7 @@ public class NewEventController {
             if (titleField.getText().trim().isEmpty())
                 titleField.setText("Event");
 
-            // out all values
-            System.out.println(ID);
+            // print output for debugging reasons
             System.out.println(startTimeValue.getText() + "\n" + endTimeValue.getText());
             System.out.println("Duration is: " + duration);
             System.out.println(titleField.getText());
@@ -212,20 +202,16 @@ public class NewEventController {
             System.out.println(descriptionField.getText());
             System.out.println(privacyField.getValue());
             System.out.println(repeatsField.getValue());
-
             if (thirty.isSelected()) {
                 System.out.println("Reminder 30");
-            }
-            if (hour.isSelected()) {
+            } if (hour.isSelected()) {
                 System.out.println("Reminder hour");
-            }
-            if (day.isSelected()) {
+            } if (day.isSelected()) {
                 System.out.println("Reminder day");
-            }
-            if (week.isSelected()) {
-                System.out.println("Reminder week");
-            }
+            } if (week.isSelected()) {
+                System.out.println("Reminder week");}
 
+            // format colorPicker value to work with event bar when pulling out of database
             System.out.println(colorPicker.getValue());
             StringBuilder sb = new StringBuilder(String.valueOf(colorPicker.getValue()));
             sb.deleteCharAt(0);
@@ -233,7 +219,6 @@ public class NewEventController {
             sb.deleteCharAt(6);
             sb.deleteCharAt(6);
             String color = sb.toString();
-
 
             // store all the proper values in the database
             try {
@@ -243,29 +228,23 @@ public class NewEventController {
                 Statement statement = conn.createStatement();
                 statement.execute("INSERT INTO Event (Title, Date, " +
                         "Duration, Description, Privacy, Thirty, Hour, " +
-                        "Day, Week, Repeat, Colour, Start, End, Color) VALUES " +
+                        "Day, Week, Repeat, Colour, Start, End, Color, Strt) VALUES " +
                         "('"+titleField.getText()+"','"+datePicker.getValue()+
                         "','"+duration+"','"+descriptionField.getText()+"','"
-                        +privacyField.getValue()+"','"+thirty.isSelected()
-                        +"','"+hour.isSelected()+"','"+day.isSelected()+"','"
-                        +week.isSelected()+"','"+repeatsField.getValue()+"','#"
-                        +color+"','"+out5+
-                        "','"+endTimeValue.getText()+"','"+colorPicker.getValue()+"')");
-
+                        +privacyField.getValue()+"','"+thirty.getText()
+                        +"','"+hour.getText()+"','"+day.getText()+"','"
+                        +week.getText()+"','"+repeatsField.getValue()+"','#"
+                        +color+"','"+startTimeValue.getText()+
+                        "','"+endTimeValue.getText()+"','"+colorPicker.getValue()+"','"+startTimeValue.getText()+"')");
                 statement.close();
                 conn.close();
             } catch (SQLException e) {
 
                 System.out.println("Something went wrong: " + e.getMessage());
             }
-
             Stage stage = (Stage) btConfirm.getScene().getWindow();
             stage.close();
             System.out.println("Confirm button pressed");
-
-            thi.updateDate();
-
-
         }
     }
 }

@@ -149,7 +149,6 @@
             <Label fx:id="boxNum_1_1" layoutX="7.0" layoutY="6.0" text="1" />
          </children>
       </Pane>
-      <Button fx:id="btnSwitchToDayPane" layoutX="64.0" layoutY="33.0" mnemonicParsing="false" onAction="#switchToDayPane" prefHeight="26.0" prefWidth="152.0" text="Switch to Day View" />
       <Button fx:id="btnPrevMonth" layoutX="64.0" layoutY="517.0" mnemonicParsing="false" onAction="#prevMonth" prefHeight="25.0" prefWidth="203.0" text="&lt;&lt; Previous Month" />
       <Button fx:id="btnNextMonth" layoutX="388.0" layoutY="517.0" mnemonicParsing="false" onAction="#nextMonth" prefHeight="25.0" prefWidth="203.0" text="Next Month &gt;&gt;" />
       <Pane fx:id="dayBox_5_6" layoutX="445.0" layoutY="424.0" onMouseClicked="#dayBoxHandler" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
