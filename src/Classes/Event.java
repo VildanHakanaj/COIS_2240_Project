@@ -84,7 +84,6 @@ public class Event {
                 strt = rs.getString("Strt");
                 end = rs.getString("End");
                 ID = rs.getInt("ID");
->>>>>>> master
 
                 System.out.println(titleField +"\n"+ date +"\n"+ duration +"\n"+ descriptionField
                         +"\n"+ privacy +"\n"+ thirty +"\n"+ hour +"\n"+ day +"\n"+ week +"\n"+
@@ -95,11 +94,7 @@ public class Event {
         }
     }
 
-<<<<<<< HEAD
     public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) throws SQLException {
-=======
-    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID, String strt) {
->>>>>>> master
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;
