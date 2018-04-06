@@ -199,7 +199,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-              <DatePicker fx:id="date" maxWidth="230.0" minWidth="230.0" onAction="#updateDate" prefHeight="39.0" prefWidth="230.0" GridPane.halignment="LEFT">
+              <DatePicker fx:id="date" visible="false" maxWidth="230.0" minWidth="230.0" onAction="#updateDate" prefHeight="39.0" prefWidth="230.0" GridPane.halignment="LEFT">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>

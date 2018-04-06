@@ -31,6 +31,9 @@ public class DayPaneController {
         this.clickedDate = clickedDate;
     }
 
+    // dayPaneController to pass to inner class
+    DayPaneController dpc = this;
+
     // FX:ID variables
     @FXML
     public GridPane gride;
@@ -142,14 +145,13 @@ public class DayPaneController {
 
                                 // open event pane
                                 try {
-                                    EventController ec = new EventController(IDt);  // pass ID of event
+                                    EventController ec = new EventController(IDt, dpc);  // pass ID of event
                                     ec.start();                                     // initialize event
                                 } catch (SQLException e) {
                                     e.printStackTrace();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-
                             }
                         });
 

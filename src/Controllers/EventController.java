@@ -66,12 +66,14 @@ public class EventController {
     @FXML
     private Label week;
 
-    // ID to be global variable
+    // global variable
     private int ID;
+    private DayPaneController dayPaneController;
 
     // set this ID equal to ID that was passed
-    public EventController(int ID) throws SQLException {
+    public EventController(int ID, DayPaneController dayPaneController) throws SQLException {
         this.ID = ID;
+        this.dayPaneController = dayPaneController;
     }
 
     // if delete button is pressed remove event from database and close window
@@ -94,6 +96,8 @@ public class EventController {
 
         Stage stage = (Stage) btDelete.getScene().getWindow();
         stage.close();
+
+        dayPaneController.updateDate();
     }
 
     // if close button is pressed close window
