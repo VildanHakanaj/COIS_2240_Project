@@ -34,34 +34,6 @@ public class Event {
 
     }
 
-
-    //There is bug with this code.
-    //Result set will return a
-    //This will pull the event from the database;
-//    public Event(int ID) throws SQLException {
-//        try {
-//            ResultSet rs = db.selectEventById(ID);
-//            while (rs.next()) {
-//                titleField = rs.getString("Title");
-//                date = rs.getString("Date");
-//                duration = rs.getInt("Duration");
-//                descriptionField = rs.getString("Description");
-//                privacy = rs.getString("Privacy");
-//                thirty = rs.getString("Thirty");
-//                hour = rs.getString("Hour");
-//                day = rs.getString("Day");
-//                week = rs.getString("Week");
-//                repeat = rs.getString("Repeat");
-//                colour = rs.getString("Colour");
-//                start = rs.getInt("Start");
-//                end = rs.getString("End");
-//                ID = rs.getInt("ID");
-//            }
-//        }catch(SQLException e){
-//
-//        }
-//    }
-
     public Event(int ID) throws SQLException {
 
         String url = "jdbc:sqlite:src/data.db";

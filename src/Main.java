@@ -14,7 +14,6 @@ public class Main extends Application {
     // just start the code. keeps controllers similar to other controllers
 
     LoginController loginController = new LoginController();
-//    CalenderPaneController calenderPaneController = new CalenderPaneController();
 
     public Main() throws SQLException {
 
@@ -24,7 +23,7 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         try {
-            //Start with teh login popup
+            //Start with the login popup
             loginController.start();
         } catch (Exception e) {
             e.printStackTrace();

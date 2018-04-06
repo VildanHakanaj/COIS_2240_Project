@@ -64,7 +64,6 @@ public class DayPaneController {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/dayPane.fxml"));
         loader.setController(this);
         BorderPane root = loader.load();
-        root.getStylesheets().add("Stylesheets/dayPane.css");
         Stage eventStage = new Stage();
         eventStage.setResizable(false);
         eventStage.setTitle("Day Pane");
