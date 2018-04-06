@@ -1,6 +1,7 @@
 package Controllers;
 
 import Classes.Database;
+import Classes.Event;
 import Classes.MyValidation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,8 @@ import java.util.WeakHashMap;
 public class LoginController {
 
     // Uncomment when projects are combined
-    Database db = new Database();
+    DayPaneController dayPaneController = new DayPaneController();
+    private Database db = new Database();
 
     @FXML
     private Button btLogin;
@@ -77,12 +79,14 @@ public class LoginController {
         MyValidation validator = new MyValidation();
         Hashtable<String, String> user = new Hashtable<String, String>();
 
+        db.deleteEvent(2);
 
         String uid = username1.getText();
         String pwd = password1.getText();
 
         //Validate the login
         try {
+//            Event event = new Event(1);
             //Validate the login
             Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
             //If there is noerrors then go ahead and let the user in.
@@ -101,6 +105,10 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> loginValidation
     //The signup
     public void signUp() throws SQLException {
         MyValidation validator = new MyValidation();

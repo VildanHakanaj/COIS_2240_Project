@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 public class Event {
 
+    //EventController eventController = new EventController();
+    private Database db = new Database();
     private String strt;
     private String titleField;
     private String date;
@@ -22,13 +24,22 @@ public class Event {
     private int start;
     private String end;
     private int ID;
+<<<<<<< HEAD
     public String getStrt;
+=======
+    private int userId;
+    private String getStrt;
+>>>>>>> loginValidation
 
-    public Event() {
+    public Event() throws SQLException {
 
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
+<<<<<<< HEAD
     public void setID(int ID) {
         this.ID = ID;
     }
@@ -37,6 +48,36 @@ public class Event {
     public Event(int ID)
             throws SQLException {
 
+=======
+    //There is bug with this code.
+    //Result set will return a
+    //This will pull the event from the database;
+//    public Event(int ID) throws SQLException {
+//        try {
+//            ResultSet rs = db.selectEventById(ID);
+//            while (rs.next()) {
+//                titleField = rs.getString("Title");
+//                date = rs.getString("Date");
+//                duration = rs.getInt("Duration");
+//                descriptionField = rs.getString("Description");
+//                privacy = rs.getString("Privacy");
+//                thirty = rs.getString("Thirty");
+//                hour = rs.getString("Hour");
+//                day = rs.getString("Day");
+//                week = rs.getString("Week");
+//                repeat = rs.getString("Repeat");
+//                colour = rs.getString("Colour");
+//                start = rs.getInt("Start");
+//                end = rs.getString("End");
+//                ID = rs.getInt("ID");
+//            }
+//        }catch(SQLException e){
+//
+//        }
+//    }
+
+    public Event(int ID) throws SQLException {
+>>>>>>> loginValidation
         String url = "jdbc:sqlite:src/data.db";
         Connection conn = DriverManager.getConnection(url);
 
@@ -69,7 +110,7 @@ public class Event {
         }
     }
 
-    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID, String strt) {
+    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) throws SQLException {
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;

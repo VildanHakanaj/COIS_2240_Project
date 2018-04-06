@@ -1,5 +1,6 @@
 package Controllers;
 
+import Classes.Database;
 import Classes.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -23,11 +24,15 @@ import java.time.LocalDate;
 
 public class DayPaneController {
 
+    NewEventController newEventController = new NewEventController();
+    EventController eventController = new EventController();
+    private Database db = new Database();
+
     // Create global variable to receive date from CalendarPane
     LocalDate clickedDate;
 
     // Constructor to set this objects date to be the clicked date
-    public DayPaneController(LocalDate clickedDate){
+    public DayPaneController(LocalDate clickedDate) throws SQLException {
         this.clickedDate = clickedDate;
     }
 
@@ -43,6 +48,9 @@ public class DayPaneController {
 
     @FXML
     private DatePicker date;
+
+    public DayPaneController() throws SQLException {
+    }
 
     // initialize datePicker date and title
     public void initialize(){
@@ -103,6 +111,7 @@ public class DayPaneController {
         id = new int[size];
 
         try {
+            db.connect();
             String url = "jdbc:sqlite:src/data.db";
             Connection conn = DriverManager.getConnection(url);
 
@@ -166,6 +175,8 @@ public class DayPaneController {
                     gride.add(btArr[i], i, 0);
                 } else { gride.add(btArr[i], i, bt.getStart()); }
             }
+            //Close the connection
+            db.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }

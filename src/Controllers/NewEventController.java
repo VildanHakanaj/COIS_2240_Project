@@ -84,6 +84,10 @@ public class NewEventController {
         this.dayPaneController = dayPaneController;
     }
 
+    public NewEventController() {
+
+    }
+
     // cancel creating an event and remove all fields
     @FXML
     private void cancel(){
