@@ -7,8 +7,7 @@ import java.time.LocalDate;
 
 public class Event {
 
-    //EventController eventController = new EventController();
-
+    private String strt;
     private String titleField;
     private String date;
     private int duration;
@@ -23,6 +22,7 @@ public class Event {
     private int start;
     private String end;
     private int ID;
+    public String getStrt;
 
     public Event() {
 
@@ -56,6 +56,7 @@ public class Event {
                 repeat = rs.getString("Repeat");
                 colour = rs.getString("Colour");
                 start = rs.getInt("Start");
+                strt = rs.getString("Strt");
                 end = rs.getString("End");
                 ID = rs.getInt("ID");
 
@@ -68,7 +69,7 @@ public class Event {
         }
     }
 
-    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID) {
+    public Event(String titleField, String date, int duration, String descriptionField, String privacy, String thirty, String hour, String day, String week, String repeat, String colour, int start, String end, int ID, String strt) {
         this.titleField = titleField;
         this.date = date;
         this.duration = duration;
@@ -83,6 +84,7 @@ public class Event {
         this.start = start;
         this.end = end;
         this.ID = ID;
+        this.strt = strt;
     }
 
     public String getTitleField() {
@@ -139,5 +141,9 @@ public class Event {
 
     public String getEnd() {
         return end;
+    }
+
+    public String getStrt(){
+        return strt;
     }
 }

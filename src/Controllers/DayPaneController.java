@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -34,8 +35,7 @@ import static javafx.scene.paint.Color.RED;
 
 public class DayPaneController {
 
-    NewEventController newEventController = new NewEventController(this);
-    EventController eventController = new EventController();
+    NewEventController newEventController = new NewEventController();
 
     @FXML
     public GridPane gride;
@@ -82,24 +82,6 @@ public class DayPaneController {
 
 
     // update the title and redraw event "buttons"
-    /*
-    #   This is the loop that you might think is causing the error
-    #       The logic is this:
-    #           - Get the date being displayed
-    #           - Count the number of rows in the database that have an event with that date
-    #           - create 2 arras: 1 to store buttons, 1 to store the index of those buttons
-    #           - create a button put it in an array, get the ID of that event and put it in the other array
-    #               * They share the same index now
-    #           - Continue until no more rows
-    #
-    #           - When a button is pressed check which column it is in
-    #           - The column is the same as the index, since it is put in the column based on it's index
-    #           - Look at the index of the array with the IDs
-    #           - set in eventController's (instantiated above) ID to the ID stored at that index
-    #           - force the eventController to open a new window
-    #           - A weird way to do it yeah but it works
-    #
-    #############################################*/
     public void updateDate() {
         title.setText(String.valueOf(date.getValue().getMonth() + " - " + date.getValue().getDayOfMonth()));
 
@@ -115,10 +97,13 @@ public class DayPaneController {
         int count = 0;
         int box;
         Button[] btArr;
+        Event[] index;
         int[] id;
+        index = null;
         btArr = null;
         id = null;
         btArr = new Button[size];
+        index = new Event[size];
         id = new int[size];
 
         try {
@@ -132,9 +117,19 @@ public class DayPaneController {
                 count++;
                 System.out.println(count);
 
+                System.out.println("Debug:"+index[i]);
+
+                // result set is not properly giving value,
+                //
+                //
+                // result set is not properly giving value
                 rs.next();
                 box = rs.getInt("ID");
+                index[i] = new Event(box);
                 id[i] = box;
+                // create an event, take info from event and store it into the button, add that to the arraylist
+
+                System.out.println("Index:" + index[i]);
 
                 Event bt = new Event(box);
                 Button button = new Button(bt.getTitleField());
@@ -142,27 +137,32 @@ public class DayPaneController {
                 button.setStyle("-fx-background-color:"+bt.getColour());
                 button.setAlignment(Pos.TOP_LEFT);
                 int finalBox = box;
+                Event[] finalIndex = index;
                 int[] finalId = id;
-                button.setOnAction(new EventHandler<ActionEvent>(){
-                    @Override public void handle(ActionEvent e){
+                button.addEventHandler(MouseEvent.MOUSE_CLICKED,
+                        new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
+                                System.out.println("Button" + event.getSource() + "Column" + GridPane.getColumnIndex((Node) event.getSource()));
+                                int IDt = finalId[GridPane.getColumnIndex((Node) event.getSource())];
+                                try {
+                                    EventController ec = new EventController(IDt);
+                                    ec.start();
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
-                        System.out.println("Button" + e.getSource() + "Column" + GridPane.getColumnIndex((Node) e.getSource()));
-                        int IDt = finalId[GridPane.getColumnIndex((Node) e.getSource())];
-                        eventController.setID(IDt);
-                        System.out.println("IDt:" + IDt);
-
-                        try {
-                            eventController.start();
-                        } catch (Exception e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                });
+                            }
+                        });
                 GridPane.setValignment(button, VPos.TOP);
 
                 btArr[i] = (button);
                 gride.add(btArr[i], i, bt.getStart());
+
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

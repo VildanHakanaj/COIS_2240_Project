@@ -22,12 +22,6 @@ import java.time.LocalDate;
 
 public class NewEventController {
 
-    DayPaneController thi;
-
-    public NewEventController(DayPaneController thi){
-        this.thi = thi;
-    }
-
     @FXML
     private Rectangle eventBar;
 
@@ -165,15 +159,7 @@ public class NewEventController {
     // initialize and open a new window
     public void start() throws Exception {
 
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/newEvent.fxml"));
-
-        loader.setController(this);
-
-        GridPane grid = loader.load();
-
-
-
+        GridPane grid = FXMLLoader.load(getClass().getResource("/FXML/newEvent.fxml"));
         grid.getStylesheets().add("Stylesheets/event.css");
 
         Stage eventStage = new Stage();
@@ -246,14 +232,14 @@ public class NewEventController {
                 Statement statement = conn.createStatement();
                 statement.execute("INSERT INTO Event (Title, Date, " +
                         "Duration, Description, Privacy, Thirty, Hour, " +
-                        "Day, Week, Repeat, Colour, Start, End, Color) VALUES " +
+                        "Day, Week, Repeat, Colour, Start, End, Color, Strt) VALUES " +
                         "('"+titleField.getText()+"','"+datePicker.getValue()+
                         "','"+duration+"','"+descriptionField.getText()+"','"
-                        +privacyField.getValue()+"','"+thirty.isSelected()
-                        +"','"+hour.isSelected()+"','"+day.isSelected()+"','"
-                        +week.isSelected()+"','"+repeatsField.getValue()+"','#"
-                        +color+"','"+out5+
-                        "','"+endTimeValue.getText()+"','"+colorPicker.getValue()+"')");
+                        +privacyField.getValue()+"','"+thirty.getText()
+                        +"','"+hour.getText()+"','"+day.getText()+"','"
+                        +week.getText()+"','"+repeatsField.getValue()+"','#"
+                        +color+"','"+startTimeValue.getText()+
+                        "','"+endTimeValue.getText()+"','"+colorPicker.getValue()+"','"+startTimeValue.getText()+"')");
 
                 statement.close();
                 conn.close();
@@ -265,9 +251,6 @@ public class NewEventController {
             Stage stage = (Stage) btConfirm.getScene().getWindow();
             stage.close();
             System.out.println("Confirm button pressed");
-
-            thi.updateDate();
-
 
         }
     }
