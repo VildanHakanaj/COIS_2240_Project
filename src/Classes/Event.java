@@ -24,31 +24,17 @@ public class Event {
     private int start;
     private String end;
     private int ID;
-<<<<<<< HEAD
-    public String getStrt;
-=======
     private int userId;
     private String getStrt;
->>>>>>> loginValidation
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public Event() throws SQLException {
 
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
-<<<<<<< HEAD
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-
-    public Event(int ID)
-            throws SQLException {
-
-=======
     //There is bug with this code.
     //Result set will return a
     //This will pull the event from the database;
@@ -77,7 +63,7 @@ public class Event {
 //    }
 
     public Event(int ID) throws SQLException {
->>>>>>> loginValidation
+
         String url = "jdbc:sqlite:src/data.db";
         Connection conn = DriverManager.getConnection(url);
 

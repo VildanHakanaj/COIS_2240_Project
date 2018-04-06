@@ -76,28 +76,30 @@ public class LoginController {
     }
 
     public void login() throws SQLException {
+        //Validator
         MyValidation validator = new MyValidation();
+
+        //I used a hashtable because of the easy storage and the ability of key value pair
         Hashtable<String, String> user = new Hashtable<String, String>();
 
-        db.deleteEvent(2);
-
-        String uid = username1.getText();
-        String pwd = password1.getText();
+        //Get the values from the form
+        String username = username1.getText();
+        String password = password1.getText();
 
         //Validate the login
         try {
-//            Event event = new Event(1);
             //Validate the login
-            Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
+            Hashtable<String, String> errors = validator.validateUserLogin(username, password);
             //If there is noerrors then go ahead and let the user in.
             if(errors.size() == 0){
 
-                //########### Open up next window ###########
-
+                //Need to open another pane after the user is logged in.
+                System.out.println("Welcome back " + username);
                 //closes stage after pressing the button
                 Stage stage = (Stage) username1.getScene().getWindow();
                 stage.close();
             }else{
+                //Print the errors if there was one
                 System.out.println(errors.get("error"));
                 err.setText(errors.get("error"));
             }
@@ -105,31 +107,24 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> loginValidation
-    //The signup
+    //The sign up process
     public void signUp() throws SQLException {
+        //Validation
         MyValidation validator = new MyValidation();
-        //Grab the values from the form
+        //Grab the values from the form and store them in the hashtable
         Hashtable user = new Hashtable();
         user.put("name", name.getText());
         user.put("email", email.getText());
         user.put("uid", username2.getText());
         user.put("pwd", password2.getText());
 
+        //Validate and get back the errors array;
         Hashtable<String, String> errors = validator.validateNewUser(user);
-
-        if (errors.containsKey("error")) {
-            System.out.println(errors.get("error"));
-            err2.setText(errors.get("error"));
-        }
-
         if (errors.size() == 0) {
-
             try {
                 db.insertUser(user);
+                System.out.println("Welcome to our agenda app " + user.get("uid"));
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
             } catch (NoSuchAlgorithmException e) {
@@ -141,29 +136,10 @@ public class LoginController {
             //closes stage after pressing the button
             Stage stage = (Stage) btSign.getScene().getWindow();
             stage.close();
-        }
-
-    }
-
-    public String getPass(String uid){
-//check if username exists and corresponds to an email
-        String pass = null;
-        try {
-            String url = "jdbc:sqlite:src/data.db";
-            Connection conn = DriverManager.getConnection(url);
-
-            Statement statement = conn.createStatement();
-            ResultSet r = statement.executeQuery("SELECT * FROM Login WHERE Username='"+uid+"'");
-            pass = r.getString("Password");
-
-            statement.close();
-            conn.close();
-            return pass;
-        } catch (SQLException e) {
-
-            System.out.println("Something went wrong: " + e.getMessage());
-        }finally{
-            return pass;
+        }else{
+            //Print the errors
+            System.out.println(errors.get("error"));
+            err2.setText(errors.get("error"));
         }
     }
 }

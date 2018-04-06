@@ -43,7 +43,7 @@ public class MyValidation {
 //            String usernameTest = "Ani"; //Testing purpose
 //            String passTest = "Password"; //Testing purpose
 
-              //Check the password Just for testing
+          //Check the password Just for testing
             ResultSet set = db.selectUserByUsername(username);
             if(set.next()){
                 dbUsername = set.getString("username");

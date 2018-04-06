@@ -102,7 +102,7 @@ public class Database {
         pwd = MyValidation.hashPassword(pwd);
         String sql ="INSERT INTO users (name, email, username, pass) VALUES('" + name + "', '" + email + "', '" + uid + "', '" + pwd + "');";
         stm = conn.createStatement();
-        stm.executeQuery(sql);
+        stm.executeUpdate(sql);
         stm.close();
         closeConnection(); //Close the connection;
 

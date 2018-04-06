@@ -24,6 +24,7 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         try {
+            //Start with teh login popup
             loginController.start();
         } catch (Exception e) {
             e.printStackTrace();
