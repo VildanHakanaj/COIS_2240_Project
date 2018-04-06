@@ -1,3 +1,5 @@
+
+
 package Controllers;
 
 import Classes.Event;
@@ -21,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 
 public class EventController {
 
-
+    // FX:ID variables
     @FXML
     private Button btDelete;
 
@@ -64,14 +66,15 @@ public class EventController {
     @FXML
     private Label week;
 
+    // ID to be global variable
     private int ID;
 
-
+    // set this ID equal to ID that was passed
     public EventController(int ID) throws SQLException {
         this.ID = ID;
     }
 
-
+    // if delete button is pressed remove event from database and close window
     public void delete(){
         // get event id and remove the information from the database
         try {
@@ -93,16 +96,19 @@ public class EventController {
         stage.close();
     }
 
+    // if close button is pressed close window
     public void exit(){
         Stage stage = (Stage) btClose.getScene().getWindow();
         stage.close();
     }
 
+    // set values inside the event window
     public void initialize() throws Exception{
-        System.out.println("This was just working"+ID);
 
+        // instantiate a new event equal to ID of event that was pressed
         Event event = new Event(ID);
 
+        // populate fields with information from that event
         eventBar.setFill(Color.valueOf(event .getColour()));
         eventTitle.setText(event.getTitleField());
         descriptionField.setText(event.getDescriptionField());
@@ -116,28 +122,17 @@ public class EventController {
         hour.setText(event.getHour());
         day.setText(event.getDay());
         week.setText(event.getWeek());
-
     }
-
 
     // create and open a new window
     public void start() throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/event.fxml"));
-
         loader.setController(this);
-
         GridPane grid = loader.load();
-        grid.getStylesheets().add("StyleSheets/event.css");
-
         Stage eventStage = new Stage();
-
         eventStage.setTitle(String.valueOf(ID));
         eventStage.setScene(new Scene(grid));
         eventStage.getIcons().addAll(new Image("/Photos/6.jpg"));
-
         eventStage.show();
     }
-
-
-
 }

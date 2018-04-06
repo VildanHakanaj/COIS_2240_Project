@@ -5,6 +5,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -12,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 
 public class CalenderPaneController {
 
@@ -49,6 +52,8 @@ public class CalenderPaneController {
             dayBox_4_1, dayBox_4_2,dayBox_4_3,dayBox_4_4,dayBox_4_5,dayBox_4_6,dayBox_4_7,
             dayBox_5_1, dayBox_5_2,dayBox_5_3,dayBox_5_4,dayBox_5_5,dayBox_5_6,dayBox_5_7;
 
+    private LocalDate clickedDate;
+
     // Enum Name:   Month
     // Usage:       Used to neatly and conveniently get the strings of month names given an int index representing the month.
     private enum Month {
@@ -62,7 +67,6 @@ public class CalenderPaneController {
     // Behaviour:   default javafx method.
     // Returns:     void
     public void initialize() {
-        dayPaneController = new DayPaneController();    // Used when switching to the dayPane view.
         date = new java.util.Date();                    // Initialize selected variables on current date.
         selectedMonth = date.getMonth() + 1;            // Date class uses zero indexing for months... Add 1.
         selectedYear = date.getYear() + 1900;           // need to add 1900 to get current year... for reasons.
@@ -81,7 +85,8 @@ public class CalenderPaneController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        window = new Stage();                   // Initialize the stage and scene.
+        window = new Stage();
+        window.getIcons().addAll(new Image("/Photos/6.jpg"));// Initialize the stage and scene.
         scene = new Scene(layout);
         window.setScene(scene);
         window.setResizable(false);
@@ -98,25 +103,47 @@ public class CalenderPaneController {
     // Returns:     void
     public void dayBoxHandler(MouseEvent event) {
         int row, col;
+        int dayNum, month, year;
         String source = event.getSource().toString();
         row = getDayBoxRow(source);
         col = getDayBoxCol(source);
         System.out.println("Pos: " + row + ", " + col);
-    }
+        // Get the values pertaining to the day at the box.
+        dayNum = this.dayBoxNums[row - 1][col - 1];
+        if (this.dayIsPartOfCurrentMonth[row - 1][col - 1]) {
+            System.out.println("Flag");
+            month = this.selectedMonth;
+            year = this.selectedYear;
+        } else {
+            if (row == 1) {                     // Previous month from the selected month
+                if (this.selectedMonth == 1) {
+                    month = 12;
+                    year = this.selectedYear - 1;
+                } else {
+                    month = this.selectedMonth - 1;
+                    year = this.selectedYear;
+                }
+            } else {                            // Next month from the selected month.
+                if (this.selectedMonth == 12) {
+                    month = 1;
+                    year = this.selectedYear + 1;
+                } else {
+                    month = this.selectedMonth + 1;
+                    year = this.selectedYear;
+                }
+            }
+        }
+        System.out.println(dayNum + " " + Month.values()[month].toString() + " " + year);
 
-    // Method Name: switchToDayPane
-    // Parameters:  ActionEvent event
-    // Behaviour:   Opens an instance of DayPaneController.
-    //              Closes current window.
-    // Returns:     void
-    public void switchToDayPane(ActionEvent event) {
-        System.out.println("Button Press: Switch to Day View");
+        // Open DayPane with correct date
+        LocalDate clickedDate = LocalDate.of(year, month, dayNum);
+        dayPaneController = new DayPaneController(clickedDate);
         try {
-            dayPaneController.start();      // Start a dayPaneController instance.
+            dayPaneController.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        window.close();                     // Close the current window.
+        System.out.println(clickedDate);
     }
 
     // Method Name: prevMonth
