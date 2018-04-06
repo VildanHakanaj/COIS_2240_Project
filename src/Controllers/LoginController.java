@@ -78,7 +78,6 @@ public class LoginController {
     public void login() throws SQLException {
         //Validator
         MyValidation validator = new MyValidation();
-
         //I used a hashtable because of the easy storage and the ability of key value pair
         Hashtable<String, String> user = new Hashtable<String, String>();
 
