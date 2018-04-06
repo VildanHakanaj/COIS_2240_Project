@@ -19,7 +19,7 @@ import java.util.WeakHashMap;
 public class LoginController {
 
     // Uncomment when projects are combined
-    DayPaneController dayPaneController = new DayPaneController();
+    CalenderPaneController calendarPaneController;
     private Database db = new Database();
 
     @FXML
@@ -58,7 +58,7 @@ public class LoginController {
 
 
     public void initialize(){
-
+        calendarPaneController = new CalenderPaneController();  // Init Calendar Pane.
     }
 
     public void start() throws Exception {
@@ -95,6 +95,8 @@ public class LoginController {
 
                 //Need to open another pane after the user is logged in.
                 System.out.println("Welcome back " + username);
+                // Open Calendar Pane.
+                calendarPaneController.start();
                 //closes stage after pressing the button
                 Stage stage = (Stage) username1.getScene().getWindow();
                 stage.close();
@@ -131,7 +133,8 @@ public class LoginController {
                 e.printStackTrace();
             }
 
-            //############# open up next window
+            // Open Calendar Pane.
+            calendarPaneController.start();
 
             //closes stage after pressing the button
             Stage stage = (Stage) btSign.getScene().getWindow();
