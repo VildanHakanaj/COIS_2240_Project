@@ -79,13 +79,14 @@ public class LoginController {
         MyValidation validator = new MyValidation();
         Hashtable<String, String> user = new Hashtable<String, String>();
 
+        db.deleteEvent(2);
 
         String uid = username1.getText();
         String pwd = password1.getText();
 
         //Validate the login
         try {
-            Event event = new Event(1);
+//            Event event = new Event(1);
             //Validate the login
             Hashtable<String, String> errors = validator.validateUserLogin(uid, pwd);
             //If there is noerrors then go ahead and let the user in.

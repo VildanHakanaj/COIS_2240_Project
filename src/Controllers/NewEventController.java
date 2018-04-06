@@ -81,6 +81,10 @@ public class NewEventController {
         this.currentDate = currentDate;
     }
 
+    public NewEventController() {
+
+    }
+
     // cancel creating an event and remove all fields
     @FXML
     private void cancel(){

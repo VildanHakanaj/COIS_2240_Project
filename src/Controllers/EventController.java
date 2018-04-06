@@ -74,6 +74,10 @@ public class EventController {
         this.ID = ID;
     }
 
+    public EventController() {
+
+    }
+
     // if delete button is pressed remove event from database and close window
     public void delete(){
         // get event id and remove the information from the database
@@ -84,7 +88,7 @@ public class EventController {
                 conn = DriverManager.getConnection(url);
 
             Statement statement = conn.createStatement();
-            statement.execute("DELETE FROM Event WHERE ID='"+ID+"'");
+            statement.execute("DELETE FROM Event WHERE ID='" + ID + "'");
 
             statement.close();
             conn.close();

@@ -101,7 +101,7 @@ public class CalenderPaneController {
     // Behaviour:   Sets the functionality of each dayBox.
     //                                                                  *** Needs to be added to
     // Returns:     void
-    public void dayBoxHandler(MouseEvent event) {
+    public void dayBoxHandler(MouseEvent event) throws SQLException {
         int row, col;
         int dayNum, month, year;
         String source = event.getSource().toString();
