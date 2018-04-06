@@ -1,0 +1,21 @@
+.border{
+    -fx-border-color: orangered;
+}
+
+.background{
+    -fx-background-color: #fff;
+}
+
+.label{
+    -fx-text-fill: orangered;
+}
+
+.button{
+    -fx-background-color: orangered;
+    -fx-border-color: orangered;
+    -fx-text-fill: WHITE;
+}
+
+.textField{
+    -fx-border-color: orangered;
+}
