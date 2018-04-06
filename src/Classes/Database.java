@@ -129,33 +129,26 @@ public class Database {
 
 //    Insert events
 //    Insert events in the database
-    public void insertEvent(Hashtable<String, String> event) throws SQLException {
-        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, " +
-                "Description, Privacy, Thirty, " +
-                "Hour, Day, Week, Repeat, Colour, " +
-                "Start, End, Color, Str)";
-        sql += "VALUES(" + event.get("uid")         +
-                ", '" + event.get("Title")          +
-                "', '" + event.get("Date")          +
-                "', '" + event.get("Duration")      +
-                "', '" + event.get("Description")   +
-                "', '" + event.get("Privacy")       +
-                "', '" + event.get("Thirty")        +
-                "', '" + event.get("Hour")          +
-                "', '" + event.get("Day")           +
-                "', '" + event.get("Week")          +
-                "', '" + event.get("Repeat")        +
-                "', '" + event.get("Colour")        +
-                "', '" + event.get("Start")         +
-                "', '" + event.get("End")           +
-                "', '" + event.get("Color")         +
-                "', '" + event.get("Strt")          + "';";
-
-        System.out.println(sql);
-        conn = connect();
-        stm = conn.createStatement();
-        stm.executeUpdate(sql);
-    }
+//    public void insertEvent(Hashtable<String, String> event) throws SQLException {
+//        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, " +
+//                "Description, Privacy, Thirty, " +
+//                "Hour, Day, Week, Repeat, Colour, " +
+//                "Start, End, Color, Str) ";
+//        sql += String.format("VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s';",
+//                event.get("uid"), event.get("Title"),
+//                event.get("Date"), event.get("Duration"),
+//                event.get("Description"), event.get("Privacy"),
+//                event.get("Thirty"), event.get("Hour"),
+//                event.get("Day"), event.get("Week"),
+//                event.get("Repeat"), event.get("Colour"),
+//                event.get("Start"), event.get("End"),
+//                event.get("Color"), event.get("Strt"));
+//
+//        System.out.println(sql);
+//        conn = connect();
+//        stm = conn.createStatement();
+//        stm.executeUpdate(sql);
+//    }
 
 
     /*
