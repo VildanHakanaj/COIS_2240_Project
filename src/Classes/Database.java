@@ -126,15 +126,15 @@ public class Database {
         closeConnection();
     }
 
-////    //Insert events
-////    //Insert events in the database
-//////    public void insertEvent(String event[]){
-//////        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, Description, Privacy, Thirty, Hour, Day, Week, Repeat, Colour, Start, End, Color) ";
-//////        sql += "VALUES( ";
-//////        for (int i = 0; i < event.length ; i++) {
-//////            sql += event[i];
-//////        }
-//////    }
+//    Insert events
+//    Insert events in the database
+//    public void insertEvent(Hashtable<String, String>){
+//        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, Description, Privacy, Thirty, Hour, Day, Week, Repeat, Colour, Start, End, Color)";
+//        sql += "VALUES( ";
+//        for (int i = 0; i < event.length ; i++) {
+//            sql += event[i];
+//        }
+//    }
 
 
     /*
