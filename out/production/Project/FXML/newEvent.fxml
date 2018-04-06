@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
@@ -20,58 +28,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="TOP_CENTER" hgap="5" maxWidth="240.0" minHeight="400.0" minWidth="240.0" prefWidth="240.0" stylesheets="@../Stylesheets/event.css" vgap="5" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="TOP_CENTER" hgap="5" maxWidth="507.0" minHeight="400.0" minWidth="240.0" prefHeight="539.0" prefWidth="464.0" style="-fx-background-color: #fff;" stylesheets="@../Stylesheets/event.css" vgap="5" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
-    <Label text="New Event" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
-        <font>
-            <Font name="Calibri" size="30.0" />
-        </font>
-    </Label>
-    <Rectangle fx:id="eventBar" arcHeight="10" arcWidth="10" fill="white" height="30" stroke="black" width="50" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-    <Button fx:id="btConfirm" maxWidth="60.0" minWidth="60.0" onAction="#confirm" prefWidth="60.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
-    <Button fx:id="btCancel" maxWidth="60.0" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
-    <Text text="Event Title" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <Text text="Date" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-    <Text text="Start Time" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-    <Text text="End Time" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-    <Text text="Description" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-    <Text text="Privacy" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-    <Text text="Reminders" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-    <Text text="Repeats" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-    <Text text="Colour" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-    <TextField fx:id="titleField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-    <Slider fx:id="startTimeSlider" blockIncrement="2" majorTickUnit="12" max="48" maxWidth="120" minorTickCount="4" onDragDetected="#startTimeSliderChange" showTickMarks="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-    <Slider fx:id="endTimeSlider" blockIncrement="2" majorTickUnit="12" max="49" maxWidth="120" minorTickCount="4" onDragDetected="#endTimeSliderChange" showTickMarks="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
-    <Label fx:id="startTimeValue" text="12AM" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-    <Label fx:id="endTimeValue" text="12AM" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-    <TextArea fx:id="descriptionField" prefHeight="60" prefWidth="10" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-    <ChoiceBox fx:id="privacyField" maxWidth="150.0" minWidth="75.0" prefWidth="75.0" value="Private" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Private" />
-                <String fx:value="Public" />
-            </FXCollections>
-        </items>
-    </ChoiceBox>
-    <ChoiceBox fx:id="repeatsField" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" value="Once" GridPane.columnIndex="1" GridPane.rowIndex="11">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Once" />
-                <String fx:value="Daily" />
-                <String fx:value="Weekly" />
-                <String fx:value="Monthly" />
-                <String fx:value="Annually" />
-            </FXCollections>
-        </items>
-    </ChoiceBox>
-    <CheckBox fx:id="thirty" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Thirty minutes before" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-    <CheckBox fx:id="hour" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="One hour before" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-    <CheckBox fx:id="day" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="One day before" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-    <CheckBox fx:id="week" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="One week before" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-    <ColorPicker fx:id="colorPicker" maxWidth="85" onAction="#colorPickerChange" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="12" />
+   <children>
+       <Label prefHeight="64.0" prefWidth="132.0" text="New Event" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+           <font>
+               <Font name="Calibri" size="30.0" />
+           </font>
+       </Label>
+       <Rectangle fx:id="eventBar" fill="white" height="33.0" stroke="black" width="124.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+       <Button fx:id="btConfirm" maxWidth="139.0" minWidth="43.0" onAction="#confirm" prefHeight="41.0" prefWidth="43.0" style="-fx-border-color: orangered; -fx-background-color: orangered;" text="Confirm" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+       <Button fx:id="btCancel" maxWidth="139.0" onAction="#cancel" prefHeight="41.0" prefWidth="139.0" style="-fx-border-color: orangered; -fx-background-color: orangered;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+       <Text fill="ORANGERED" fontSmoothingType="LCD" text="Event Title" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+       <Text fill="ORANGERED" text="Date" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+       <Text fill="ORANGERED" text="Start Time" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+       <Text fill="ORANGERED" text="End Time" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+       <Text fill="ORANGERED" text="Description" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+       <Text fill="ORANGERED" text="Privacy" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+       <Text fill="ORANGERED" text="Reminders" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+       <Text text="Repeats" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+       <Text text="Colour" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+       <TextField fx:id="titleField" style="-fx-border-color: orangered;" styleClass=".inputBox" stylesheets="@../Stylesheets/main.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+       <DatePicker fx:id="datePicker" prefHeight="39.0" prefWidth="269.0" style="-fx-border-color: orangered;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <Slider fx:id="startTimeSlider" blockIncrement="2" majorTickUnit="12" max="48" maxWidth="120" minorTickCount="4" onDragDetected="#startTimeSliderChange" showTickMarks="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+       <Slider fx:id="endTimeSlider" blockIncrement="2" majorTickUnit="12" max="49" maxWidth="120" minorTickCount="4" onDragDetected="#endTimeSliderChange" showTickMarks="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+       <Label fx:id="startTimeValue" text="12AM" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+       <Label fx:id="endTimeValue" text="12AM" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+       <TextArea fx:id="descriptionField" prefHeight="37.0" prefWidth="268.0" style="-fx-border-color: orangered;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+       <ChoiceBox fx:id="privacyField" maxWidth="150.0" minWidth="75.0" prefWidth="75.0" style="-fx-border-color: orangered; -fx-background-color: orangered;" value="Private" GridPane.columnIndex="1" GridPane.rowIndex="6">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Private" />
+                   <String fx:value="Public" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+       <ChoiceBox fx:id="repeatsField" maxWidth="129.0" minWidth="64.0" prefHeight="41.0" prefWidth="64.0" style="-fx-border-color: orangered; -fx-background-color: orangered;" styleClass=".fontColor" value="Once" GridPane.columnIndex="1" GridPane.rowIndex="11">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Once" />
+                   <String fx:value="Daily" />
+                   <String fx:value="Weekly" />
+                   <String fx:value="Monthly" />
+                   <String fx:value="Annually" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+       <CheckBox fx:id="thirty" maxWidth="268.0" minWidth="150.0" prefHeight="27.0" prefWidth="268.0" text="Thirty minutes before" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+       <CheckBox fx:id="hour" maxWidth="262.0" minWidth="150.0" prefHeight="27.0" prefWidth="262.0" text="One hour before" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+       <CheckBox fx:id="day" maxWidth="259.0" minWidth="150.0" prefHeight="27.0" prefWidth="259.0" text="One day before" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+       <CheckBox fx:id="week" maxWidth="235.0" minWidth="150.0" prefHeight="27.0" prefWidth="235.0" text="One week before" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+       <ColorPicker fx:id="colorPicker" maxWidth="129.0" onAction="#colorPickerChange" prefHeight="41.0" prefWidth="129.0" style="-fx-border-color: orangered; -fx-background-color: orangered;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="12" />
+   </children>
     <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints />

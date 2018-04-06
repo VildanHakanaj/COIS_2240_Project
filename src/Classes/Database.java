@@ -129,7 +129,7 @@ public class Database {
 
 //    Insert events
 //    Insert events in the database
-//    public void insertEvent(Hashtable<String, String> event) throws SQLException {
+//    public void insertEvent(Hashtable<Strin   g, String> event) throws SQLException {
 //        String sql = "INSERT INTO events (fk_userID, Title, Date, Duration, " +
 //                "Description, Privacy, Thirty, " +
 //                "Hour, Day, Week, Repeat, Colour, " +

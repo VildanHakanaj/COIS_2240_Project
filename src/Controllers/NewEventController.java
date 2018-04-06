@@ -175,7 +175,7 @@ public class NewEventController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/newEvent.fxml"));
         loader.setController(this);
         GridPane grid = loader.load();
-        grid.getStylesheets().add("Stylesheets/event.css");
+        grid.getStylesheets().add("Stylesheets/main.css");
         Stage eventStage = new Stage();
         eventStage.setTitle("New Event");
         eventStage.setScene(new Scene(grid));
