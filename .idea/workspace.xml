@@ -15,12 +15,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DayPaneController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DayPaneController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/DayPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
               <caret line="74" column="39" lean-forward="true" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2403" />
           </provider>
         </entry>
       </file>
@@ -38,10 +45,10 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
+            <state relative-caret-position="255">
               <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
@@ -77,15 +84,6 @@
                 <element signature="e#19278#20106#0" />
                 <element signature="e#20112#23152#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Classes/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -252,12 +250,12 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
     </task>
-    <task id="LOCAL-00001" summary=" - Added CalenderPanecontroller.java&#10;       - Opens but is not yet functional.&#10; - Added calenderPane.fxml&#10; - Added 1 line in main for an instance of CalenderPaneController.">
-      <created>1522709904291</created>
+    <task id="LOCAL-00001" summary="- Added a scroll bar to the day pane&#10;- Changed some windows settings on dayPane">
+      <created>1522973846591</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1522709904292</updated>
+      <updated>1522973846591</updated>
     </task>
     <task id="LOCAL-00002" summary="- Added CalenderPaneController.java&#10;     - Opens properly, no real functionality yet. &#10;- Added calenderPane.fxml&#10;- Added 1 instance of CalenderPaneController.java within main method.">
       <created>1522710251845</created>
@@ -378,10 +376,12 @@
       <option name="project" value="LOCAL" />
       <updated>1522966186626</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -389,9 +389,9 @@
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.17754173" side_tool="true" visible="true" weight="0.30588236" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.17754173" side_tool="true" visible="true" weight="0.13445379" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.82245827" visible="true" weight="0.30588236" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.82245827" visible="true" weight="0.13445379" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.861912" weight="0.31260505" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info id="Capture Tool" order="5" />
@@ -437,7 +437,8 @@
     <MESSAGE value="- Fixed some minor bugs" />
     <MESSAGE value="- Merged my branch&#10;- Added calender pane" />
     <MESSAGE value="- Added a scroll bar to the day pane" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added a scroll bar to the day pane" />
+    <MESSAGE value="- Added a scroll bar to the day pane&#10;- Changed some windows settings on dayPane" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added a scroll bar to the day pane&#10;- Changed some windows settings on dayPane" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -445,7 +446,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/src/lib/sqlite-jdbc-3.21.0.jar!/org/sqlite/jdbc4/JDBC4ResultSet.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/beans/binding/NumberExpressionBase.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/beans/binding/DoubleExpression.java" />
@@ -532,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/calenderPane.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -572,6 +565,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="74" column="39" lean-forward="true" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2403" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
