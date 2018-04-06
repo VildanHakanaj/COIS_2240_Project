@@ -1,0 +1,101 @@
+COIS 2240 Project
+Group 6 - Konrad Bartlett, Joshua Croft, Vildan Hakanaj, Egla Nura
+2018-04-06
+
+
+
+
+
+Agenda
+- A scheduling app built to let the user schedule and create events on various dates
+- Users first create an account to log in and out of the software
+- Logging into the software allows users to view events that are scheduled as well as event details
+
+
+
+
+
+Prerequisites
+- Java Data Base Controller
+
+Installing
+- If compiling the source code does not work
+- Right click the 'sqlite-jdbc-3.21.0.jar' inside of the "lib" folder
+- Select include as library
+
+Getting started
+- Open the app and open the create user tab
+- Fill out the required information to create a user
+  When you are opening the app later you can use this user information to log in
+- Select a day you want to view the events for on the calendar pane to open the day pane
+- Create a new event by pressing the "New Event" button
+- View details about an event by pressing on the event
+
+
+
+
+
+Classes and Functionality
+
+- /src/Main
+  A class that opens the initial window for the app to be run
+  Remains this way to allow developers an easy way to choose which window they launch
+
+- /src/Classes/Database
+  A class to interact with the database
+  Automatically opens and closes connections to the database
+  Stores methods for automatic SQL queries
+
+- /src/Classes/Event
+  A class to allow for data about events from the database to be stored as an object
+  Allows this data to be worked with, without having to constantly query the database
+
+- /src/Classes/MyValidation
+  Checks for errors in user input when logging into the system
+  Returns error message if user has input incorrect values
+  When creating a new user, hashes the password so that it is encrypted
+
+- /src/FXML/*
+  FXML Templates for controller classes
+
+- /src/Controllers/CalendarPaneController
+  Controller for 'calendarPane.fxml'
+  Get values about days of a month and display them on screen
+  Takes user input on cycling through months, and opening days to view
+
+- /src/Controllers/DayPaneController
+  Controller for 'dayPane.fxml'
+  Displays each event present on the currently selected day
+  Takes user input for cycling through days, and opening a dialogue box for the creation of a new event
+
+- src/Controllers/eventController
+  Controller for 'event.fxml'
+  Displays information about a given event to the screen by taking the information from the database
+  Accesses database by creating a new "Event" object and accessing information from that object
+
+- src/Controllers/LoginController
+  Controller for 'login.fxml'
+  Takes user input about account information
+  Checks if the information is valid using the MyValidation class
+  If the information is valid allow the user to continue
+
+- src/Controllers/NewEventController
+  Controller for 'newEvent.fxml'
+  Takes user input about a new event and stores that information in the database
+
+- src/Stylesheets/login.css
+  Stylesheet for 'login.fxml'
+
+
+
+
+
+Built With
+- IntelliJ IDE
+- DB Browser for SQLite
+
+Authors
+- Konrad Bartlett - FXML and event details
+- Joshua Croft - Calendar and UML diagrams
+- Vildan Hakanaj - Login system and database
+- Egla Nura - SQL queries and UML diagrams
