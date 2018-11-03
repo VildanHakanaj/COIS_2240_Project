@@ -12,7 +12,7 @@ Or use the .exe file found in the src folder
 Java              : https://www.java.com/en/download/
 Java SE Runtime   : https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 Java FX: https    ://www.oracle.com/technetwork/java/javafx/downloads/index.html 
-
+```
 ## Built With
 
 * [IntelliJ](https://www.jetbrains.com/idea/) - The IDE used
